@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:learn_alog/learn_alog.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:simple_exec/simple_exec.xcodeproj">
    </FileRef>
    <FileRef

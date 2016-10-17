@@ -24,9 +24,7 @@ void convert(char *s, int n , int b)
     s[len+1] = '\0';
 }
 //////
-#include <stdio.h>
-#include <stdlib.h>
-
+//////////gamecal Function////////
 #define MAXIN 64
 int a[MAXIN+1][MAXIN+1]  = {0};
 
@@ -46,7 +44,7 @@ void gamecal(int N)
         }
     }
 }
-
+/////////////////////////////
 
 int main(int argc, const char * argv[]) {
 

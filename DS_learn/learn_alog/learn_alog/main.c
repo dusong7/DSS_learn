@@ -34,6 +34,13 @@ void gamecal(int N)
     //
     int i = 0;
     int j = 0;
+
+    if(N <=1)
+    {
+        printf("Less than 2 people!");
+        return;
+    }
+
     N -= 2;  // base people is 2, over 2
 
     int nXBase = 1;

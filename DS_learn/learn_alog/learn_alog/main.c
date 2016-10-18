@@ -102,7 +102,7 @@ void gamecal(int k, int n)
 /////
 int numBase[2][2] = {1,2,2,1};
 int NumShow[10][10] = {0};
-
+int num[2] = {1,0};
 void showValue(int N)
 {
 	int i = 0;
@@ -111,10 +111,12 @@ void showValue(int N)
 	{
 		for (j = 1; j <= N; j++)
 		{
-			int adNum = j / 2;
-			int Temp = 0;
+			int adNum = (j-1) / 2;
+			int Temp = numBase[num[i % 2]][num[j % 2]];
+            printf("%d_%d_I", Temp,adNum);
 			//numBase[]
-			NumShow[i][j] = numBase[i % 2][j % 2] + adNum;
+			NumShow[i][j] = numBase[num[i % 2]][num[j % 2]] + adNum;
+
 		}
 	}
 
@@ -158,5 +160,19 @@ int main(int argc, const char * argv[]) {
 //            printf("%d\t",a[i][j]);
 //        }
 //    }
+
+    //showValue(4);
+
+///12->0;34->2;56->4..... 
+    for (int i = 1; i<=10; i++) {
+        if (i%2) {
+            printf("%d", i-1);
+        }
+        else{
+            printf("%d", i-2);
+        }
+        //printf("_%d ", i);
+    }
+
     return 0;
 }

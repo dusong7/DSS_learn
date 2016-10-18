@@ -99,6 +99,32 @@ void gamecal(int k, int n)
         }
 }
 //////
+/////
+void showValue(int N)
+{
+	int i = 0;
+	int j = 0;
+	for (i = 1; i <= N; i++)
+	{
+		for (j = 1; j <= N; j++)
+		{
+			int adNum = j / 2;
+			int Temp = 0;
+			//numBase[]
+			NumShow[i][j] = numBase[i % 2][j % 2] + adNum;
+		}
+	}
+
+	for (i = 1; i <= N; i++)
+	{
+		for (j = 1; j <= N; j++)
+		{
+			printf("%d_", NumShow[i][j]);
+		}
+		printf("\n");
+	}
+}
+/////
 int main(int argc, const char * argv[]) {
 
 ////Test for convert function/////

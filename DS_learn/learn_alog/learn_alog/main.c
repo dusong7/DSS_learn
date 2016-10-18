@@ -100,6 +100,9 @@ void gamecal(int k, int n)
 }
 //////
 /////
+int numBase[2][2] = {1,2,2,1};
+int NumShow[10][10] = {0};
+
 void showValue(int N)
 {
 	int i = 0;

@@ -28,7 +28,7 @@ void convert(char *s, int n , int b)
 #define MAXIN 64
 int a[MAXIN+1][MAXIN+1]  = {0};
 
-void gamecal(int N)
+void gamecalT(int N)
 {
     //
     //
@@ -66,7 +66,39 @@ void gamecal(int N)
     }
 }
 /////////////////////////////
+//////
+void gamecal(int k, int n)
+{
+        int i, j;
+        if(n == 2)
+        {
+            a[k][1] = k;
+            a[k][2] = k+1;
+            a[k+1][1] = k +1;
+            a[k+1][2] = k;
+        }
+        else
+        {
+            gamecal(k, n/2);
+            gamecal(k+n/2, n/2);
+            for(i=k;i<k+n/2;i++)
+            {
+                for(j=n/2+1;j<=n;j++)
+                {
+                    a[i][j] = a[i+n/2][j-n/2];
+                }
+            }
 
+            for(i=k+n/2;i<k+n;i++)
+            {
+                for(j=n/2+1;j<=n;j++)
+                {
+                    a[i][j] = a[i-n/2][j-n/2];
+                }
+            }
+        }
+}
+//////
 int main(int argc, const char * argv[]) {
 
 ////Test for convert function/////
@@ -83,6 +115,19 @@ int main(int argc, const char * argv[]) {
 //    int N = 1;
 //    printf("Please input N, n is 2^N, not Zero");
 //    gamecal(N);
+///
+//    int N =8;
+//    printf("Please input N, n is 2^N, not Zero\n");
+//    gamecal(1,N);
+//    int  i = 0;
+//    int j = 0;
 
+//    for(i=1;i<=N;i++)
+//    {
+//        for(j=1;j<=N;j++)
+//        {
+//            printf("%d\t",a[i][j]);
+//        }
+//    }
     return 0;
 }

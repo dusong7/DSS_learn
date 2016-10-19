@@ -109,7 +109,9 @@ void showValue(int N)
 	int j = 0;
 	for (i = 1; i <= N; i++)
 	{
-		for (j = 1; j <= N; j++)
+	    if(i<=N/2)  ////
+        {
+        for (j = 1; j <= N; j++)
 		{
             int adNum = 0;
             if (j%2) {
@@ -120,21 +122,19 @@ void showValue(int N)
             }
 
 			int Temp = numBase[num[i % 2]][num[j % 2]];
-            printf("%d_%d_I", Temp,adNum);
+            printf("%d_%d_ ", Temp,adNum);
 			//numBase[]
 			NumShow[i][j] = numBase[num[i % 2]][num[j % 2]] + adNum;
-
 		}
-	}
-
-	for (i = 1; i <= N; i++)
-	{
-		for (j = 1; j <= N; j++)
-		{
-			printf("%d_", NumShow[i][j]);
-		}
+        }
+        else
+        {
+             for (j = 1; j <= N; j++)
+            {
+		        NumShow[i][j] = NumShow[N+1-i][N+1-j];
+            }
+        }
 		printf("\n");
-	}
 }
 /////
 int main(int argc, const char * argv[]) {

@@ -99,7 +99,7 @@ void gamecal(int k, int n)
         }
 }
 //////
-/////
+//////////not　ＷＥＬＬ　Delete////////////////
 int numBase[2][2] = {1,2,2,1};
 int NumShow[10][10] = {0};
 int num[2] = {1,0};
@@ -178,7 +178,7 @@ int main(int argc, const char * argv[]) {
 //        //printf("_%d ", i);
 //    }
 
-    showValue(4);
+//////showValue(4); not WELL
 
 
 

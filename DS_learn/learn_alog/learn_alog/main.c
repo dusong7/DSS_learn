@@ -135,9 +135,10 @@ void showValue(int N)
             }
         }
 		printf("\n");
+    }
 }
 /////
-int main(int argc, const char * argv[]) {
+
 
 ////Test for convert function/////
 //    char s[80];
@@ -149,6 +150,8 @@ int main(int argc, const char * argv[]) {
 //    printf("%s\n", s);
 /////////
 
+
+////Main Function Call ///
 /////Test for gamecal/    
 //    int N = 1;
 //    printf("Please input N, n is 2^N, not Zero");
@@ -180,7 +183,47 @@ int main(int argc, const char * argv[]) {
 
 //////showValue(4); not WELL
 
+int show(int N)
+{
+    int sum = 0;
+    if (0 == N) {
+        return (1);
+    }
+    else
+    {
+        sum = N * show(N-1);
+    }
 
+    return sum;
+}
 
+int NumV = 0;
+////simple recursion  test////
+void digui(int m)
+{
+    if (m==1) {
+        printf("%d>", NumV);
+        return;
+    }
+    digui(m-1);
+    NumV ++;
+    printf("%d__", NumV);
+
+}
+
+int main(int argc, const char * argv[])
+{
+    /////
+//    gamecal(1, 8);
+//
+//    for (int i = 1; i<=8; i++) {
+//        for (int j=1; j<=8; j++) {
+//            printf("%d_", a[i][j]);
+//        }
+//        printf("\n");
+//    }
+
+//    printf("%d", show(5));
+    digui(5);
     return 0;
 }

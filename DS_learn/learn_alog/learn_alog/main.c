@@ -210,9 +210,6 @@ void digui(int m)
     printf("%d__", NumV);
 
 }
-
-int main(int argc, const char * argv[])
-{
     /////
 //    gamecal(1, 8);
 //
@@ -224,6 +221,15 @@ int main(int argc, const char * argv[])
 //    }
 
 //    printf("%d", show(5));
-    digui(5);
+//    digui(5);
+const int mxinnum = 9;
+int parValue[mxinnum] = {10000, 5000, 1000, 500, 200, 100, 50, 20, 10}; 
+///money exhange . eg. 61 = 50 *1 + 10 *1 + 1*1
+void exchange(int n)
+{
+
+}
+int main(int argc, const char * argv[])
+{
     return 0;
 }

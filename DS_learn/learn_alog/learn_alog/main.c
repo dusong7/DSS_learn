@@ -270,6 +270,18 @@ int exchange(int n)
 //		}
 //	}
 /////////////////////
+
+
+///////Generate Lottery  Ticks Function/////////
+///////eg. from 0-29 selset 7 numbers and unique/////////////
+///////////////////
+////////////////////////////////////////////////
+
+void lotteryGene()
+{
+	////
+}
+
 int main(int argc, const char * argv[])
 {
     ////

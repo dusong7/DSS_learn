@@ -222,14 +222,56 @@ void digui(int m)
 
 //    printf("%d", show(5));
 //    digui(5);
-const int mxinnum = 9;
-int parValue[mxinnum] = {10000, 5000, 1000, 500, 200, 100, 50, 20, 10}; 
-///money exhange . eg. 61 = 50 *1 + 10 *1 + 1*1
-void exchange(int n)
-{
 
+////////////calturate money change ////////////
+///eg. 120 - == 100*1 + 10*2
+#define MAXIN 9
+int parValue[MAXIN] = { 10000, 5000, 1000, 500, 200, 100, 50, 20, 10};  // 
+int num[MAXIN] = { 0 };
+
+int exchange(int n)
+{
+	int i=0;
+	for ( i = 0; i < MAXIN; i++)
+	{
+		if (n>parValue[i])
+		{
+			break;
+		}
+	}
+
+	while (n > 0 && i<MAXIN)
+	{
+		if (n>=parValue[i])
+		{
+			n -= parValue[i];
+			num[i]++;
+		}
+		else if (n<10 && n>= 5)
+		{
+			num[MAXIN - 1] ++;
+			break;
+		}
+		else
+		{
+			i++;
+		}
+	}	
+	return 0;
 }
+////////Test for  money exchange Function///////
+//exchange(int(36.86 * 100));
+
+//	for (size_t i = 0; i < MAXIN; i++)
+//	{
+//		if (num[i]>0)
+//              {
+//			printf("%6.2f:  %d\n", float(parValue[i] / 100.0), num[i]);
+//		}
+//	}
+/////////////////////
 int main(int argc, const char * argv[])
 {
+    ////
     return 0;
 }

@@ -227,7 +227,7 @@ void digui(int m)
 ///eg. 120 - == 100*1 + 10*2
 #define MAXIN 9
 int parValue[MAXIN] = { 10000, 5000, 1000, 500, 200, 100, 50, 20, 10};  // 
-int num[MAXIN] = { 0 };
+int num2[MAXIN] = { 0 };
 
 int exchange(int n)
 {
@@ -249,7 +249,7 @@ int exchange(int n)
 		}
 		else if (n<10 && n>= 5)
 		{
-			num[MAXIN - 1] ++;
+			num2[MAXIN - 1] ++;
 			break;
 		}
 		else
@@ -277,13 +277,35 @@ int exchange(int n)
 ///////////////////
 ////////////////////////////////////////////////
 
-void lotteryGene()
+int lottery[5] = {1,2,3,4,5};
+int numC[3] = {1,2,3};
+
+void lotteryGene(int n, int m)
 {
 	////
+    int i;
+    for (i=n; i>=m; i--) {
+        numC[m-1] = lottery[i-1];
+
+        if (m>1) {
+            lotteryGene(i-1, m-1);
+        }
+        else
+        {
+            for (int i=0; i<3; i++) {
+                printf("%d_", numC[i]);
+            }
+            printf("\n");
+        }
+    }
+
 }
 
 int main(int argc, const char * argv[])
 {
     ////
+
+    lotteryGene(5,3);
+
     return 0;
 }

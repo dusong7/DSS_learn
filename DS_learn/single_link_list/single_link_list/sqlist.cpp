@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 ////////////Old execise/////////////////
 //#define LINK_LIST_SIZE 10
@@ -73,5 +74,6 @@
  int main(int argc, const char * argv[])
  {
 
-    return 0;
+     printf("Hello\n");
+     return 0;
  }

@@ -1,6 +1,50 @@
 // ConsoleApplication2.cpp : Defines the entry point for the console application.
 //
 
+// rrr.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+typedef struct
+{
+	char name_[15];
+	char home_[20];
+}Base;
+
+
+typedef struct
+{
+	Base nameInfo[10];
+	int length;
+}NAME;
+
+void add(NAME *n, Base base)
+{
+	n->nameInfo[n->length++] = base;
+}
+
+int main(int argc, char* argv[])
+{
+	NAME nm;
+	nm.length = 0;
+
+	Base bName;
+	for (size_t i = 0; i < 5; i++)
+	{
+		scanf_s("%s%s", bName.home_, 10, bName.name_, 10);
+		//scanf_s("%s", bName.name_, 10);
+		printf("%s,%s\n", bName.name_, bName.home_);
+
+		add(&nm, bName);
+	}
+
+
+	return 0;
+}
+
+
+
+
 #include "stdafx.h"
 #include "Header.h"
 ////Chapter 2 exercise///

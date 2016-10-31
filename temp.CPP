@@ -169,7 +169,13 @@ int ListAdd(List *L, DATA data)
 }
 int ListInsert(List *L, int Position, DATA data)
 {
-
+	for (size_t i = L->listLen+1; i > Position; i--)
+	{ 
+		L->ListData[i] = L->ListData[i - 1];
+	}
+	L->ListData[Position] = data;
+	
+	
 	return 1;
 }
 int ListDelete(List *L, int Postion)

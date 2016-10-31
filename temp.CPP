@@ -169,12 +169,13 @@ int ListAdd(List *L, DATA data)
 }
 int ListInsert(List *L, int Position, DATA data)
 {
+	//首先判断表的长度，是否小于0是否大于当前长度，是否大于总长度
 	for (size_t i = L->listLen+1; i > Position; i--)
 	{ 
 		L->ListData[i] = L->ListData[i - 1];
 	}
 	L->ListData[Position] = data;
-	
+	L->ListLength ++;
 	
 	return 1;
 }

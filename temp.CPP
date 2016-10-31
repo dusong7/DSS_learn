@@ -64,6 +64,7 @@ int main(int argc, char* argv[])
 
 #include "stdafx.h"
 #include "Header.h"
+#include <string.h>
 ////Chapter 2 exercise///
 
 
@@ -86,8 +87,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		sprintf_s(name, 10, "Cur%d", i);
 
 		data.age = 10+i;
-		data.key = key;
-		data.name = name;
+		//data.key = key;
+		//data.name = name;
+		strcpy_s(data.key, key);
+		strcpy-s(data.name, name);
 		ListAdd(&L, data);
 	}
 
@@ -164,8 +167,8 @@ DATA *searchByNumber(List L, int Position)
 #define MAXSIZE 100
 
 typedef struct{
-	char *key;
-	char *name;
+	char key[15];
+	char name[15];
 	int age;
 }DATA;
 

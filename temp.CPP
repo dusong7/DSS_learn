@@ -114,13 +114,23 @@ int _tmain(int argc, _TCHAR* argv[])
 	    l[i] = name;
 	}
 	
-		for (size_t i = 0; i < 10; i++)  // re
+	
+	
+	
+	DATA insert;
+	strcpy_s(insert.key, "Insert");
+	strcpy_s(insert.name, "inName");
+	insert.age = 99;
+	L.ListData[2] = insert;
+
+
+	for (size_t i = 0; i < 11; i++)  // re
 	{
 		DATA Result = *searchByNumber(&L, i);
 
 		printf("%s_%s_%d\n", Result.key, Result.name, Result.age);
 	}
-	
+
 	return 0;
 }
 

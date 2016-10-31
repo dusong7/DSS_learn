@@ -30,6 +30,16 @@ int _tmain(int argc, _TCHAR* argv[])
 		ListAdd(&L, data);
 	}
 
+
+	
+	char *l[10];
+	for(int i=0;i<5;i++)
+	{
+	    char name[10] = "";
+	    sprintf_s(name, 10, "Cur%d",i);
+	    l[i] = name;
+	}
+	
 	return 0;
 }
 

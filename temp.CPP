@@ -131,6 +131,31 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf("%s_%s_%d\n", Result.key, Result.name, Result.age);
 	}
 
+	DATA insert;
+	strcpy_s(insert.key, "Insert");
+	strcpy_s(insert.name, "inName");
+	insert.age = 99;
+	//L.ListData[2] = insert;
+	ListInsert(&L, 3, insert);
+
+
+
+	for (size_t i = 0; i < L.listLen; i++)  // re
+	{
+		DATA Result = *searchByNumber(&L, i);
+
+		printf("%s_%s_%d\n", Result.key, Result.name, Result.age);
+	}
+
+	ListDelete(&L, 5);
+
+	for (size_t i = 0; i < L.listLen; i++)  // re
+	{
+		DATA Result = *searchByNumber(&L, i);
+
+		printf("%s_%s_%d\n", Result.key, Result.name, Result.age);
+	}
+	
 	return 0;
 }
 
@@ -181,6 +206,12 @@ int ListInsert(List *L, int Position, DATA data)
 }
 int ListDelete(List *L, int Postion)
 {
+	for (size_t i = Postion; i < L->listLen; i++)
+	{
+		L->ListData[i] = L->ListData[i + 1];
+	}
+	L->listLen--;
+
 	return 1;
 }
 DATA *searchByNumber(List L, int Position)

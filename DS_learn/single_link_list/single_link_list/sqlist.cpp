@@ -74,6 +74,8 @@
  int main(int argc, const char * argv[])
  {
 
+     char name[10];
+     strcpy_s(name,"namem");
      printf("Hello\n");
      return 0;
  }

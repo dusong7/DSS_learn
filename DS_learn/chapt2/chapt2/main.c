@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
     List L;
     IniList(&L);
 
-    for (size_t i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
         DATA data;
         char key[10] = "";
@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
         char name[10] = "";
         sprintf(name, "Cur%d", i);
 
-        data.age = 10+i;
+        data.age = 10 + i;
         //data.key = key;
         //data.name = name;
         strcpy(data.key, key);

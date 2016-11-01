@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "ChainList.h"
 
 ////////////Old execise/////////////////
 //#define LINK_LIST_SIZE 10
@@ -74,8 +75,26 @@
  int main(int argc, const char * argv[])
  {
 
-     char name[10];
-     strcpy_s(name,"namem");
-     printf("Hello\n");
+//     char name[10];
+//     strcpy(name,"namem");
+//     printf("%s\n", name);
+
+     showTest();
+     ChainListType list;
+     InitChainlist(&list);
+
+     for (int i = 0; i < 10; i++)
+     {
+         DATA dt;
+         dt.age = 10 + i;
+         strcpy(dt.key, "key");
+         strcpy(dt.name, "name");
+
+         chainlistAddEnd(&list, dt);
+
+     }
+     
+     printf("Length _ %d\n", chainlistLength(&list));
+
      return 0;
  }

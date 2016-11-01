@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18B8F9461D8D7C6B00D38198 /* sqlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18B8F9451D8D7C6B00D38198 /* sqlist.cpp */; };
+		18FA5B3A1DC8EB22008FFD05 /* ChainList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18FA5B381DC8EB22008FFD05 /* ChainList.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		18B8F9421D8D7C6B00D38198 /* single_link_list */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = single_link_list; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B8F9451D8D7C6B00D38198 /* sqlist.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sqlist.cpp; sourceTree = "<group>"; };
+		18FA5B381DC8EB22008FFD05 /* ChainList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChainList.cpp; sourceTree = "<group>"; };
+		18FA5B391DC8EB22008FFD05 /* ChainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 		18B8F9441D8D7C6B00D38198 /* single_link_list */ = {
 			isa = PBXGroup;
 			children = (
+				18FA5B391DC8EB22008FFD05 /* ChainList.h */,
+				18FA5B381DC8EB22008FFD05 /* ChainList.cpp */,
 				18B8F9451D8D7C6B00D38198 /* sqlist.cpp */,
 			);
 			path = single_link_list;
@@ -121,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B8F9461D8D7C6B00D38198 /* sqlist.cpp in Sources */,
+				18FA5B3A1DC8EB22008FFD05 /* ChainList.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +159,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -200,7 +206,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

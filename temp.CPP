@@ -254,7 +254,40 @@ int ListDelete(List *L, int Postion);
 DATA *searchByNumber(List L, int Position);
 
 
+///#################
+///########Chain List declare file  #########
+///#################
 
+#ifndef CHAINLIST_H
+#define CHAINLIST_H
+#endif
+
+void showMsg();
+
+typedef struct{
+	char key[20];
+	char name[20];
+	int  age;
+}DATA;
+
+typedef struct Node{
+	DATA data;
+	struct Node *next;
+}ChainListType;
+
+int   InitChainlist(ChainListType *head);
+ChainListType *chainlistAddEnd(ChainListType *head, DATA data);
+ChainListType *chainlistAddFirst(ChainListType *head, DATA data);
+ChainListType *chainlistFind(ChainListType *head, char *key);
+ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data);
+int chainlistDelete(ChainListType *head, DATA data);
+int chainlistLength(ChainListType *head);
+void chainListShow(ChainListType *head);
+
+
+///#################
+///########Chain List implement file  #########
+///#################
 #include "stdafx.h"
 #include "chainList.h"
 #include <stdlib.h>
@@ -339,9 +372,11 @@ void chainListShow(ChainListType *head)
 
 }
 
-
 // ConsoleApplication2.cpp : Defines the entry point for the console application.
 //
+///#################
+///#########TSET List File  ######
+/////////////
 
 #include "stdafx.h"
 //#include "Header.h"
@@ -434,28 +469,3 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
-#ifndef CHAINLIST_H
-#define CHAINLIST_H
-#endif
-
-void showMsg();
-
-typedef struct{
-	char key[20];
-	char name[20];
-	int  age;
-}DATA;
-
-typedef struct Node{
-	DATA data;
-	struct Node *next;
-}ChainListType;
-
-int   InitChainlist(ChainListType *head);
-ChainListType *chainlistAddEnd(ChainListType *head, DATA data);
-ChainListType *chainlistAddFirst(ChainListType *head, DATA data);
-ChainListType *chainlistFind(ChainListType *head, char *key);
-ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data);
-int chainlistDelete(ChainListType *head, DATA data);
-int chainlistLength(ChainListType *head);
-void chainListShow(ChainListType *head);

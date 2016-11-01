@@ -255,9 +255,184 @@ DATA *searchByNumber(List L, int Position);
 
 
 
+#include "stdafx.h"
+#include "chainList.h"
+#include <stdlib.h>
+
+void showMsg()
+{
+	printf("Msg");
+}
+
+int   InitChainlist(ChainListType *head)
+{
+	/*DATA *dt;
+	dt = (DATA*)malloc(sizeof(DATA));*/
+	ChainListType *node;
+
+	node = (ChainListType*)malloc(sizeof(ChainListType));
+	head->next = NULL;
+
+	return 1;
+}
+
+ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
+{
+	ChainListType *node;
+	ChainListType	*h;
+
+	node =(ChainListType*) malloc(sizeof(ChainListType));
+
+	node->data = data;
+	node->next = NULL;
+
+	if (head == NULL)
+	{
+		//
+	}
+
+	h = head;
+	while (h->next != NULL)
+	{
+		h = h->next;
+	}
+	h->next = node;
+
+	return head;
+}
+
+ChainListType *chainlistAddFirst(ChainListType *head, DATA data)
+{
+	return head;
+}
+
+ChainListType *chainlistFind(ChainListType *head, char *key)
+{
+	return head;
+}
+
+ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data)
+{
+	return head;
+}
+
+int chainlistDelete(ChainListType *head, DATA data)
+{
+	return 1;
+}
+
+int chainlistLength(ChainListType *head)
+{
+	ChainListType *h;
+	int length = 0;
+	h = head->next;
+	while (h)
+	{
+		length++;
+		h = h->next;
+	}
+	return length;
+}
+
+void chainListShow(ChainListType *head)
+{
+
+}
 
 
+// ConsoleApplication2.cpp : Defines the entry point for the console application.
+//
 
+#include "stdafx.h"
+//#include "Header.h"
+#include "chainList.h"
+#include <string.h>
+
+
+////Chapter 2 exercise///
+
+//typedef struct{
+//	char key[10];
+//	char name[10];
+//	int age;
+//}DATA;
+
+//
+//List L;
+//IniList(&L);
+//
+//for (size_t i = 0; i < 9; i++)
+//{
+//	DATA data;
+//	char key[10] = "";
+//	sprintf_s(key, 10, "000%d", i);
+//
+//	char name[10] = "";
+//	sprintf_s(name, 10, "Cur%d", i);
+//
+//	data.age = 10 + i;
+//
+//	strcpy_s(data.key, key);
+//	strcpy_s(data.name, name);
+//
+//	ListAdd(&L, data);
+//
+//}
+//
+////DATA dataTemp;
+////for (size_t i = 9; i >= 5; i++)
+////{
+////	dataTemp = L.ListData[i];
+////}
+//
+////for (size_t i = 10; i > 2; i--)
+////{
+////	L.ListData[i] = L.ListData[i -1];
+////}
+//
+//DATA insert;
+//strcpy_s(insert.key, "Insert");
+//strcpy_s(insert.name, "inName");
+//insert.age = 99;
+////L.ListData[2] = insert;
+//ListInsert(&L, 3, insert);
+//
+//showElem(&L);
+//
+//ListDelete(&L, 5);
+//
+////for (size_t i = 0; i < L.listLen; i++)  // re
+////{
+////	DATA Result = *searchByNumber(&L, i);
+//
+////	printf("%s_%s_%d\n", Result.key, Result.name, Result.age);
+////}
+//showElem(&L);
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	showMsg();
+
+
+	ChainListType list;
+	InitChainlist(&list);
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		DATA dt;
+		dt.age = 10+i;
+		strcpy_s(dt.key, "key");
+		strcpy_s(dt.name, "name");
+
+		chainlistAddEnd(&list, dt);
+			 
+	}
+
+	printf("Length _ %d", chainlistLength(&list));
+
+	return 0;
+}
 
 #ifndef CHAINLIST_H
 #define CHAINLIST_H
@@ -274,23 +449,13 @@ typedef struct{
 typedef struct Node{
 	DATA data;
 	struct Node *next;
-}ChainList;
+}ChainListType;
 
-
+int   InitChainlist(ChainListType *head);
 ChainListType *chainlistAddEnd(ChainListType *head, DATA data);
 ChainListType *chainlistAddFirst(ChainListType *head, DATA data);
 ChainListType *chainlistFind(ChainListType *head, char *key);
 ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data);
-ChainListType *chainlistDelete(ChainListType *head, DATA data);
-ChainListType *chainlistLength(ChainListType *head);
+int chainlistDelete(ChainListType *head, DATA data);
+int chainlistLength(ChainListType *head);
 void chainListShow(ChainListType *head);
-
-
-
-#include "stdafx.h"
-#include "chainList.h"
-
-void showMsg()
-{
-	printf("Msg");
-}

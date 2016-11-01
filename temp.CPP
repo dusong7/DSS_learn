@@ -252,3 +252,35 @@ int ListAdd(List *L, DATA data);
 int ListInsert(List *L, int Position, DATA data);
 int ListDelete(List *L, int Postion);
 DATA *searchByNumber(List L, int Position);
+
+
+
+
+
+
+
+#ifndef CHAINLIST_H
+#define CHAINLIST_H
+#endif
+
+void showMsg();
+
+typedef struct{
+	char key[20];
+	char name[20];
+	int  age;
+}DATA;
+
+typedef struct Node{
+	DATA data;
+	struct Node *next;
+}ChainList;
+
+
+#include "stdafx.h"
+#include "chainList.h"
+
+void showMsg()
+{
+	printf("Msg");
+}

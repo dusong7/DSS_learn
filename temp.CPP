@@ -277,6 +277,16 @@ typedef struct Node{
 }ChainList;
 
 
+ChainListType *chainlistAddEnd(ChainListType *head, DATA data);
+ChainListType *chainlistAddFirst(ChainListType *head, DATA data);
+ChainListType *chainlistFind(ChainListType *head, char *key);
+ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data);
+ChainListType *chainlistDelete(ChainListType *head, DATA data);
+ChainListType *chainlistLength(ChainListType *head);
+void chainListShow(ChainListType *head);
+
+
+
 #include "stdafx.h"
 #include "chainList.h"
 

@@ -82,7 +82,7 @@
      showTest();
      ChainListType list;
      InitChainlist(&list);
-
+    ////test for insert 10 data
      for (int i = 0; i < 10; i++)
      {
          DATA dt;
@@ -91,10 +91,22 @@
          strcpy(dt.name, "name");
 
          chainlistAddEnd(&list, dt);
-
      }
      
-     printf("Length _ %d\n", chainlistLength(&list));
+     printf("Length ->>> _ %d\n", chainlistLength(&list));
+
+     chainListShow(&list);
+
+     //test for insert after show
+     DATA dt;
+     dt.age = 99;
+     strcpy(dt.key, "Insert");
+     strcpy(dt.name, "nameInse");
+
+     chainlistAddEnd(&list, dt);
+
+     printf("Length ->>> _ %d\n", chainlistLength(&list));
+     chainListShow(&list);
 
      return 0;
  }

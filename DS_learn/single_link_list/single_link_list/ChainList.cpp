@@ -23,7 +23,11 @@ ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
 	ChainListType *node;
 	ChainListType	*h;
 
-	node = (ChainListType*)malloc(sizeof(ChainListType));
+    if (!(node = (ChainListType*)malloc(sizeof(ChainListType)))) {
+        printf("Alloc Failure \n");
+        return NULL;
+    }
+
 
 	node->data = data;
 	node->next = NULL;
@@ -31,6 +35,8 @@ ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
 	if (head == NULL)
 	{
 		//
+        head = node;
+        return head;
 	}
 
 	h = head;
@@ -78,5 +84,13 @@ int chainlistLength(ChainListType *head)
 
 void chainListShow(ChainListType *head)
 {
+
+    ChainListType *h;
+    h = head->next;
+    while (h)
+    {
+        printf("%s_%s_%d\n", h->data.name,h->data.key,h->data.age);
+        h = h->next;
+    }
 
 }

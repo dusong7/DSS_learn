@@ -20,18 +20,23 @@ int   InitChainlist(ChainListType *head)
 
 ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
 {
+    ///deal head and end point .
 	ChainListType *node;
 	ChainListType	*h;
+
+    // Init new node
 
     if (!(node = (ChainListType*)malloc(sizeof(ChainListType)))) {
         printf("Alloc Failure \n");
         return NULL;
     }
 
-
+    //save data, and end is NULL
 	node->data = data;
 	node->next = NULL;
 
+
+    ///if hede is null , initial new node .
 	if (head == NULL)
 	{
 		//
@@ -39,14 +44,15 @@ ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
         return head;
 	}
 
-	h = head;
-	while (h->next != NULL)
-	{
-		h = h->next;
-	}
-	h->next = node;
+    h = head;                                 //save head point
 
-	return head;
+	while (h->next != NULL) // point next is not NULL
+	{
+		h = h->next;        // point next
+	}
+	h->next = node;         // old end  point to new
+
+	return head;            // return  head point.
 }
 
 ChainListType *chainlistAddFirst(ChainListType *head, DATA data)

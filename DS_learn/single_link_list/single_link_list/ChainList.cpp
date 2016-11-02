@@ -86,6 +86,16 @@ ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
 
 ChainListType *chainlistAddFirst(ChainListType *head, DATA data)
 {
+	ChainListType *node, h;
+	if(!(node = (ChainListType *)malloc(sizeof(ChainListType))))
+	{
+		printf("malloc Failure");
+	}
+	//交换
+	node->data = data;
+	
+	node->next = head;
+	head = node;
 	return head;
 }
 

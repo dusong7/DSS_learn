@@ -147,7 +147,26 @@ ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data)
 
 int chainlistDelete(ChainListType *head, DATA data)
 {
-	return 1;
+	ChainListType *node, *h;
+
+	node = h = head;
+
+	while (h)
+	{
+		if (strcmp(h->data.key, "key7") == 0)
+		{
+			node->next = h->next;
+			free(h);
+			return 1;
+		}
+		else
+		{
+			node = h;
+			h = h->next;
+		}
+	}
+
+	return 0;
 }
 
 int chainlistLength(ChainListType *head)

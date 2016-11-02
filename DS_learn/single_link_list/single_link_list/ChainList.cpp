@@ -161,7 +161,7 @@ int chainlistDelete(ChainListType *head, DATA data)
 		}
 		else
 		{
-			node = h;
+			node = h;    //两路保存，使一个比较靠前
 			h = h->next;
 		}
 	}

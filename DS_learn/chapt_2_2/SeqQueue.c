@@ -35,3 +35,32 @@ void SeqQueueFree(SeqQueue *q)
         free(q);
     }
 }
+
+
+int SeqQueueIn(SeqQueue *q, DATA data)
+{
+    if (q->tail == QUEUEMAX) {
+        printf("Queue is FULL\n");
+        return 0;
+    }else
+    {
+        q->data[q->tail++] = data;   //Push in
+        return 1;
+    }
+}
+
+int SeqQueueLength(SeqQueue *q)
+{
+    return (q->tail - q->head);
+}
+
+DATA *SeqQueueOut(SeqQueue *q)
+{
+    if (q->head == q->tail) {
+        printf("Queue is Empty\n");
+        return NULL;
+    }
+    else{
+        return &(q->data[q->head++]);  // Pop out
+    }
+}

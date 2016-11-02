@@ -15,6 +15,26 @@ int main(int argc, const char * argv[]) {
 //    printf("Hello, World!\n");
     showTest();
 
-    
+    SeqQueue *queue;
+    queue =  SeqQueueInit();
+
+    for (int i = 0; i<10; i++)
+    {
+        DATA dt;
+        dt.number = 10*i+1;
+        char name[10];
+        sprintf(name, "name%d",i+10);
+        strcpy(dt.name, name);
+
+        SeqQueueIn(queue, dt);
+    }
+
+    printf("Length_%d\n", SeqQueueLength(queue));
+    SeqQueueOut(queue);  // out 1st
+    DATA *result = SeqQueueOut(queue); // out 2ed
+
+    printf("%s_%d\n", result->name, result->number);
+    printf("Length_%d\n", SeqQueueLength(queue));
+
     return 0;
 }

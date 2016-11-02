@@ -29,7 +29,9 @@ typedef struct{
 
 SeqQueue *SeqQueueInit();
 void SeqQueueFree(SeqQueue *q);
-
+int SeqQueueIn(SeqQueue *q, DATA data);
+DATA *SeqQueueOut(SeqQueue *q);
+int SeqQueueLength(SeqQueue *q);
 void showTest();
 
 #endif /* SeqQueue_h */

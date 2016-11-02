@@ -121,7 +121,7 @@ void chainListShow(ChainListType *head)
 {
 
     ChainListType *h;
-    h = head->next;
+    h = head;
     while (h)
     {
         printf("%s_%s_%d\n", h->data.name,h->data.key,h->data.age);

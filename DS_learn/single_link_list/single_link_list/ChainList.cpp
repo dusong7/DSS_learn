@@ -21,38 +21,67 @@ int   InitChainlist(ChainListType *head)
 ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
 {
     ///deal head and end point .
-	ChainListType *node;
-	ChainListType	*h;
+	//ChainListType *node;
+	//ChainListType	*h;
 
     // Init new node
 
-    if (!(node = (ChainListType*)malloc(sizeof(ChainListType)))) {
-        printf("Alloc Failure \n");
-        return NULL;
-    }
+   // if (!(node = (ChainListType*)malloc(sizeof(ChainListType)))) {
+    //    printf("Alloc Failure \n");
+   //     return NULL;
+  //  }
 
     //save data, and end is NULL
-	node->data = data;
-	node->next = NULL;
+	//node->data = data;
+	//node->next = NULL;
 
 
     ///if hede is null , initial new node .
-	if (head == NULL)
+	//if (head == NULL)
+	//{
+		//
+    //    head = node;
+   //     return head;
+//	}
+
+    //   h = head;                                 //save head point
+
+//	while (h->next != NULL) // point next is not NULL
+//	{
+//		h = h->next;        // point next
+//	}
+//	h->next = node;         // old end  point to new
+//
+//	return head;            // return  head point.
+	
+	
+	ChainListType *node, *h;
+	if (!(node = (ChainListType *)malloc(sizeof(ChainListType))))
 	{
 		//
-        head = node;
-        return head;
+		printf("Alloc Failure\n");
 	}
 
-    h = head;                                 //save head point
+	node->data = data;
+	node->next = NULL;
 
-	while (h->next != NULL) // point next is not NULL
+	if (head == NULL)
 	{
-		h = h->next;        // point next
+		head = node;
+		head->next = NULL;
 	}
-	h->next = node;         // old end  point to new
+	else
+	{
+		h = head;
+		while (h->next != NULL)
+		{
+			h = h->next;
+		}
 
-	return head;            // return  head point.
+		h->next = node;
+	}
+	
+	return head;
 }
 
 ChainListType *chainlistAddFirst(ChainListType *head, DATA data)

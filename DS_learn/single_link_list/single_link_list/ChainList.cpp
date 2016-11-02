@@ -108,7 +108,7 @@ int chainlistLength(ChainListType *head)
 {
 	ChainListType *h;
 	int length = 0;
-	h = head->next;
+	h = head;
 	while (h)
 	{
 		length++;

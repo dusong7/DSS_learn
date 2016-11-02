@@ -79,34 +79,34 @@
 //     strcpy(name,"namem");
 //     printf("%s\n", name);
 
-     showTest();
-     ChainListType list;
-     InitChainlist(&list);
+//     showTest();
+//     ChainListType list;
+//     InitChainlist(&list);
     ////test for insert 10 data
-     for (int i = 0; i < 10; i++)
-     {
-         DATA dt;
-         dt.age = 10 + i;
-         strcpy(dt.key, "key");
-         strcpy(dt.name, "name");
+//     for (int i = 0; i < 10; i++)
+//     {
+//         DATA dt;
+//         dt.age = 10 + i;
+//         strcpy(dt.key, "key");
+//         strcpy(dt.name, "name");
 
-         chainlistAddEnd(&list, dt);
-     }
+//         chainlistAddEnd(&list, dt);
+//     }
      
-     printf("Length ->>> _ %d\n", chainlistLength(&list));
+//     printf("Length ->>> _ %d\n", chainlistLength(&list));
 
-     chainListShow(&list);
+//     chainListShow(&list);
 
      //test for insert after show
-     DATA dt;
-     dt.age = 99;
-     strcpy(dt.key, "Insert");
-     strcpy(dt.name, "nameInse");
+//     DATA dt;
+//     dt.age = 99;
+//     strcpy(dt.key, "Insert");
+//     strcpy(dt.name, "nameInse");
 
-     chainlistAddEnd(&list, dt);
+//     chainlistAddEnd(&list, dt);
 
-     printf("Length ->>> _ %d\n", chainlistLength(&list));
-     chainListShow(&list);
+//     printf("Length ->>> _ %d\n", chainlistLength(&list));
+//     chainListShow(&list);
 
   
   	ChainListType *node, *head = NULL;
@@ -120,6 +120,14 @@
 
 		head = chainlistAddEnd(head, dt);	 
 	}
-  
+	 
+  	DATA dt;
+	dt.age = 99;
+	strcpy_s(dt.key, "End");
+	strcpy_s(dt.name, "Endname");
+
+	head = chainlistAddFirst(head, dt);
+	chainListShow(head);
+
      return 0;
  }

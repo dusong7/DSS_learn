@@ -1,6 +1,6 @@
 #ifndef CHAINLIST_H
 #define CHAINLIST_H
-#endif // !CHAINLIST_H
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,3 +27,4 @@ ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data);
 int chainlistDelete(ChainListType *head, DATA data);
 int chainlistLength(ChainListType *head);
 void chainListShow(ChainListType *head);
+#endif // !CHAINLIST_H

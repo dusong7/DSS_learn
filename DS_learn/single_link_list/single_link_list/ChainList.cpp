@@ -193,5 +193,4 @@ void chainListShow(ChainListType *head)
         printf("%s_%s_%d\n", h->data.name,h->data.key,h->data.age);
         h = h->next;
     }
-
 }

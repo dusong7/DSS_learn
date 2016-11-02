@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-#endif /* arrayList_h */
+
 
 void showTest();
 
@@ -37,3 +37,4 @@ int ListAdd(List *L, DATA data);
 int ListInsert(List *L, int Position, DATA data);
 int ListDelete(List *L, int Postion);
 DATA *searchByNumber(List L, int Position);
+#endif /* arrayList_h */

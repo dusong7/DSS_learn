@@ -64,3 +64,14 @@ DATA *SeqQueueOut(SeqQueue *q)
         return &(q->data[q->head++]);  // Pop out
     }
 }
+
+DATA *SeqQueuePeak(SeqQueue *q)
+{
+    if (q->head == q->tail) {
+        printf("Queue is Empty\n");
+        return NULL;
+    }
+    else{
+        return &(q->data[q->head]);  // Pop out first, peak
+    }
+}

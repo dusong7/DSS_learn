@@ -468,4 +468,30 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	return 0;
 }
+////////Common exercise///////
+	ChainListType *node, *h;
+	if (!(node = (ChainListType *)malloc(sizeof(ChainListType))))
+	{
+		//
+		printf("Alloc Failure\n");
+	}
 
+	node->data = data;
+	node->next = NULL;
+
+	if (head == NULL)
+	{
+		head = node;
+		head->next = NULL;
+	}
+
+	h = head;
+	while (h->next != NULL)
+	{
+		h = h->next;
+	}
+
+	h->next = node;
+	return head;
+
+/////////////////////////////////

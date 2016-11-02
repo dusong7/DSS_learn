@@ -71,7 +71,7 @@ ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
 		head = node;
 		head->next = NULL;
 	}
-	else
+	else     //if head is not link to next node, if delete else, will move in a circle
 	{
 		h = head;
 		while (h->next != NULL)
@@ -146,7 +146,7 @@ ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data)
 	return NULL;
 }
 
-int chainlistDelete(ChainListType *head, DATA data)
+int chainlistDelete(ChainListType *head, char *key)
 {
 	ChainListType *node, *h;
 

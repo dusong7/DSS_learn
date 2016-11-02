@@ -24,7 +24,7 @@ ChainListType *chainlistAddEnd(ChainListType *head, DATA data);
 ChainListType *chainlistAddFirst(ChainListType *head, DATA data);
 ChainListType *chainlistFind(ChainListType *head, char *key);
 ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data);
-int chainlistDelete(ChainListType *head, DATA data);
+int chainlistDelete(ChainListType *head, char *key);
 int chainlistLength(ChainListType *head);
 void chainListShow(ChainListType *head);
 #endif // !CHAINLIST_H

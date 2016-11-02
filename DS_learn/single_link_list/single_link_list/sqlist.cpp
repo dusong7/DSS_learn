@@ -109,25 +109,25 @@
 //     chainListShow(&list);
 
   
-  	ChainListType *node, *head = NULL;
+  	ChainListType *head = NULL;
 
-	for (size_t i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		DATA dt;
-		dt.age = 10+i;
-		strcpy_s(dt.key, "key");
-		strcpy_s(dt.name, "name");
+		dt.age = 10 + i;
+		strcpy(dt.key, "key");
+		strcpy(dt.name, "name");
 
 		head = chainlistAddEnd(head, dt);	 
 	}
 	 
   	DATA dt;
 	dt.age = 99;
-	strcpy_s(dt.key, "End");
-	strcpy_s(dt.name, "Endname");
+	strcpy(dt.key, "End");
+	strcpy(dt.name, "Endname");
 
 	head = chainlistAddFirst(head, dt);
 	chainListShow(head);
 
-     return 0;
+    return 0;
  }

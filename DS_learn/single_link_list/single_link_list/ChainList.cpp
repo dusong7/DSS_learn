@@ -1,4 +1,5 @@
 #include "ChainList.h"
+#include <string.h>
 
 //
 void showTest()
@@ -86,7 +87,7 @@ ChainListType *chainlistAddEnd(ChainListType *head, DATA data)
 
 ChainListType *chainlistAddFirst(ChainListType *head, DATA data)
 {
-	ChainListType *node, h;
+	ChainListType *node;
 	if(!(node = (ChainListType *)malloc(sizeof(ChainListType))))
 	{
 		printf("malloc Failure");

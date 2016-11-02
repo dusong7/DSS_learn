@@ -101,7 +101,21 @@ ChainListType *chainlistAddFirst(ChainListType *head, DATA data)
 
 ChainListType *chainlistFind(ChainListType *head, char *key)
 {
-	return head;
+	ChainListType *h;
+	ChainListType *result;
+	result = (ChainListType *)malloc(sizeof(ChainListType));
+	h = head;
+
+	while (h->next)
+	{
+		if ( strcmp( h->data.key,"key1") == 0)
+		{
+			result = h;
+		}
+		h = h->next;
+	}
+
+	return result;
 }
 
 ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data)

@@ -120,7 +120,29 @@ ChainListType *chainlistFind(ChainListType *head, char *key)
 
 ChainListType *chainlistInsert(ChainListType *head, char * findKey, DATA data)
 {
-	return head;
+	ChainListType *node;
+	node = (ChainListType *)malloc(sizeof(ChainListType));
+	ChainListType *h;
+
+	node->data = data;
+	node->next = NULL;
+
+	h = head;
+
+	while (h)
+	{
+		if (strcmp(h->data.key, "key5") == 0)
+		{
+			//
+			node->next = h->next;
+			h->next = node;
+			head = h;
+			return head;
+		}
+		h = h->next;
+	}
+
+	return NULL;
 }
 
 int chainlistDelete(ChainListType *head, DATA data)

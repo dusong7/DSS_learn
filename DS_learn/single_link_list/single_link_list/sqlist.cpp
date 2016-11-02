@@ -108,5 +108,18 @@
      printf("Length ->>> _ %d\n", chainlistLength(&list));
      chainListShow(&list);
 
+  
+  	ChainListType *node, *head = NULL;
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		DATA dt;
+		dt.age = 10+i;
+		strcpy_s(dt.key, "key");
+		strcpy_s(dt.name, "name");
+
+		head = chainlistAddEnd(head, dt);	 
+	}
+  
      return 0;
  }

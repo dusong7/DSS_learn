@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "SeqQueue.h"
+#include "CycQueue.h"
 
 
 int main(int argc, const char * argv[]) {
@@ -35,6 +36,9 @@ int main(int argc, const char * argv[]) {
 
     printf("%s_%d\n", result->name, result->number);
     printf("Length_%d\n", SeqQueueLength(queue));
+
+    
+
 
     return 0;
 }

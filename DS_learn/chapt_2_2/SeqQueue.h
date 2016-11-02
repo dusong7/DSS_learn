@@ -10,8 +10,7 @@
 #define SeqQueue_h
 
 #include <stdio.h>
-
-
+#include <stdlib.h>
 
 #define QUEUEMAX 15
 

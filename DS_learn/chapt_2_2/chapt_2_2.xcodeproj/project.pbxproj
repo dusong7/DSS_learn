@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		184938E31DCA3629009B4B6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 184938E21DCA3629009B4B6F /* main.c */; };
 		184938EB1DCA3743009B4B6F /* SeqQueue.c in Sources */ = {isa = PBXBuildFile; fileRef = 184938E91DCA3743009B4B6F /* SeqQueue.c */; };
+		184938EE1DCA55CF009B4B6F /* CycQueue.c in Sources */ = {isa = PBXBuildFile; fileRef = 184938EC1DCA55CF009B4B6F /* CycQueue.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		184938E21DCA3629009B4B6F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		184938E91DCA3743009B4B6F /* SeqQueue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SeqQueue.c; path = ../SeqQueue.c; sourceTree = "<group>"; };
 		184938EA1DCA3743009B4B6F /* SeqQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeqQueue.h; path = ../SeqQueue.h; sourceTree = "<group>"; };
+		184938EC1DCA55CF009B4B6F /* CycQueue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CycQueue.c; path = ../CycQueue.c; sourceTree = "<group>"; };
+		184938ED1DCA55CF009B4B6F /* CycQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CycQueue.h; path = ../CycQueue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 		184938E11DCA3629009B4B6F /* chapt_2_2 */ = {
 			isa = PBXGroup;
 			children = (
+				184938EC1DCA55CF009B4B6F /* CycQueue.c */,
+				184938ED1DCA55CF009B4B6F /* CycQueue.h */,
 				184938EA1DCA3743009B4B6F /* SeqQueue.h */,
 				184938E91DCA3743009B4B6F /* SeqQueue.c */,
 				184938E21DCA3629009B4B6F /* main.c */,
@@ -127,6 +132,7 @@
 			files = (
 				184938E31DCA3629009B4B6F /* main.c in Sources */,
 				184938EB1DCA3743009B4B6F /* SeqQueue.c in Sources */,
+				184938EE1DCA55CF009B4B6F /* CycQueue.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

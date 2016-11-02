@@ -7,7 +7,7 @@
 //
 
 #include "SeqQueue.h"
-#include <stdlib.h>
+
 
 void showTest()
 {

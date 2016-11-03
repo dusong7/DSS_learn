@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
 	DATA dt;
 	dt.number = 101 + i;
 	strcpy_s(dt.name, "Insetr");
-	CycQueueIn(cycqueue, dt);
+	CycQueueIn(cycqueue, dt);    // i++ is dif ++i, Cyc is move to Next, and SeqQueue is current
     }
 ///////////////////////////////////////////////////////
 

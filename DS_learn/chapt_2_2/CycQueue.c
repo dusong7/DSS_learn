@@ -10,19 +10,29 @@
 
 CycQueue *CycQueueInit()
 {
-    return NULL;
+	CycQueue *q;
+	q = (CycQueue *)malloc(sizeof(CycQueue));   // you can adjust is OK or NOT
+
+	q->head = 0;
+	q->tail = 0;
+
+    return q;
 }
 
 void CycQueueFree()
 {
-
+	//
 }
 
 int CycQueueIn(CycQueue *q, DATA data)
 {
-    return 0;
+	q->tail = (q->tail + 1) % QUEUEMAX;
+	q->data[q->tail] = data;
+    return 1;
 }
 DATA *CycQueueOut(CycQueue *q)
 {
-    return &(q->data);
+	q->head = (q->head + 1) % QUEUEMAX;
+	return &(q->data[q->head]);
+	return NULL;
 }

@@ -577,3 +577,140 @@ int _tmain(int argc, _TCHAR* argv[])
 }
 
 /////////////////////////Test for cycqueue///////////////////////////
+////////////////Simple Stack exe////////////////////////
+#pragma once
+
+#ifndef SEQSTACK_H
+#define SEQSTACK_H
+
+#define SIZE 10
+
+typedef struct
+{
+	int number;
+	char name[10];
+}DATA;
+
+typedef struct stack
+{
+	DATA data[SIZE + 1];
+	int top;
+}SeqStack;
+
+SeqStack *SeqStackInit();
+int SeqStackPush(SeqStack *q, DATA data);
+DATA SeqStackPop(SeqStack *q);
+
+#endif
+
+
+#include "stdafx.h"
+#include "SeqStack.h"
+#include <stdlib.h>
+SeqStack *SeqStackInit()
+{
+	//
+	SeqStack *q;
+
+	if ((q = (SeqStack *)malloc(sizeof(SeqStack))))
+	{
+		//
+		q->top = 0; 
+		return q;
+	}
+	else
+	{
+		return NULL;
+	}
+
+	return NULL;
+}
+
+int SeqStackPush(SeqStack *q, DATA data)
+{
+	/////Stack save data from 1, isnot 0, array is 0.
+	if ((q->top +1) ==  SIZE)
+	{
+		printf("Stack is FULL \n");
+		return 0;
+	}
+	q->data[++q->top] = data;
+	return 1;
+}
+
+
+DATA SeqStackPop(SeqStack *q)
+{
+	if (q->top == 0)
+	{
+		printf("Stack is Empty\n");
+	}
+	return (q->data[q->top--]);
+}
+
+// ConsoleQueue.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+//#include "SeqQueue.h"
+//#include "CycQueue.h"
+#include <string.h>
+//#include <time.h>
+//#include <Windows.h>
+#include "SeqStack.h"
+
+int randomTable[] = { 1717
+,2154
+,2845
+,1305
+,1204
+,386
+,1759
+,462
+,2777 
+,2334
+,1139
+,1246
+,950
+,326
+,2628
+,2361
+,420
+,2377
+,2458 };
+
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	
+	SeqStack * stack;
+	stack = SeqStackInit();
+
+	for (size_t i = 0; i < 6; i++)
+	{
+		DATA dt;
+		strcpy_s(dt.name, "name");
+		dt.number = randomTable[i];
+		SeqStackPush(stack, dt);
+	}
+	
+	for (size_t i = 0; i < 5; i++)
+	{
+		printf("%d_\n", SeqStackPop(stack).number);
+	}
+
+	return 0;
+}
+
+
+
+////////////////Simple Stack exe////////////////////////
+
+
+
+
+
+
+
+

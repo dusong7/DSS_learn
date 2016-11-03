@@ -38,15 +38,15 @@ int main(int argc, const char * argv[]) {
     printf("Length_%d\n", SeqQueueLength(queue));
 ///////////////////////////////////////////////////////
     CycQueue *cycqueue;
-	cycqueue = CycQueueInit();
+    cycqueue = CycQueueInit();
 
-	for (size_t i = 0; i < 30; i++)
-	{
-		DATA dt;
-		dt.number = 101 + i;
-		strcpy_s(dt.name, "Insetr");
-		CycQueueIn(cycqueue, dt);
-	}
+    for (size_t i = 0; i < 30; i++)
+    {
+	DATA dt;
+	dt.number = 101 + i;
+	strcpy_s(dt.name, "Insetr");
+	CycQueueIn(cycqueue, dt);
+    }
 ///////////////////////////////////////////////////////
 
 

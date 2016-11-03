@@ -495,3 +495,85 @@ int _tmain(int argc, _TCHAR* argv[])
 	return head;
 
 /////////////////////////////////
+
+////
+// ConsoleQueue.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "SeqQueue.h"
+#include "CycQueue.h"
+#include <string.h>
+#include <time.h>
+#include <Windows.h>
+
+int randomTable[] = { 1717
+,2154
+,2845
+,1305
+,1204
+,386
+,1759
+,462
+,2777 
+,2334
+,1139
+,1246
+,950
+,326
+,2628
+,2361
+,420
+,2377
+,2458 };
+
+
+void TimeWaste(int n)
+{
+	double value = 0.0;
+	double sigma = 1.23333333;
+
+	for (size_t i = 0; i < n; i++)
+	{
+		for (size_t j = 0; j < n; j++)
+		{
+			value += (double)(i+j) / sigma;
+			char strDes[1000];
+			char * strSrc = "This is test for waste time,,,,,,,,,,,,,,,,,,,,,,,,,,,";
+			strcpy_s(strDes, strSrc);
+		}
+		Sleep(1);
+	}
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	CycQueue *cycqueue;
+	cycqueue = CycQueueInit();
+
+	SeqQueue *sequeue;
+	sequeue = SeqQueueInit();
+	for (size_t i = 0; i < 14; i++)
+	{
+		DATA dt;
+		dt.number = randomTable[i];
+		char name[10];
+		sprintf_s(name, "name%d", i);
+		strcpy_s(dt.name, name);
+		CycQueueIn(cycqueue, dt);
+	}
+    
+	for (size_t i = 0; i < 15; i++)
+	{
+		TimeWaste(cycqueue->data[i+1].number);
+		printf("%s__is Out\n", cycqueue->data[i+1].name);
+		CycQueueOut(cycqueue);
+		printf("head_%d_tail_%d_\n", cycqueue->head, cycqueue->tail);
+		//TimeWaste(randomTable[i]);
+		//printf("Time___%d\n", clock());
+	}
+
+	return 0;
+}
+
+/////////////////////////Test for cycqueue///////////////////////////

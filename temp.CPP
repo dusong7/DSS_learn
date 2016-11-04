@@ -583,13 +583,16 @@ int _tmain(int argc, _TCHAR* argv[])
 #ifndef SEQSTACK_H
 #define SEQSTACK_H
 
-#define SIZE 10
+#define SIZE 50
 
-typedef struct
-{
-	int number;
-	char name[10];
-}DATA;
+//typedef struct
+//{
+//	int number;
+//	char name[10];
+//}DATA;
+
+typedef int DATA;
+
 
 typedef struct stack
 {
@@ -600,13 +603,15 @@ typedef struct stack
 SeqStack *SeqStackInit();
 int SeqStackPush(SeqStack *q, DATA data);
 DATA SeqStackPop(SeqStack *q);
-
+DATA SeqStackPeak(SeqStack *q);
+void SeqStachFree(SeqStack *q);
 #endif
 
 
 #include "stdafx.h"
 #include "SeqStack.h"
 #include <stdlib.h>
+
 SeqStack *SeqStackInit()
 {
 	//
@@ -648,6 +653,28 @@ DATA SeqStackPop(SeqStack *q)
 	return (q->data[q->top--]);
 }
 
+DATA SeqStackPeak(SeqStack *q)
+{
+	if (q->top == 0)
+	{
+		printf("Stack is EMPTY \n");
+		exit(0);
+	}
+	else
+	{
+		return (q->data[q->top]);
+	}
+}
+
+void SeqStachFree(SeqStack *q)
+{
+	if (q != NULL)
+	{
+		free(q);
+	}
+}
+
+
 // ConsoleQueue.cpp : Defines the entry point for the console application.
 //
 
@@ -680,30 +707,43 @@ int randomTable[] = { 1717
 ,2458 };
 
 
+int IsOperator(char c)
+{
+	switch (c)
+	{
+	case '+':
+	case '*':
+	case'(':
+	case')':
+		return 1;
+	default:
+		return 0;
+		break;
+	}
+}
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	
-	SeqStack * stack;
-	stack = SeqStackInit();
+	//SeqStack * stack;
+	//stack = SeqStackInit();
 
-	for (size_t i = 0; i < 6; i++)
-	{
-		DATA dt;
-		strcpy_s(dt.name, "name");
-		dt.number = randomTable[i];
-		SeqStackPush(stack, dt);
-	}
-	
-	for (size_t i = 0; i < 5; i++)
-	{
-		printf("%d_\n", SeqStackPop(stack).number);
-	}
-
+	//for (size_t i = 0; i < 6; i++)
+	//{
+	//	DATA dt;
+	//	strcpy_s(dt.name, "name");
+	//	dt.number = randomTable[i];
+	//	SeqStackPush(stack, dt);
+	//}
+	//
+	//for (size_t i = 0; i < 3; i++)
+	//{
+	//	printf("%d_\n", SeqStackPop(stack).number);
+	//}
+	////SeqStachFree(stack);
+	//printf("%d_Peak\n", SeqStackPeak(stack).number);
+	////printf("%d_Peak2\n", SeqStackPeak(stack).number);
 	return 0;
 }
-
-
 
 ////////////////Simple Stack exe////////////////////////
 

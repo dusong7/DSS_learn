@@ -86,13 +86,77 @@ int randomTable[] = { 1717
 //        }
 ////////////////////////test For stack///////////////////////////////
 
+
+#include<stdio.h>
+
+int char2number(char c)
+{
+    switch(c){
+        case '0':return 0;
+        case '1':return 1;
+        case '2':return 2;
+        case '3':return 3;
+        case '4':return 4;
+        case '5':return 5;
+        case '6':return 6;
+        case '7':return 7;
+        case '8':return 8;
+        case '9':return 9;
+        default:
+            return 0;
+    }
+}
+
+int is_operator(char c){
+    return (c=='*' || c=='+' || c=='-' ||c=='/');
+}
+
+int count(int a,int b,char opt){
+    switch(opt){
+        case '*':return a*b;
+        case '+':return a+b;
+        case '-':return a-b;
+        case '/':return a/b;
+        default:
+            return 0;
+    }
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
 //////////Test for bracket_Excption/////////////////////
-    char exp[10] = "(2+4)*8=";
-
-    printf("%s%d\n", exp,CalcExp(exp));
+//    char exp[10] = "(2+4)*8=";
+//
+//    printf("%s%d\n", exp,CalcExp(exp));
 
 //////////Test for bracket_Excption/////////////////////
+
+    int number[2]; //存放运算数
+    char str[10]; ///表达式
+    char opt = '\0'; //操作符
+
+    while(1){
+        fgets(str,10,stdin);
+
+        int i=0;
+        int j=0;
+        int res;
+
+        //相当于一个简单的字符串分析，从中提取出数字和运算符
+        while(str[i] && str[i]!='\n'){
+            if(!is_operator(str[i])){
+                number[i-j] =char2number(str[i]);
+            }else{
+                opt =str[i];
+                j++; //碰到运算符，需要记录。因为运算符并不存储在number数组中，
+                //比如 3*5 分析到字符5时，i为2但是number数组中只记录了3即number[0]所以5应该在number[1]，
+                //所以上面使用number[i-j]来记录数字
+            }
+            i++;
+        }
+        res=count(number[0],number[1],opt);
+        printf("=%d\n",res);
+    }
+
     return 0;
 }

@@ -10,6 +10,7 @@
 //#include "SeqQueue.h"
 //#include "CycQueue.h"
 #include "SeqStack.h"
+#include "bracketStack.h"
 
 
 int randomTable[] = { 1717
@@ -32,9 +33,6 @@ int randomTable[] = { 1717
     ,2377
     ,2458 };
 
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
 //    printf("Hello, World!\n");
 //    showTest();
 //
@@ -69,24 +67,32 @@ int main(int argc, const char * argv[]) {
 //	strcpy(dt.name, "Insetr");
 //	CycQueueIn(cycqueue, dt);    // i++ is dif ++i, Cyc is move to Next, and SeqQueue is current
 //    }
-///////////////////////////////////////////////////////
+/////////////////////test For stack//////////////////////////////////
+//
+//        SeqStack * stack;
+//        stack = SeqStackInit();
+//
+//        for (size_t i = 0; i < 6; i++)
+//        {
+//            DATA dt;
+//            strcpy(dt.name, "name");
+//            dt.number = randomTable[i];
+//            SeqStackPush(stack, dt);
+//        }
+//
+//        for (size_t i = 0; i < 5; i++)
+//        {
+//            printf("%d_\n", SeqStackPop(stack).number);
+//        }
+////////////////////////test For stack///////////////////////////////
 
-        SeqStack * stack;
-        stack = SeqStackInit();
+int main(int argc, const char * argv[]) {
+    // insert code here...
+//////////Test for bracket_Excption/////////////////////
+    char exp[10] = "(2+4)*8=";
 
-        for (size_t i = 0; i < 6; i++)
-        {
-            DATA dt;
-            strcpy(dt.name, "name");
-            dt.number = randomTable[i];
-            SeqStackPush(stack, dt);
-        }
-        
-        for (size_t i = 0; i < 5; i++)
-        {
-            printf("%d_\n", SeqStackPop(stack).number);
-        }
+    printf("%s%d\n", exp,CalcExp(exp));
 
-    
+//////////Test for bracket_Excption/////////////////////
     return 0;
 }

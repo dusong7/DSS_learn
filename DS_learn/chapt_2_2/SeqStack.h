@@ -13,11 +13,12 @@
 
 #define SIZE 10
 
-typedef struct
-{
-    int number;
-    char name[10];
-}DATA;
+typedef int DATA;
+//typedef struct
+//{
+//    int number;
+//    char name[10];
+//}DATA;
 
 typedef struct stack
 {
@@ -28,7 +29,8 @@ typedef struct stack
 SeqStack *SeqStackInit();
 int SeqStackPush(SeqStack *q, DATA data);
 DATA SeqStackPop(SeqStack *q);
-
+DATA SeqStackPeek(SeqStack *q);
+void SeqStackFree(SeqStack *q);
 
 
 #endif /* SeqStack_h */

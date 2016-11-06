@@ -49,3 +49,15 @@ DATA SeqStackPop(SeqStack *q)
     }
     return (q->data[q->top--]);
 }
+
+DATA SeqStackPeek(SeqStack *q)
+{
+    return q->data[q->top];
+}
+
+void SeqStackFree(SeqStack *q)
+{
+    if (q != NULL) {
+        free(q);
+    }
+}

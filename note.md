@@ -92,8 +92,8 @@ flash插件下载
            的证明【参见参考书目】
 
      A1
-   B2   C3
- D4  5E F6  G7
+   B2   C3;
+ D4  5E F6  G7;
  
  n = 7
  i   = 1; par i= n/2

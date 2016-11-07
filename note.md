@@ -4,6 +4,7 @@
 至少有2的（k-1）次方个节点
 最多有（2的k次方）-1个节点
 
+http://student.zjzk.cn/course_ware/data_structure/web/shu/shu6.2.2.htm
 
  回到顶部
 		

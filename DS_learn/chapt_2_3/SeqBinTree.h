@@ -11,4 +11,18 @@
 
 #include <stdio.h>
 
+
+#define MAX 100
+typedef int DATA;
+
+typedef struct ChainTree{
+	DATA data;
+	struct ChainTree *left;
+	struct ChainTree *right;
+	struct ChainTree *parent;
+	
+}ChainTreeType;
+
+ChainTreeType *root = NULL;
+
 #endif /* SeqBinTree_h */

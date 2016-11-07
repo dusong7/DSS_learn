@@ -97,13 +97,15 @@ flash插件下载
  
  n = 7
  i   = 1; par i= n/2
- 2*i <= n left = 2*i  ..2*i >n no Left
- 2*i+1 <=n right = 2*i + 1 ..  2*i+1 >n no right
+ 2*i <= n left = 2*i  ..2*i >n no Left;
+ 
+ 2*i+1 <=n right = 2*i + 1 ..  2*i+1 >n no right;
  
  
- 最里层为4，括号内有两个的前一阶有3个，4 = 3 + 1
  
- (A(B(DE)C(FG)))  4 = 3+1
+ 最里层为4，括号内有两个的前一阶有3个，4 = 3 + 1;
+ 
+ (A(B(DE)C(FG)))  4 = 3+1;
  
  
- (A(B(DE)C(F))) 3 = 2+1
+ (A(B(DE)C(F))) 3 = 2+1;

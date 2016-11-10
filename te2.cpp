@@ -61,6 +61,7 @@ int BinTreeAddNode(ChainBinTree *bt, ChainBinTree *node, int n)
 		}
 		else
 		{
+			printf("Left Add\n");
 			bt->left = node;
 		}
 		break;
@@ -71,6 +72,7 @@ int BinTreeAddNode(ChainBinTree *bt, ChainBinTree *node, int n)
 		}
 		else
 		{
+			printf("Right Add\n");
 			bt->right = node;
 		}
 		break;
@@ -105,24 +107,20 @@ ChainBinTree *BinTreeRight(ChainBinTree *bt)
 	}
 }
 
-void AddNode(ChainBinTree *bt)
+
+void AddNode(ChainBinTree *bt, DATA data)
 {
 	ChainBinTree *node, *parent;
-	DATA data;
 	char select;
 
 	if (node = (ChainBinTree *)malloc(sizeof(ChainBinTree)))
 	{
-		node->data = 101;
+		node->data = 100 + data;
 		node->left = NULL;
 		node->right = NULL;
 
-		BinTreeAddNode(bt, node, 1);
-
-		node->data = 102;
-		BinTreeAddNode(bt, node, 2);
+		BinTreeAddNode(bt, node, 1 + (data+1) %2);
 	}
-
 }
 
 int BinTreeDepth(ChainBinTree *bt)
@@ -154,7 +152,16 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	ChainBinTree *root = NULL;
 	root = InitRoot();
-	AddNode(root);
+	AddNode(root, 1);
+	AddNode(root, 2);
+	AddNode(root->left,3);
+	AddNode(root->left, 4);
+	AddNode(root->right,5);
+	AddNode(root->right, 6);
+	AddNode(root->left->left, 7);
+	AddNode(root->left->left, 8);
+	AddNode(root->left->right, 9);
+	AddNode(root->left->right, 10);
 
 	ChainBinTree *left = BinTreeLeft(root);
 

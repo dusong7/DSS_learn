@@ -125,6 +125,29 @@ void AddNode(ChainBinTree *bt)
 
 }
 
+int BinTreeDepth(ChainBinTree *bt)
+{
+	int dep1 = 0;
+	int dep2 = 0;
+	if (bt == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		dep1 = BinTreeDepth(bt->left);
+		dep2 = BinTreeDepth(bt->right);
+
+		if (dep1>dep2)
+		{
+			return dep1 + 1;
+		}
+		else
+		{
+			return dep2 + 1;
+		}
+	}
+}
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -135,5 +158,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	ChainBinTree *left = BinTreeLeft(root);
 
+	printf("%d__", BinTreeDepth(root));
 	return 0;
 }

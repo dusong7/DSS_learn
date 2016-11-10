@@ -95,6 +95,22 @@ ChainBinTree *BinTreeLeft(ChainBinTree *bt)
 	}
 }
 
+void oper(ChainBinTree *p)
+{
+	printf("%d_", p->data);
+	return;
+}
+
+void BinTree_DLR(ChainBinTree *bt)
+{
+	if (bt)
+	{
+		BinTree_DLR(bt->left);
+		BinTree_DLR(bt->right);
+		oper(bt);
+	}
+	return;
+}
 ChainBinTree *BinTreeRight(ChainBinTree *bt)
 {
 	if (bt)
@@ -106,7 +122,6 @@ ChainBinTree *BinTreeRight(ChainBinTree *bt)
 		return NULL;
 	}
 }
-
 
 void AddNode(ChainBinTree *bt, DATA data)
 {
@@ -147,7 +162,6 @@ int BinTreeDepth(ChainBinTree *bt)
 	}
 }
 
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	ChainBinTree *root = NULL;
@@ -166,5 +180,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	ChainBinTree *left = BinTreeLeft(root);
 
 	printf("%d__", BinTreeDepth(root));
+
+	BinTree_DLR(root);
+
 	return 0;
 }

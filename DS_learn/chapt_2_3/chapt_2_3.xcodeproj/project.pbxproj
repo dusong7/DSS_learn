@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1871A7E31DCB6C6400F65C0D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1871A7E21DCB6C6400F65C0D /* main.c */; };
-		18CB23FE1DCF2E4B00BC20D5 /* SeqBinTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 18CB23FC1DCF2E4B00BC20D5 /* SeqBinTree.c */; };
+		18D17D661DD4C55A00E0AFAF /* SeqBinTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 18D17D641DD4C55A00E0AFAF /* SeqBinTree.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		1871A7DF1DCB6C6400F65C0D /* chapt_2_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chapt_2_3; sourceTree = BUILT_PRODUCTS_DIR; };
 		1871A7E21DCB6C6400F65C0D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		18CB23FC1DCF2E4B00BC20D5 /* SeqBinTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SeqBinTree.c; path = ../SeqBinTree.c; sourceTree = "<group>"; };
-		18CB23FD1DCF2E4B00BC20D5 /* SeqBinTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeqBinTree.h; path = ../SeqBinTree.h; sourceTree = "<group>"; };
+		18D17D641DD4C55A00E0AFAF /* SeqBinTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SeqBinTree.c; path = ../SeqBinTree.c; sourceTree = "<group>"; };
+		18D17D651DD4C55A00E0AFAF /* SeqBinTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeqBinTree.h; path = ../SeqBinTree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 		1871A7E11DCB6C6400F65C0D /* chapt_2_3 */ = {
 			isa = PBXGroup;
 			children = (
-				18CB23FC1DCF2E4B00BC20D5 /* SeqBinTree.c */,
-				18CB23FD1DCF2E4B00BC20D5 /* SeqBinTree.h */,
+				18D17D641DD4C55A00E0AFAF /* SeqBinTree.c */,
+				18D17D651DD4C55A00E0AFAF /* SeqBinTree.h */,
 				1871A7E21DCB6C6400F65C0D /* main.c */,
 			);
 			path = chapt_2_3;
@@ -126,7 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1871A7E31DCB6C6400F65C0D /* main.c in Sources */,
-				18CB23FE1DCF2E4B00BC20D5 /* SeqBinTree.c in Sources */,
+				18D17D661DD4C55A00E0AFAF /* SeqBinTree.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

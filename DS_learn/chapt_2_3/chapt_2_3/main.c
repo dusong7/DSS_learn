@@ -12,6 +12,22 @@
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    printf("Hello, World!\n");
+    ChainBinTree *root = NULL;
+    root = InitRoot();
+    AddNode(root, 1);
+    AddNode(root, 2);
+    AddNode(root->left,3);
+    AddNode(root->left, 4);
+    AddNode(root->right,5);
+    AddNode(root->right, 6);
+    AddNode(root->left->left, 7);
+    AddNode(root->left->left, 8);
+    AddNode(root->left->right, 9);
+    AddNode(root->left->right, 10);
+
+    printf("%d__", BinTreeDepth(root));
+    
+    BinTree_DLR(root);
+
     return 0;
 }

@@ -28,6 +28,8 @@ int main(int argc, const char * argv[]) {
     printf("%d__", BinTreeDepth(root));
     
     BinTree_DLR(root);
-
+    
+    //add menu to choose add and show
+    //
     return 0;
 }

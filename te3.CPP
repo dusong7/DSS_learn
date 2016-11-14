@@ -23,7 +23,7 @@ typedef struct ThreadTree
 
 ThreadBinTree *Previous = NULL;
 
-void BinTreeThreading_LDR(ThreadBinTree * bt)
+void BinTreeThreading_LDR(ThreadBinTree * bt)  //generare ThreadBinTree.
 {
 	if (bt)
 	{
@@ -115,7 +115,7 @@ ThreadBinTree *InitRoot()
 }
 
 
-ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)
+ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)  //
 {
 	ThreadBinTree *p;
 	if (bt)
@@ -165,6 +165,44 @@ void AddNode(ThreadBinTree *bt)
 		return;
 	}
 
+}
+
+ThreadBinTree *BinTreeNext(ThreadBinTree *bt)  //next
+{
+	ThreadBinTree *nextNode;
+	if (!bt)
+	{
+		return NULL;
+	}
+	if (bt->rflag == Thread)
+	{
+		return bt->right;
+	}
+	else
+	{
+		nextNode = bt->right;
+		while (nextNode->lflag == SubTree)
+		{
+			nextNode = nextNode->left;
+		}
+		return nextNode;
+	}
+}
+
+void ThreadBinTree_LDR(ThreadBinTree *bt)  //view throuth all 
+{
+	if (bt)
+	{
+		while (bt->lflag == SubTree)
+		{
+			bt = bt->left;
+		}
+		do
+		{
+			printf("%d_", bt->data);
+			bt = BinTreeNext(bt);
+		} while (bt);
+	}
 }
 
 int _tmain(int argc, _TCHAR* argv[])

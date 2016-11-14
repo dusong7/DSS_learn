@@ -24,7 +24,7 @@ ChainBinTree *BinTreeInit(ChainBinTree *node)
 ChainBinTree *InitRoot()
 {
     ChainBinTree *node;
-    if (node = (ChainBinTree *)malloc(sizeof(ChainBinTree)))
+    if ((node = (ChainBinTree *)malloc(sizeof(ChainBinTree))))
     {
         node->data = 100;
         node->left = NULL;

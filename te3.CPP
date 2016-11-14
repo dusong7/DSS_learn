@@ -126,11 +126,11 @@ ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)  //
 		}
 		else
 		{
-			if (p = BinTreeFind(bt->left, data))
+			if ((bt->left != NULL) && (p = BinTreeFind(bt->left, data)))
 			{
 				return p;
 			}
-			else if (p = BinTreeFind(bt->right, data))
+			else if ((bt->right != NULL) && (p = BinTreeFind(bt->right, data)) != NULL)
 			{
 				return p;
 			}
@@ -143,7 +143,7 @@ ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)  //
 }
 
 
-void AddNode(ThreadBinTree *bt)
+void AddNode(ThreadBinTree *bt, int n)
 {
 	ThreadBinTree *node, *parent;
 	DATA data;
@@ -151,13 +151,15 @@ void AddNode(ThreadBinTree *bt)
 
 	if (node = (ThreadBinTree*)malloc(sizeof(ThreadBinTree)))
 	{
-		node->data = 101;
+		node->data = 100+n;
 		node->left = NULL;
 		node->right = NULL;
-		parent = BinTreeFind(bt, 100);
+		parent = BinTreeFind(bt, 100+n-1);
 		if (parent)
 		{
-			int result = BinTreeAddNode(parent, node, 1);
+			int result = BinTreeAddNode(parent, node, 1 + n%2);
+			/*node->data = 102;
+			int result2 = BinTreeAddNode(parent, node, 2);*/
 		}
 	}
 	else
@@ -212,7 +214,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	ThreadBinTree *root = NULL;
 	int select = 1;
 	root = InitRoot();
-	AddNode(root);
+	AddNode(root,1);
+	AddNode(root, 2);
+	AddNode(root, 3);
+	AddNode(root, 4);
 
 	BinTreeThreading_LDR(root); //generate Threaded bin tree.
 	ThreadBinTree_LDR(root);    //View all 

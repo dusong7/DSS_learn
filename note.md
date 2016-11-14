@@ -2,7 +2,9 @@
 数学坏少63032014-10-29
 优质解答
 至少有2的（k-1）次方个节点
-最多有（2的k次方）-1个节点
+最多有（2的k次方）-1个节点；
+
+中序遍历 可以使用 投影法来表示。。
 
 http://student.zjzk.cn/course_ware/data_structure/web/shu/shu6.2.2.htm
 

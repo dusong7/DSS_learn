@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1871A7E31DCB6C6400F65C0D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1871A7E21DCB6C6400F65C0D /* main.c */; };
-		18EBB3D21DDA0FE100C5CA24 /* ThreadBinTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 18EBB3D01DDA0FE100C5CA24 /* ThreadBinTree.c */; };
+		18EBB3DB1DDA170200C5CA24 /* ThreadBinTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 18EBB3D91DDA170200C5CA24 /* ThreadBinTree.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		1871A7DF1DCB6C6400F65C0D /* chapt_2_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chapt_2_3; sourceTree = BUILT_PRODUCTS_DIR; };
 		1871A7E21DCB6C6400F65C0D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		18EBB3D01DDA0FE100C5CA24 /* ThreadBinTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ThreadBinTree.c; sourceTree = "<group>"; };
-		18EBB3D11DDA0FE100C5CA24 /* ThreadBinTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadBinTree.h; sourceTree = "<group>"; };
+		18EBB3D91DDA170200C5CA24 /* ThreadBinTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ThreadBinTree.c; sourceTree = "<group>"; };
+		18EBB3DA1DDA170200C5CA24 /* ThreadBinTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadBinTree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 		1871A7E11DCB6C6400F65C0D /* chapt_2_3 */ = {
 			isa = PBXGroup;
 			children = (
-				18EBB3D01DDA0FE100C5CA24 /* ThreadBinTree.c */,
-				18EBB3D11DDA0FE100C5CA24 /* ThreadBinTree.h */,
+				18EBB3D91DDA170200C5CA24 /* ThreadBinTree.c */,
+				18EBB3DA1DDA170200C5CA24 /* ThreadBinTree.h */,
 				1871A7E21DCB6C6400F65C0D /* main.c */,
 			);
 			path = chapt_2_3;
@@ -126,7 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1871A7E31DCB6C6400F65C0D /* main.c in Sources */,
-				18EBB3D21DDA0FE100C5CA24 /* ThreadBinTree.c in Sources */,
+				18EBB3DB1DDA170200C5CA24 /* ThreadBinTree.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

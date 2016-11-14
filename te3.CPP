@@ -15,7 +15,7 @@ typedef enum
 typedef struct ThreadTree
 {
 	DATA data;
-	NodeFlag lflag;
+	NodeFlag lflag;   //left and right if is 1 is Threaded.
 	NodeFlag rflag;
 	struct ThreadTree * left;
 	struct ThreadTree * right;
@@ -216,6 +216,8 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	//
 	ThreadBinTree *root = NULL;
+	ThreadBinTree *found = NULL;
+
 	int select = 1;
 	root = InitRoot();
 	AddNode(root,1);
@@ -225,6 +227,20 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	BinTreeThreading_LDR(root); //generate Threaded bin tree.
 	ThreadBinTree_LDR(root);    //View all 
+	found = BinTreeFind(root, 102);
+	
+	if (found != NULL)
+	{
+		if (found->lflag)
+		{
+			printf("L__%d", found->left->data);
+		}
+		if (found->rflag)
+		{
+			printf("R__%d", found->right->data);
+		}
+	}
+
 	return 0;
 }
 

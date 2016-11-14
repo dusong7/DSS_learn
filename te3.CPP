@@ -214,6 +214,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	AddNode(root);
 
 	BinTreeThreading_LDR(root); //generate Threaded bin tree.
+	ThreadBinTree_LDR(root);    //View all 
 	return 0;
 }
 

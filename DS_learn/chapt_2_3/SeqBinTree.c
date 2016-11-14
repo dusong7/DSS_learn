@@ -89,10 +89,11 @@ ChainBinTree *BinTreeLeft(ChainBinTree *bt)
 
 void oper(ChainBinTree *p)
 {
-    printf("%d_", p->data);
+    printf("%d_\n", p->data);
     return;
 }
 
+///traversal   non-recursive inorder traversal of binary tree
 void BinTree_DLR(ChainBinTree *bt)
 {
     if (bt)
@@ -103,6 +104,7 @@ void BinTree_DLR(ChainBinTree *bt)
     }
     return;
 }
+
 ChainBinTree *BinTreeRight(ChainBinTree *bt)
 {
     if (bt)
@@ -117,8 +119,8 @@ ChainBinTree *BinTreeRight(ChainBinTree *bt)
 
 void AddNode(ChainBinTree *bt, DATA data)
 {
-    ChainBinTree *node, *parent;
-    char select;
+    ChainBinTree *node;
+    //char select;
     
     if (node = (ChainBinTree *)malloc(sizeof(ChainBinTree)))
     {

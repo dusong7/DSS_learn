@@ -118,7 +118,11 @@ ThreadBinTree *InitRoot()
 ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)  //
 {
 	ThreadBinTree *p;
-	if (bt)
+	if (bt == NULL)
+	{
+		return NULL;
+	}
+	else
 	{
 		if (bt->data == data)
 		{
@@ -126,11 +130,11 @@ ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)  //
 		}
 		else
 		{
-			if ((bt->left != NULL) && (p = BinTreeFind(bt->left, data)))
+			if (/*(bt->left != NULL) &&*/ (p = BinTreeFind(bt->left, data)))
 			{
 				return p;
 			}
-			else if ((bt->right != NULL) && (p = BinTreeFind(bt->right, data)) != NULL)
+			else if (/*(bt->right != NULL) && */(p = BinTreeFind(bt->right, data)) != NULL)
 			{
 				return p;
 			}

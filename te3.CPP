@@ -8,7 +8,7 @@ typedef int DATA;
 
 typedef enum
 {
-	SubTree,
+	SubTree = 0,
 	Thread
 }NodeFlag;  //subchild type , is a threaded, or a child point.
 
@@ -88,6 +88,7 @@ int BinTreeAddNode(ThreadBinTree *rt, ThreadBinTree *node, int pos)
 				rt->right = node;
 			}
 			break;
+
 		default:
 			printf("ERROR \n");
 			break;
@@ -117,6 +118,8 @@ ThreadBinTree *InitRoot()
 
 ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)  //
 {
+	//printf("%d__\n", bt->data);
+
 	ThreadBinTree *p;
 	if (bt == NULL)
 	{
@@ -130,17 +133,13 @@ ThreadBinTree* BinTreeFind(ThreadBinTree *bt, DATA data)  //
 		}
 		else
 		{
-			if (/*(bt->left != NULL) &&*/ (p = BinTreeFind(bt->left, data)))
+			if ((p = BinTreeFind(bt->left, data)))
 			{
 				return p;
 			}
-			else if (/*(bt->right != NULL) && */(p = BinTreeFind(bt->right, data)) != NULL)
+			else if ((p = BinTreeFind(bt->right, data)))
 			{
 				return p;
-			}
-			else
-			{
-				return NULL;
 			}
 		}
 	}
@@ -195,7 +194,7 @@ ThreadBinTree *BinTreeNext_LDR(ThreadBinTree *bt)  //next
 	}
 }
 
-void ThreadBinTree_LDR(ThreadBinTree *bt)  //view throuth all 
+void ThreadBinTree_LDR(ThreadBinTree *bt)  //view throuth all , also can set find function here/(..*bt, ..data)
 {
 	if (bt)
 	{
@@ -225,21 +224,25 @@ int _tmain(int argc, _TCHAR* argv[])
 	AddNode(root, 3);
 	AddNode(root, 4);
 
+
 	BinTreeThreading_LDR(root); //generate Threaded bin tree.
+
+	//AddNode(root, 4);
+
 	ThreadBinTree_LDR(root);    //View all 
-	found = BinTreeFind(root, 102);
+	//found = BinTreeFind(root, 103);
 	
-	if (found != NULL)
-	{
-		if (found->lflag)
-		{
-			printf("L__%d", found->left->data);
-		}
-		if (found->rflag)
-		{
-			printf("R__%d", found->right->data);
-		}
-	}
+	//if (found != NULL)
+	//{
+	//	if (found->lflag)
+	//	{
+	//		printf("L__%d", found->left->data);
+	//	}
+	//	if (found->rflag)
+	//	{
+	//		printf("R__%d", found->right->data);
+	//	}
+	//}
 
 	return 0;
 }

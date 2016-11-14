@@ -167,7 +167,7 @@ void AddNode(ThreadBinTree *bt)
 
 }
 
-ThreadBinTree *BinTreeNext(ThreadBinTree *bt)  //next
+ThreadBinTree *BinTreeNext_LDR(ThreadBinTree *bt)  //next
 {
 	ThreadBinTree *nextNode;
 	if (!bt)
@@ -200,10 +200,11 @@ void ThreadBinTree_LDR(ThreadBinTree *bt)  //view throuth all
 		do
 		{
 			printf("%d_", bt->data);
-			bt = BinTreeNext(bt);
+			bt = BinTreeNext_LDR(bt);
 		} while (bt);
 	}
 }
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {

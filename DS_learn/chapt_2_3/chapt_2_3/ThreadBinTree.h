@@ -29,7 +29,7 @@ typedef struct ThreadTree
     struct ThreadTree * right;
 }ThreadBinTree;
 
-ThreadBinTree *Previous = NULL;
+
 
 void BinTreeThreading_LDR(ThreadBinTree * bt);  //generare ThreadBinTree.
 ThreadBinTree* BinTreeInit(ThreadBinTree *node);

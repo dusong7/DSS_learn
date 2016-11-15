@@ -92,16 +92,17 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 				}
 			}
 		}
-		if (ht1 > ht2)
-		{
-			*bt2 = ht1 - hf;
-			*bt1 = ht2 - hf;
-		}
-		else
-		{
-			*bt1 = ht1 - hf;
-			*bt2 = ht2 - hf;
-		}
+	}
+	//////////
+	if (ht1 > ht2)
+	{
+		*bt2 = ht1 - hf;
+		*bt1 = ht2 - hf;
+	}
+	else
+	{
+		*bt1 = ht1 - hf;
+		*bt2 = ht2 - hf;
 	}
 }
 

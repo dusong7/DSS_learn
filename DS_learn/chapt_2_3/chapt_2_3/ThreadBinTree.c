@@ -7,7 +7,7 @@
 //
 
 #include "ThreadBinTree.h"
-ThreadBinTree *Previous = NULL;
+ThreadBinTree *Previous = NULL;   //before define in head file, move implement file.
 
 void BinTreeThreading_LDR(ThreadBinTree * bt)  //generare ThreadBinTree.
 {

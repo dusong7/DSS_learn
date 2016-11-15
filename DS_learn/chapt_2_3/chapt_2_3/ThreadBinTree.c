@@ -7,7 +7,7 @@
 //
 
 #include "ThreadBinTree.h"
-
+ThreadBinTree *Previous = NULL;
 
 void BinTreeThreading_LDR(ThreadBinTree * bt)  //generare ThreadBinTree.
 {

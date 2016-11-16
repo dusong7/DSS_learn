@@ -24,7 +24,7 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 	int i;
 	HuffmanTree *ht1, *ht2, *t;
 	ht1 = ht2 = NULL;
-	for (i = 1; i <= n; i++)
+	for (i = 1; i <= n; ++i)
 	{
 		if (!hf[i].parent)
 		{
@@ -179,10 +179,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	hf = (HuffmanTree*)malloc(sizeof(HuffmanTree));
 	hc = (HuffmanCode*)malloc(n * sizeof(char*));
 	CreateTree(hf, n, w);
-	//HuffmanCoding(hf, n, hc);
-	char *cd;
+	HuffmanCoding(hf, n, hc);
 
-	cd = (char *)malloc(n * sizeof(char));
 	return 0;
 }
 

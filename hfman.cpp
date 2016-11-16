@@ -58,7 +58,7 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 			}
 		}
 	}
-	//////////
+	////
 	if (ht1 > ht2)
 	{
 		*bt2 = ht1 - hf;
@@ -73,7 +73,7 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 
 void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, w, weight value
 {
-	int i;
+	int i = 0;
 	int m = 2 * n - 1;
 	int bt1 = 0;
 	int bt2 = 0;
@@ -83,22 +83,23 @@ void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, 
 		return;
 	}
 
-	for (i = 1; i <= n; i++)
+	for (i = 1; i <= n; ++i)
 	{
 		hf[i].weight = w[i - 1];
 		hf[i].parent = 0;
 		hf[i].left = 0;
 		hf[i].right = 0;
 	}
-	for (; i <= m; i++)
+
+	for (; i <= m; ++i)
 	{
 		hf[i].weight = 0;
 		hf[i].parent = 0;
 		hf[i].left = 0;
 		hf[i].right = 0;
 	}
-
-	for (i = n + 1; i <= m; i++)
+//
+	for (i = n + 1; i <= m; ++i)
 	{
 		SelectNode(hf, i-1, &bt1, &bt2);
 		hf[bt1].parent = i;
@@ -108,7 +109,6 @@ void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, 
 		hf[i].weight = hf[bt1].weight + hf[bt2].weight;
 	}
 }
-
 
 
 void HuffmanCoding(HuffmanTree *hf, int n, HuffmanCode *hc)

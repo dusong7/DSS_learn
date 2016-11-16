@@ -24,7 +24,7 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 	int i;
 	HuffmanTree *ht1, *ht2, *t;
 	ht1 = ht2 = NULL;
-	for (i = 1; i <= n; ++i)
+	for (i = 1; i <= n; ++i)  //i++ 
 	{
 		if (!hf[i].parent)
 		{
@@ -83,7 +83,7 @@ void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, 
 		return;
 	}
 
-	for (i = 1; i <= n; ++i)
+	for (i = 1; i <= n; ++i)  //i++ 
 	{
 		hf[i].weight = w[i - 1];
 		hf[i].parent = 0;
@@ -91,7 +91,7 @@ void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, 
 		hf[i].right = 0;
 	}
 
-	for (; i <= m; ++i)
+	for (; i <= m; ++i)  //i++
 	{
 		hf[i].weight = 0;
 		hf[i].parent = 0;
@@ -99,7 +99,7 @@ void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, 
 		hf[i].right = 0;
 	}
 //
-	for (i = n + 1; i <= m; ++i)
+	for (i = n + 1; i <= m; ++i) //i++ cause Error
 	{
 		SelectNode(hf, i-1, &bt1, &bt2);
 		hf[bt1].parent = i;

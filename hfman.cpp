@@ -1,3 +1,6 @@
+// ConsoleHuffmanTree.cpp : Defines the entry point for the console application.
+//
+
 // HuffmanTree.cpp : Defines the entry point for the console application.
 //
 
@@ -23,12 +26,12 @@ void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, 
 	int bt1 = 0;
 	int bt2 = 0;
 
-	if (n<=1)
+	if (n <= 1)
 	{
 		return;
 	}
 
-	for ( i = 1; i <= n; i++)
+	for (i = 1; i <= n; i++)
 	{
 		hf[i].weight = w[i - 1];
 		hf[i].parent = 0;
@@ -43,7 +46,7 @@ void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, 
 		hf[i].right = 0;
 	}
 
-	for ( i = n+1; i <= m; i++)
+	for (i = n + 1; i <= m; i++)
 	{
 		//SelectNode(ht, i-1, &bt1, &bt2);
 		hf[bt1].parent = i;
@@ -59,7 +62,7 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 	int i;
 	HuffmanTree *ht1, *ht2, *t;
 	ht1 = ht2 = NULL;
-	for ( i = 1; i <= n; i++)
+	for (i = 1; i <= n; i++)
 	{
 		if (!hf[i].parent)
 		{
@@ -104,6 +107,39 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 		*bt1 = ht1 - hf;
 		*bt2 = ht2 - hf;
 	}
+}
+
+void HuffmanCoding(HuffmanTree *hf, int n, HuffmanCode *hc)
+{
+	char *cd;
+	int start, i;
+	int current, parent;
+
+	cd = (char *)malloc(sizeof(char)* n);
+	cd[n - 1] = '\0';
+	//
+	for ( i = 0; i < n; i++)
+	{
+		start = n - 1;
+		current = i;
+		parent = hf[current].parent;
+		while (parent)
+		{
+			if (current == hf[parent].left)
+			{
+				cd[--start] = '0';
+			}
+			else
+			{
+				cd[--start] = '1';
+			}
+			current = parent;
+			parent = hf[parent].parent;
+		}
+		hc[i - 1] = (char*)malloc(sizeof(char*)*(n - start));
+		strcpy_s(hc[i - 1],100, &cd[start]);
+	}
+	free(cd);
 }
 
 int _tmain(int argc, _TCHAR* argv[])

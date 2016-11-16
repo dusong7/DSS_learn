@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:HuffmanTree/HuffmanTree.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:chapt_2_3/chapt_2_3.xcodeproj">
    </FileRef>
    <FileRef

@@ -19,44 +19,6 @@ typedef struct
 
 typedef char *HuffmanCode;
 
-void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, w, weight value
-{
-	int i;
-	int m = 2 * n - 1;
-	int bt1 = 0;
-	int bt2 = 0;
-
-	if (n <= 1)
-	{
-		return;
-	}
-
-	for (i = 1; i <= n; i++)
-	{
-		hf[i].weight = w[i - 1];
-		hf[i].parent = 0;
-		hf[i].left = 0;
-		hf[i].right = 0;
-	}
-	for (; i <= m; i++)
-	{
-		hf[i].weight = 0;
-		hf[i].parent = 0;
-		hf[i].left = 0;
-		hf[i].right = 0;
-	}
-
-	for (i = n + 1; i <= m; i++)
-	{
-		//SelectNode(ht, i-1, &bt1, &bt2);
-		hf[bt1].parent = i;
-		hf[bt2].parent = i;
-		hf[i].left = bt1;
-		hf[i].right = bt2;
-		hf[i].weight = hf[bt1].weight + hf[bt2].weight;
-	}
-}
-
 void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 {
 	int i;
@@ -108,6 +70,46 @@ void SelectNode(HuffmanTree *hf, int n, int *bt1, int *bt2)
 		*bt2 = ht2 - hf;
 	}
 }
+
+void CreateTree(HuffmanTree *hf, int n, int *w)  //hf point hfmantree, n, leaf, w, weight value
+{
+	int i;
+	int m = 2 * n - 1;
+	int bt1 = 0;
+	int bt2 = 0;
+
+	if (n <= 1)
+	{
+		return;
+	}
+
+	for (i = 1; i <= n; i++)
+	{
+		hf[i].weight = w[i - 1];
+		hf[i].parent = 0;
+		hf[i].left = 0;
+		hf[i].right = 0;
+	}
+	for (; i <= m; i++)
+	{
+		hf[i].weight = 0;
+		hf[i].parent = 0;
+		hf[i].left = 0;
+		hf[i].right = 0;
+	}
+
+	for (i = n + 1; i <= m; i++)
+	{
+		SelectNode(hf, i-1, &bt1, &bt2);
+		hf[bt1].parent = i;
+		hf[bt2].parent = i;
+		hf[i].left = bt1;
+		hf[i].right = bt2;
+		hf[i].weight = hf[bt1].weight + hf[bt2].weight;
+	}
+}
+
+
 
 void HuffmanCoding(HuffmanTree *hf, int n, HuffmanCode *hc)
 {
@@ -177,8 +179,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	hf = (HuffmanTree*)malloc(sizeof(HuffmanTree));
 	hc = (HuffmanCode*)malloc(n * sizeof(char*));
 	CreateTree(hf, n, w);
-	HuffmanCoding(hf, n, hc);
+	//HuffmanCoding(hf, n, hc);
+	char *cd;
 
+	cd = (char *)malloc(n * sizeof(char));
 	return 0;
 }
 

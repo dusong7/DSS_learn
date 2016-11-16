@@ -114,11 +114,10 @@ void HuffmanCoding(HuffmanTree *hf, int n, HuffmanCode *hc)
 	char *cd;
 	int start, i;
 	int current, parent;
-
-	cd = (char *)malloc(sizeof(char)* n);
+	cd = (char *)malloc(n * sizeof(char));
 	cd[n - 1] = '\0';
 	//
-	for ( i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
 	{
 		start = n - 1;
 		current = i;
@@ -137,9 +136,29 @@ void HuffmanCoding(HuffmanTree *hf, int n, HuffmanCode *hc)
 			parent = hf[parent].parent;
 		}
 		hc[i - 1] = (char*)malloc(sizeof(char*)*(n - start));
-		strcpy_s(hc[i - 1],100, &cd[start]);
+		strcpy_s(hc[i - 1], 100, &cd[start]);
 	}
 	free(cd);
+}
+
+void Encode(HuffmanCode *hc, char *alphabet, char *str, char *code)
+{
+	int len = 0;
+	int i = 0;
+	int j = 0;
+	 
+	while (str[i])
+	{
+		j = 0;
+		while (alphabet[j] != str[i])
+		{
+			j++;
+		}
+		strcpy_s(code + len, 100, hc[j]);
+		len = len + strlen(hc[j]);
+		i++;
+	}
+	code[len] = '\0';
 }
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -158,6 +177,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	hf = (HuffmanTree*)malloc(sizeof(HuffmanTree));
 	hc = (HuffmanCode*)malloc(n * sizeof(char*));
 	CreateTree(hf, n, w);
+	HuffmanCoding(hf, n, hc);
 
 	return 0;
 }

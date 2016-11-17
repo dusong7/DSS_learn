@@ -646,10 +646,12 @@ int _tmain(int argc, _TCHAR* argv[])
 //############################################################
 // ConsoleHuffmanTree.cpp : Defines the entry point for the console application.
 //
+// ConsoleHuffmanTree.cpp : Defines the entry point for the console application.
+//
 
 // HuffmanTree.cpp : Defines the entry point for the console application.
 //
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -838,20 +840,39 @@ void HuffmanCoding(HuffmanTree *hf, int n, HuffmanCode *hc)
 		}
 		hc[i - 1] = (char*)malloc(sizeof(char*)*(n - start));
 
-		strcpy_s(hc[i - 1], 5, &cd[start]);
+		strcpy(hc[i - 1], &cd[start]);
 		printf("%s_%d_\n", hc[i - 1], hf[i].weight);
 	}
 	free(cd);
 }
 
+void Encode(HuffmanCode *hc, char *alphabet, char *str, char *code)
+{
+	int len = 0;
+	int i = 0;
+	int j = 0;
+	code[0] = '\0';
+	while (str[i])
+	{
+		j = 0;
+		while (alphabet[j] != str[i])
+		{
+			j++;
+		}
+		strcpy(code + len,hc[j]);
+		len = len + strlen(hc[j]);
+		i++;
+	}
+	code[len] = '\0';
+}
+
 int main(void)
 {
-	int i;
 	int n = 4;
 	int m;
 
 	char test[] = "DBDBDABDCBDABCDBDBCABCCBDD";
-	char code[100], code1[100];
+	char code[100];
 	char alphabet[] = { 'A', 'B', 'C', 'D' };
 	int w[] = { 5, 6, 2, 15 };
 	HuffmanTree *hf;
@@ -862,5 +883,8 @@ int main(void)
 	CreateTree(hf, n, w);
 	HuffmanCoding(hf, n, hc);
 
+	Encode(hc, alphabet, test, code);
+	printf("%s__%s", test, code);
 	return 0;
 }
+

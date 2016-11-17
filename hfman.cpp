@@ -576,7 +576,7 @@ void CreateTree(HuffmanTree *hf, int n, int w[])  //hf point hfmantree, n, leaf,
 //	cd = (char *)malloc(n * sizeof(char));
 //	cd[n - 1] = '\0';
 //	//
-//	for (i = 0; i < n; i++)
+//	for (i = 1; i <= 4; i++)
 //	{
 //		start = n - 1;
 //		current = i;

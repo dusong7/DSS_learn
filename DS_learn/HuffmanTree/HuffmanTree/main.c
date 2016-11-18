@@ -199,7 +199,7 @@ void creatHuffmanCode(HuffmanTree *huffmanTree, HuffmanCode *huffmanCode, int n)
 int main(void)
 {
 
-#ifdef HuffMan
+#ifndef Huffman
     HuffmanTree HT;
     HuffmanCode HC;
     int *w,i,n,wei;

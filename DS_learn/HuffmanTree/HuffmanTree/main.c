@@ -12,8 +12,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "HuffMan.h"
+#include "HuffMan.h"
 
+#ifndef Huffman
 
 //haffman 树的结构
 typedef struct
@@ -193,6 +194,7 @@ void creatHuffmanCode(HuffmanTree *huffmanTree, HuffmanCode *huffmanCode, int n)
 }
 
 
+#endif
 
 int main(void)
 {

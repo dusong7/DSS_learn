@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18AD8DD31DDCAA4C00E15EC0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 18AD8DD21DDCAA4C00E15EC0 /* main.c */; };
+		18D3A99E1DDF6B0200185847 /* HuffMan.c in Sources */ = {isa = PBXBuildFile; fileRef = 18D3A99C1DDF6B0200185847 /* HuffMan.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		18AD8DCF1DDCAA4C00E15EC0 /* HuffmanTree */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HuffmanTree; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AD8DD21DDCAA4C00E15EC0 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		18D3A99C1DDF6B0200185847 /* HuffMan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HuffMan.c; sourceTree = "<group>"; };
+		18D3A99D1DDF6B0200185847 /* HuffMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuffMan.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				18AD8DD21DDCAA4C00E15EC0 /* main.c */,
+				18D3A99C1DDF6B0200185847 /* HuffMan.c */,
+				18D3A99D1DDF6B0200185847 /* HuffMan.h */,
 			);
 			path = HuffmanTree;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AD8DD31DDCAA4C00E15EC0 /* main.c in Sources */,
+				18D3A99E1DDF6B0200185847 /* HuffMan.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +255,7 @@
 				18AD8DD81DDCAA4C00E15EC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

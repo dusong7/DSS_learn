@@ -6,9 +6,14 @@
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
+#define Huffman
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+//#include "HuffMan.h"
+
 
 //haffman 树的结构
 typedef struct
@@ -187,8 +192,12 @@ void creatHuffmanCode(HuffmanTree *huffmanTree, HuffmanCode *huffmanCode, int n)
     printf("\n");
 }
 
+
+
 int main(void)
 {
+
+#ifdef HuffMan
     HuffmanTree HT;
     HuffmanCode HC;
     int *w,i,n,wei;
@@ -209,9 +218,30 @@ int main(void)
         w[i]=wei;
     }
 
-
     createHuffmanTree(&HT, w, n);
     creatHuffmanCode(&HT,&HC,n);
+
+# else
+
+    int n = 4;
+    int m;
+
+    char test[] = "DBDBDABDCBDABCDBDBCABCCBDD";
+    char code[100];
+    char alphabet[] = { 'A', 'B', 'C', 'D' };
+    int w[] = { 5, 6, 2, 15 };
+    HuffmanTree *hf;
+    HuffmanCode *hc;
+    m = 2 * n - 1;
+    hf = (HuffmanTree*)malloc(sizeof(HuffmanTree)* (m + 1));
+    hc = (HuffmanCode*)malloc((n)* sizeof(char));
+    CreateTree(hf, n, w);
+    HuffmanCoding(hf, n, hc);
+
+    Encode(hc, alphabet, test, code);
+    printf("%s__%s", test, code);
+
+# endif
 
     return 0;
 }

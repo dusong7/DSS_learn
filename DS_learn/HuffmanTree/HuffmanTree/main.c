@@ -54,7 +54,7 @@ void selectNode(HuffmanTree *huffmanTree, int n, int *s1, int *s2)
         //如果此结点的父亲为空，则进入 if
         if((*huffmanTree)[i].parent == 0)
         {
-            //如果此结点的权值比 min 结点的权值小，那么更新 min 结点，否则就是最开始的 min
+            //如果此结点的权值比 min 结点的权 值小，那么更新 min 结点，否则就是最开始的 min
             if((*huffmanTree)[i].weight < (*huffmanTree)[min].weight)
             {
                 min = i;

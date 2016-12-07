@@ -11,4 +11,14 @@ typedef struct
 }MatrixGraph;
 
 void CreateMatrix(MatrixGraph *G);  //Generate adjacancy matrix
-void OutMatrix(MatrixGraph *G);     //Out adjacency matrix
+void OutMatrix(MatrixGraph *G);     //Out adjacency matrixint
+
+int number[][]={1,2,3,4}
+int (*num)[2]=(int(*)[2])malloc(sizeof(int)*2*2);
+for(int i=0;i<2;i++)
+{
+  for(int j=0;j<2;j++)
+  {
+    num[i][j] = number[i][j];
+  }
+}

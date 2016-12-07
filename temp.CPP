@@ -1,5 +1,34 @@
 // ConsoleApplication2.cpp : Defines the entry point for the console application.
 //
+struct Table
+	{
+		int num;
+		bool isTre;
+	};
+
+	int TNumber = 0;
+	int randTable[] = { 10, 4, 8, 9, 9, 4, 7, 6, 1, 9, 1, 1, 8, 10, 10, 3, 2, 5, 4, 6, 6, 5, 7, 7, 4, 3, 10, 9, 4, 5, 2, 3, 8, 4, 3, 3, 3, 6, 5, 1, 10, 9, 6, 7, 5, 3, 2};
+	Table tb[10];
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		tb[i].isTre = false;
+	}
+	for (size_t i = 0; i < 47; i++)
+	{
+		//printf("% d#", i);
+		if (!tb[randTable[i]-1].isTre)
+		{
+			tb[randTable[i]-1].isTre = true;
+			TNumber++;
+			printf("%d_hit\t", randTable[i]);
+		}
+		if (TNumber == 10)
+		{
+			printf("%dth_Val %d\n", i+1, randTable[i]);
+			//break;
+		}
+	}
 
 // rrr.cpp : Defines the entry point for the console application.
 //

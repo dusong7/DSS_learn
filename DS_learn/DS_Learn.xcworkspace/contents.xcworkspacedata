@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:C0xTest/C0xTest.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:DSGraph/DSGraph.xcodeproj">
    </FileRef>
    <FileRef

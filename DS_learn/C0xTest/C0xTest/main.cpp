@@ -7,10 +7,36 @@
 //
 
 #include <iostream>
+using namespace std;
+
+class Name
+{
+public:
+    Name();
+    ~Name();
+    void ShowName(string name);
+private:
+};
+
+Name::Name()
+{
+    //
+}
+
+Name::~Name()
+{
+
+}
+
+void Name::ShowName(string name)
+{
+    cout<< name << endl;
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
-    printf("He");
+    Name nm;
+    nm.ShowName("Dusong7");
     return 0;
 }

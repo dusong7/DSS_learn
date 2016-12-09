@@ -1,3 +1,50 @@
+
+void funcCur(char *src, char *target)
+{
+	char *sor, *s1, *s2;
+	sor = target;
+	s1 = src;
+	s2 = target;
+
+	while (*s1)
+	{
+		if (*s1 != *s2)
+		{
+			*s2++;
+			if (*s1 != *s2)
+			{
+				*s2++;
+				if (*s1 != *s2)
+				{
+					//printf("%c3_\n", *s2);
+					vecChar.push_back(*s1);
+					s2 = sor;
+				}
+				else
+				{
+					s2 = sor;
+				}
+			}
+			else
+			{
+				s2 = sor;
+			}
+		}
+		else
+		{
+			s2 = sor;
+		}
+		*s1++;
+		printf("%c\n", *s1);
+	}
+
+	for (size_t i = 0; i < vecChar.size(); i++)
+	{
+		printf("%c", vecChar[i]);
+	}
+	printf("\n");
+}
+
 // ConsoleApplication2.cpp : Defines the entry point for the console application.
 //
 struct Table

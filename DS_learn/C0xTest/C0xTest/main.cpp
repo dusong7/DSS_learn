@@ -102,7 +102,7 @@ public:
     }
 
 private:
-    vector<vector<int> >    graph ;            // 图的数组表示
+    vector<vector<int>>    graph ;            // 图的数组表示
     int                        node_count;        // 结点个数
     const int                no_edge;        // 无通路
     const int                end_node;        // 目的结点

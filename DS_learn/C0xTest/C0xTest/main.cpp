@@ -52,7 +52,7 @@ class ss_shortest_paths
 
 public:
     ss_shortest_paths(const vector<vector<int> >& g, int end_location)
-    :no_edge(-1), end_node(end_location), node_count(g.size()), graph(g)
+    :no_edge(-1), end_node(end_location), node_count((int)g.size()), graph(g)
     {}
 
     // 打印最短路径

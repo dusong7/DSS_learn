@@ -99,6 +99,7 @@ public:
 				if (graph[top.index][i] != no_edge && (top.weight + graph[top.index][i]) < path[i].weight)
 				{
 					printf("hit nodecount %d_index (%d,%d)_%d\n", i, top.index,i,top.weight + graph[top.index][i]);
+					//i value is transform to top.index
 					min_heap.push(node_info(i, top.weight + graph[top.index][i]));
 					path[i].front_index = top.index;
 					path[i].weight = top.weight + graph[top.index][i];

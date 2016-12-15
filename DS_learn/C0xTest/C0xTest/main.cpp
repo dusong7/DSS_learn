@@ -1,114 +1,88 @@
-/
-//  main.cpp
-//  C0xTest
+// Consoleself.cpp : Defines the entry point for the console application.
 //
-//  Created by apple on 16/12/9.
-//  Copyright ? 2016年 apple. All rights reserved.
-//
-// ConsolBB.cpp : Defines the entry point for the console application.
-//
+
 #include "stdafx.h"
 #include <iostream>
-#include <vector>
+#include <iterator>
 #include <queue>
 #include <limits>
-#include <iterator>
+#include <vector>
+
 using namespace std;
 
-struct node_info
+struct nodeInfo
 {
 public:
-	node_info(int i, int w)
-		: index(i), weight(w) {}
-	node_info()
-		: index(0), weight(0) {}
-	node_info(const node_info & ni)
-		: index(ni.index), weight(ni.weight) {}
-
+	nodeInfo(int i, int w)
+		:index(i), weight(w){}
+	nodeInfo() :index(0), weight(0) {}
+	nodeInfo(const nodeInfo &ni)
+		:index(ni.index), weight(ni.weight){}
 	friend
-		bool operator < (const node_info& lth, const node_info& rth) {
-		return lth.weight > rth.weight; // 为了实现从小到大的顺序
+		bool operator < (const nodeInfo& lth, const nodeInfo& rth) {
+		return lth.weight > rth.weight;//
 	}
-
 public:
-	int index; // 结点位置
-	int weight; // 权值
+	int index;
+	int weight;
 };
 
-struct path_info
+struct pathInfo
 {
-public:
-	path_info()
-		: front_index(0), weight(numeric_limits<int>::max()) {}
-
+	pathInfo()
+		: front_index(0), weight(numeric_limits<int>::max()) {} //numeric_limits<int>::max()  maximum number
 public:
 	int front_index;
 	int weight;
 };
 
-// single source shortest paths
-class ss_shortest_paths
+class ss_sort_path
 {
-
 public:
-	ss_shortest_paths(const vector<vector<int> >& g, int end_location)
-		:no_edge(-1), end_node(end_location), node_count((int)g.size()), graph(g)
-	{}
+	ss_sort_path(const vector<vector<int>> &g, int end_location)
+		:no_edge(-1), end_node(end_location), node_count((int)g.size()), graph(g){}
 
-	// 打印最短路径
-	void print_spaths() const {
-		cout << "min weight : " << shortest_path << endl;
+	void print_paths()
+	{
+		//
+		cout << "min weight :" << shortest_path << endl;
 		cout << "path: ";
-		copy(s_path_index.rbegin(), s_path_index.rend(),
-			ostream_iterator<int>(cout, " "));
+		copy(s_path_index.rbegin(), s_path_index.rend(), ostream_iterator<int>(cout, " "));
 		cout << endl;
 	}
 
-	// 求最短路径
-	void shortest_paths() {
-		vector<path_info> path(node_count);
-		priority_queue<node_info, vector<node_info> > min_heap;
-		min_heap.push(node_info(0, 0));    // 将起始结点入队
-		printf("end node_%d\n", end_node);
-		while (true) 
+	void shortest_paths()
+	{
+		vector<pathInfo> path(node_count);
+		priority_queue<nodeInfo, vector<nodeInfo>> min_heap;
+		min_heap.push(nodeInfo(0, 0));
+
+		while (true)
 		{
-			printf("Top Info %d_i,%d,size %d\n", min_heap.top().index, min_heap.top().weight, min_heap.size());
-			node_info top = min_heap.top();    // 取出最大值
-			
+			nodeInfo top = min_heap.top();
 			min_heap.pop();
-			if (!min_heap.empty())
-			{
-				printf("After_Top Info %d_i,%d,size %d\n", min_heap.top().index, min_heap.top().weight, min_heap.size());
-			}
-			else
+
+			if (min_heap.empty())
 			{
 				printf("Empty\n");
 			}
 
-			// 已到达目的结点
-			if (top.index == end_node) 
+			if (top.index == end_node)
 			{
-				printf("end\n");
 				break;
 			}
-			// 未到达则遍历
-			for (int i = 0; i < node_count; ++i) 
+			for (size_t i = 0; i < node_count; i++)
 			{
-				// 顶点top.index和i间有边，且此路径长小于原先从原点到i的路径长
-				printf("W%d_g%d,(%d%d)_before%d_is%d_\n", top.weight, graph[top.index][i], top.index, i, path[i].weight, (top.weight + graph[top.index][i]));
-				if (graph[top.index][i] != no_edge && (top.weight + graph[top.index][i]) < path[i].weight)
+				//
+				if (graph[top.index][i] != no_edge && (top.weight + graph[top.index][i])< path[i].weight)
 				{
-					printf("hit nodecount %d_index (%d,%d)_%d\n", i, top.index,i,top.weight + graph[top.index][i]);
-					//i value is transform to top.index
-					min_heap.push(node_info(i, top.weight + graph[top.index][i]));
+					min_heap.push(nodeInfo(i, top.weight + graph[top.index][i]));
 					path[i].front_index = top.index;
-					path[i].weight = top.weight + graph[top.index][i];
-					printf("PathW _%d,_\n", path[i].weight);
+					path[i].weight = top.weight;
 				}
 			}
 			if (min_heap.empty())
 			{
-				printf("min_is empty\n");
 				break;
 			}
 		}
@@ -116,12 +90,11 @@ public:
 		shortest_path = path[end_node].weight;
 		int index = end_node;
 		s_path_index.push_back(index);
-		while (true) 
+		while (true)
 		{
-			printf("index %d_\n", index);
 			index = path[index].front_index;
 			s_path_index.push_back(index);
-			if (index == 0) 
+			if (index == 0)
 			{
 				break;
 			}
@@ -129,19 +102,26 @@ public:
 	}
 
 private:
-	vector<vector<int> >    graph;            // 图的数组表示
-	int                        node_count;        // 结点个数
-	const int                no_edge;        // 无通路
-	const int                end_node;        // 目的结点
-	vector<int>                s_path_index;    // 最短路径
-	int                        shortest_path;    // 最短路径
+	vector<vector<int>> graph; //
+	int node_count;
+	const  int   no_edge;
+	const int end_node;
+	vector<int>  s_path_index;
+	int  shortest_path;
+
 };
 
 int main()
 {
+	nodeInfo info(10,30);
+	nodeInfo info2(20, 40);
+	nodeInfo ni(info);
+
+	//printf("%d", info<info2);
+	vector<pathInfo> p(10);
 	const int size = 11;
 	vector<vector<int> > graph(size);
-	for (int i = 0; i < size; ++i) 
+	for (int i = 0; i < size; ++i)
 	{
 		graph[i].resize(size);
 	}
@@ -170,9 +150,9 @@ int main()
 	graph[9][8] = 2;
 	graph[9][10] = 2;
 
-	ss_shortest_paths ssp(graph, 10);
+	ss_sort_path ssp(graph, 10);
 	ssp.shortest_paths();
-	ssp.print_spaths();
+	ssp.print_paths();
 	getchar();
-	return 0;
+    return 0;
 }

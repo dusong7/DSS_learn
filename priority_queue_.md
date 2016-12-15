@@ -34,7 +34,7 @@ int main(){
     }  
     return 0;  
 }  
-对于自定义类型，则必须自己重载 operator< 或者自己写仿函数先看看例子:
+对于自定义类型，则必须自己重载 operator< 或者自己写仿函数先看看例子:  //<> 结果不同，< 小的在顶，>大的在顶
 [cpp] view plain copy
 #include <iostream>  
 #include <queue>  

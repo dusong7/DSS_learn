@@ -7,8 +7,6 @@
 #include <limits>
 #include <vector>
 
-#include "BFS_.hpp"
-
 using namespace std;
 
 struct nodeInfo
@@ -79,7 +77,7 @@ public:
 				{
 					min_heap.push(nodeInfo(i, top.weight + graph[top.index][i]));
 					path[i].front_index = top.index;
-					path[i].weight = top.weight + graph[top.index][i];
+					path[i].weight = top.weight + graph[top.index][i];  //same as before_
 				}
 			}
 			if (min_heap.empty())

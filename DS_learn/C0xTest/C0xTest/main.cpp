@@ -1,12 +1,13 @@
 // Consoleself.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include <iostream>
 #include <iterator>
 #include <queue>
 #include <limits>
 #include <vector>
+
+#include "BFS_.hpp"
 
 using namespace std;
 
@@ -78,7 +79,7 @@ public:
 				{
 					min_heap.push(nodeInfo(i, top.weight + graph[top.index][i]));
 					path[i].front_index = top.index;
-					path[i].weight = top.weight;
+					path[i].weight = top.weight + graph[top.index][i];
 				}
 			}
 			if (min_heap.empty())

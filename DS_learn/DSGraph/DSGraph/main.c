@@ -12,6 +12,8 @@
 #include "bfs_test.hpp"
 
 #define VERTEXNUM 5
+#define USED 0
+#define NOADJ -1
 
 //队列的元素
 typedef struct qElement{

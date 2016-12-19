@@ -266,7 +266,7 @@ void Dijkstra(MatrixGraph g)
 	scanf_s("%d", &v0); //Tag 
 	v0--; //start from 0
 
-	for (i = 1; i<g.VertexNum; i++)
+	for (i = 0; i<g.VertexNum; i++) //1 can make n->0 is NO Path
 	{
 		weight[i] = g.Edges[v0][i];
 		if (weight[i] < MAXVALUE && weight[i]>0)

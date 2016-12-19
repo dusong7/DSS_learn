@@ -304,7 +304,7 @@ void Dijkstra(MatrixGraph g)
 	{
 		if (tmpvertex[i] == 1)
 		{
-			k = 1;
+			k = i;
 			while (k != v0)
 			{
 				j = k;

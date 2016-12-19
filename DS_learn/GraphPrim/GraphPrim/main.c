@@ -1,7 +1,7 @@
 // ConsoleAPrim.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 //
 //  main.c
@@ -19,6 +19,7 @@
 
 // ConsoleGraph.cpp : Defines the entry point for the console application.
 //
+
 
 #define VERTEX_MAX 26
 #define MAXVALUE 32767
@@ -263,7 +264,7 @@ void Dijkstra(MatrixGraph g)
 	int v0; //Orig point
 	int min;
 
-	scanf_s("%d", &v0); //Tag 
+	scanf("%d", &v0); //Tag
 	v0--; //start from 0
 
 	for (i = 0; i<g.VertexNum; i++) //1 can make n->0 is NO Path

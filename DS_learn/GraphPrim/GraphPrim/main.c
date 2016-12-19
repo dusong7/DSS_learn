@@ -252,10 +252,10 @@ void Prim(MatrixGraph g)
 int main()
 {
     MatrixGraph G;
-    G.Graphtype = 1;
+    G.Graphtype = 0; //double direct
     G.VertexNum = 5;
     G.EdgeNum = 6;
-     
+    
     for (size_t i = 0; i < G.VertexNum; i++)
     {
         for (size_t j = 0; j < G.VertexNum; j++)

@@ -1,8 +1,5 @@
 // ConsoleAPrim.cpp : Defines the entry point for the console application.
 //
-
-//#include "stdafx.h"
-
 //
 //  main.c
 //  GraphPrim
@@ -19,7 +16,6 @@
 
 // ConsoleGraph.cpp : Defines the entry point for the console application.
 //
-
 
 #define VERTEX_MAX 26
 #define MAXVALUE 32767
@@ -264,10 +260,11 @@ void Dijkstra(MatrixGraph g)
 	int v0; //Orig point
 	int min;
 
-	scanf("%d", &v0); //Tag
+	scanf_s("%d", &v0); //Tag 
 	v0--; //start from 0
 
-	for (i = 0; i<g.VertexNum; i++) //1 can make n->0 is NO Path
+	//init
+	for (i = 0; i<g.VertexNum; i++)  //change i=0,i=1 can make N->1 no path
 	{
 		weight[i] = g.Edges[v0][i];
 		if (weight[i] < MAXVALUE && weight[i]>0)
@@ -276,36 +273,44 @@ void Dijkstra(MatrixGraph g)
 		}
 		tmpvertex[i] = 0;
 	}
-	tmpvertex[v0] = 1;
-	weight[v0] = 0;
+
+	//// tmpvertex assign//
+	tmpvertex[v0] = 1;  //add point v0 to U
+	weight[v0] = 0;     //set v0 weight 0
 	for (i = 0; i < g.VertexNum ; i++)
 	{
-		min = MAXVALUE;
-		k = v0;
-		for (j = 0;j<g.VertexNum;j++)
+		min = MAXVALUE;  //save max first
+		k = v0;          //v0 index
+		for (j = 0;j<g.VertexNum;j++)  //Min in U ,unused
 		{
 			if (tmpvertex[j] == 0 && weight[j]<min)
 			{
 				min = weight[j];
-				k = j;
+				k = j;//min 1 from 0 start//
 			}
 		}
-		tmpvertex[k] = 1;
-		for ( j = 0; j < g.VertexNum; j++)
+		tmpvertex[k] = 1;   //vertex k add to U
+		for ( j = 0; j < g.VertexNum; j++) //
 		{
-			if (tmpvertex[j] ==0 && weight[k] + g.Edges[k][j]<weight[j])
+			//tmp==0 not in U, k=min, + edge weight , weight[j] cur.
+			if (tmpvertex[j] ==0 && weight[k] + g.Edges[k][j]<weight[j]) 
 			{
-				weight[j] = weight[k] + g.Edges[k][j];
-				path[j] = k;
+				weight[j] = weight[k] + g.Edges[k][j];  //get min
+				printf("weight %d\n", weight[j]);
+
+				path[j] = k; //link  V0 diff , path not alike.
 			}
 		}
 	}
+
+	////show info////
+
 	printf("Vertex %c to each point: __\n", g.Vertex[v0]);
 	for (i = 0; i < g.VertexNum; i++)
 	{
 		if (tmpvertex[i] == 1)
 		{
-			k = i;
+			k = i;    //
 			while (k != v0)
 			{
 				j = k;
@@ -340,7 +345,11 @@ int main()
 	OutGraph(&G);
 	//DFSTravese(&G);
 	Prim(G);
-	Dijkstra(G);
+	for (size_t i = 0; i < 10; i++)
+	{
+		Dijkstra(G);
+
+	}
 	getchar();
 
 	//    ListGraph glist;

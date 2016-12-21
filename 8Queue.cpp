@@ -4,67 +4,86 @@
 #include "stdafx.h"
 
 
-//n后问题
-//八皇后问题
+//nºóÎÊÌâ
+//°Ë»ÊºóÎÊÌâ
 
-// Queen.cpp : 定义控制台应用程序的入口点。
+// Queen.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
 //
 
 #include "stdafx.h"
 #include "stdio.h"
 
-class Queen {    //类Queen记录解空间中的节点信息
+class Queen {    //ÀàQueen¼ÇÂ¼½â¿Õ¼äÖÐµÄ½ÚµãÐÅÏ¢
 	friend int nQueen(int);
 private:
-	bool Place(int k);    //剪枝函数
-	void Backtrack(int t);    //递归函数
-	int n;    //皇后个数
-	int *x;    //当前解
-	long sum;    //当前可行的方案数
+	bool Place(int k);    //¼ôÖ¦º¯Êý
+	void Backtrack(int t);    //µÝ¹éº¯Êý
+	int n;    //Queue number
+	int *x;    //Cur Solve
+	long sum;    //Cur solve resolution number
 };
 
-int abs(int ab)//求绝对值
+int abs(int ab)//Çó¾ø¶ÔÖµ
 {
 	return ab>0 ? ab : -ab;
 }
 
-bool Queen::Place(int k)    //剪枝函数
+bool Queen::Place(int k)    //¼ôÖ¦º¯Êý
 {
-	printf("%s_%d\n", __FUNCTION__, k);
+	//////
+	printf("%s k_%d\n", __FUNCTION__, k);
 
+	for (size_t i = 1; i <= n; i++)
+	{
+		printf("x[%d]_%d\n",i, x[i]);
+	}
+	/////
+	/////
 	for (int j = 1; j<k; j++)
 	{
-		//剪枝条件：如果在同一行，同一列或者同斜线上
+		//cut condition , in one line ,/\-| 
+		printf("%d_%d_%d_%d\n", abs(k - j), abs(x[j] - x[k]), x[j], x[k]);
+		/////
 		if ((abs(k - j) == abs(x[j] - x[k])) || (x[j] == x[k]))
+		{
+			printf("Hit\n");
 			return false;
+		}
+		/////
 	}
 	return true;
 }
 
-void Queen::Backtrack(int t)    //递归回溯核心
+void Queen::Backtrack(int t)    //µÝ¹é»ØËÝºËÐÄ
 {
-	printf("%s_%d\n", __FUNCTION__, t);
+	printf("%s t_%d\n", __FUNCTION__, t);
 
-	if (t > n)
+	if (t > n) //
 	{
-		printf("Sum_%s_%d\n", __FUNCTION__, sum);
-		sum++;    //如果遍历到叶子，说明求出了一个解
+		printf("Sum _%s_%d\n", __FUNCTION__, sum);
+		sum++;    //Get a result.
 	}	
 	else
 	{
-		for (int i = 1; i <= n; i++)
+		for (int i = 1; i <= n; i++)  // value 8
 		{
+
+			printf("t value %d_%d_%d\n", t, n, i);
 			x[t] = i;
+			for (size_t i = 1; i <= n; i++)
+			{
+				printf("x[%d]_%d\n", i, x[i]);
+			}
+
 			if (Place(t))
 			{
-				Backtrack(t + 1); //函数Place为剪枝函数
+				Backtrack(t + 1);  //º¯ÊýPlaceÎª¼ôÖ¦º¯Êý
 			}
 		}
 	}
 }
 
-
-int nQueen(int n)//初始化数据
+int nQueen(int n)//³õÊ¼»¯Êý¾Ý
 {
 	Queen X;
 	X.n = n;
@@ -83,6 +102,6 @@ int nQueen(int n)//初始化数据
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	printf("%d", nQueen(4));//传入参数8，即八皇后问题
+	printf("%d\n", nQueen(4));//´«Èë²ÎÊý8£¬¼´°Ë»ÊºóÎÊÌâ
 	return 0;
 }

@@ -3,7 +3,20 @@
 
 #include "stdafx.h"
 
-
+void Bcktrack(int t) //参数t表示当前递归深度
+{
+    if(t>n)Output(x); //遍历到解，则将解输出或其他处理
+    else
+    {
+        //f(n,t)和g(n,t)表示当前节点（扩展节点）处未搜索过的子树的起始编号和中指编号
+        for(int i=f(n,t);i<=g(n,t);i++)    
+        {
+            x[t]=h(i);    //h(i)表示当前节点（扩展节点）处x[i]的第i个可选值
+            if(Constarint(t)&&Bound(t)) //剪枝函数：约束函数，限界函数
+                Bcktrack(t+1);
+        }
+    }
+}
 //nºóÎÊÌâ
 //°Ë»ÊºóÎÊÌâ
 

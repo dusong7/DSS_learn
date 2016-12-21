@@ -260,7 +260,7 @@ void Dijkstra(MatrixGraph g)
 	int v0; //Orig point
 	int min;
 
-	scanf_s("%d", &v0); //Tag 
+	scanf("%d", &v0); //Tag
 	v0--; //start from 0
 
 	//init

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TeCpp0x/TeCpp0x.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:GraphDijkstra/GraphDijkstra.xcodeproj">
    </FileRef>
    <FileRef

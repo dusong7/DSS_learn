@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TeCDs/TeCDs.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:TeCpp0x/TeCpp0x.xcodeproj">
    </FileRef>
    <FileRef

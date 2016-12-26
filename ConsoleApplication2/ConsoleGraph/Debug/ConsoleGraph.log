@@ -1,0 +1,14 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (ConsoleGraph.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  stdafx.cpp
+  ConsoleGraph.cpp
+c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(40): warning C4018: '<=': signed/unsigned mismatch
+c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(44): warning C4018: '<=': signed/unsigned mismatch
+c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(36): warning C4101: 'i': unreferenced local variable
+c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(73): warning C4018: '<=': signed/unsigned mismatch
+c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(71): warning C4101: 'i': unreferenced local variable
+c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(100): warning C4473: 'scanf_s' : not enough arguments passed for format string
+  c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(100): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(100): note: the missing variadic argument 2 is required by format string '%c'
+  c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\consolegraph\consolegraph.cpp(100): note: this argument is used as a buffer size
+  ConsoleGraph.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleApplication2\Debug\ConsoleGraphBook.exe
+  ConsoleGraph.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleApplication2\Debug\ConsoleGraphBook.pdb (Full PDB)

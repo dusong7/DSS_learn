@@ -1,0 +1,4 @@
+﻿  Con_LeastSquares.cpp
+c:\users\admin\documents\visual studio 2015\projects\consoleapplication2\con_leastsquares\con_leastsquares.cpp(17): warning C4018: '<': signed/unsigned mismatch
+  Con_LeastSquares.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleApplication2\Debug\Con_LeastSquares.exe
+  Con_LeastSquares.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleApplication2\Debug\Con_LeastSquares.pdb (Full PDB)

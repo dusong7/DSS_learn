@@ -113,7 +113,7 @@ void ListTraverse(Sqlist *L)
     int i;
     if (L->length !=0)
     {
-        for (i = 0; i < L->length; ++i)
+        for (i = 1; i <= L->length; ++i)
         {
             printf("%d_\n",L->elem[i]);
         }

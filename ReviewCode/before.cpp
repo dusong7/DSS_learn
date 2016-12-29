@@ -95,8 +95,9 @@ Status InsertList(Sqlist *L, int i, ElemType e)
     //simple assign
 
     int j = 0;
-    for (j = 0; j < LIST_INIT_SIZE; ++j) {
+    for (j = L->length; j >= i; j--) {
             //
+        L->elem[j+1] = L->elem[j];
     }
     L->elem[i]=e;
     L->length++;

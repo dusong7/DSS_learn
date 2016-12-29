@@ -20,7 +20,7 @@ typedef int ElemType;
 typedef int Status;
 ///////////////////
 
-#define CPPTYPEFILE
+//#define CPPTYPEFILE
 
 #ifndef CPPTYPEFILE
 typedef int bool;
@@ -87,15 +87,39 @@ Status Init_list(Sqlist *L)
 Status InsertList(Sqlist *L, int i, ElemType e)
 {
     //over maxsize
-    if (L->length>LIST_INIT_SIZE || LIST_INIT_SIZE<i<0)
-    {
-        exit(OVERFLOW);
+    if (1<i || i>L->length+1) {
+        return ERROR;
     }
 
-    //simple assign
-    L->elem[i]=e;
-    L->length++;
+    ElemType *newvalue;
+    ElemType *q;
+    ElemType *p;
 
+    if (L->length >= L->listsize) {
+        newvalue = (ElemType *)realloc(L->elem,
+                                       sizeof(ElemType) * (L->length+LINSTINCREMENT));
+        L->elem = newvalue;
+        L->listsize = L->listsize+LINSTINCREMENT;
+    }
+
+    q = &(L->elem[i-1]);
+    for (p=&(L->elem[L->length-1]); p>=q; p--) {
+        *(p+1) = *p;
+    }
+
+    *q = e;
+    ++L->length;
+
+//#define ZDay
+#ifdef ZDay
+    int j = 0;
+    for (j = L->length; j>=i; j--) {
+        L->elem[j+1] = j->elem[j];
+    }
+
+    L->elem[i] = e;
+    L->length++;
+#endif
     return OK;
 }
 /////////
@@ -146,26 +170,20 @@ void GetElement(Sqlist *L, int i, ElemType *e)
 {
     //
 }
-/// \return
+/// \return//
 
 int main()
 {
     Sqlist myList;
 
     Init_list(&myList);
-//    int i = 0;
-//    for (i=0; i<LIST_INIT_SIZE;i++)
-//    {
-//        printf("%d_\n", myList.elem[i]);
-//    }
-    InsertList(&myList, 0,10);
-    InsertList(&myList, 1,30);
-    InsertList(&myList, 2,40);
+
+    int i = 0;
+    for (i = 0; i<150; i++) {
+         InsertList(&myList, 1,10+i);
+    }
+
     ListTraverse(&myList);
-//
-//    for (i=0; i<LIST_INIT_SIZE;i++)
-//    {
-//        printf("%d_\n", myList.elem[i]);
-//    }
+
     return 0;
 }

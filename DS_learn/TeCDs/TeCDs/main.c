@@ -172,6 +172,27 @@ void GetElement(Sqlist *L, int i, ElemType *e)
 }
 /// \return//
 
+///implement ListDelete
+Status ListDelte(Sqlist *L, int i, ElemType *e)
+{
+    if (i<1 || i>L->length) {
+        return ERROR;
+    }
+
+    *e = L->elem[i-1];
+
+    //
+    int j = 0;
+    for (j=i; j<L->length; j++) {
+        L->elem[j] = L->elem[j+1];
+    }
+
+    --L->length;
+
+    return OK;
+}
+///////////
+
 int main()
 {
     Sqlist myList;
@@ -183,7 +204,9 @@ int main()
          InsertList(&myList, 1,10+i);
     }
 
-    ListTraverse(&myList);
+    ElemType *myValue = (ElemType *)malloc(sizeof(ElemType));
+    ListDelte(&myList, 5, myValue);
+    //ListTraverse(&myList);
 
     return 0;
 }

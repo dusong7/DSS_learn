@@ -146,7 +146,7 @@ int main()
     return 0;
 }
 */
-///####End code for 6174
+///####End code for ACM_6174
 
 
 

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-///INCLUDE_COMMON_DEFINE//
+//INCLUDE_COMMON_DEFINE//
 #include<stdio.h>
 #include <stdlib.h>
 
@@ -159,10 +159,20 @@ Status ListLength(Sqlist *L)
 ////
 
 /// implement GetElement
-void GetElement(Sqlist *L, int i, ElemType *e)
+int GetElement(Sqlist *L, int i, ElemType *e)
 {
 	//
+	if (!L->elem)
+	{
+		return INFEASIABLE;
+	}
+	else if (1<i || i<L->length)
+	{
+		return ERROR;
+	}
+
 	*e = (L->elem[i]);
+	return OK;
 }
 /// \return
 

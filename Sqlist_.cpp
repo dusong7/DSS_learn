@@ -51,7 +51,7 @@ typedef struct {
 }Sqlist;
 //
 ///implement InitList//
-Status Init_list(Sqlist *L)
+Status Init_list_sq(Sqlist *L)
 {
 	L->elem = (ElemType *)malloc(sizeof(ElemType) * LIST_INIT_SIZE);
 	if (!L->elem)
@@ -77,7 +77,7 @@ Status Init_list(Sqlist *L)
 //
 
 ///Implement InsertaList//
-Status InsertList(Sqlist *L, int i, ElemType e)
+Status InsertList_sq(Sqlist *L, int i, ElemType e)
 {
 	//over maxsize
 	//    if (L->length>LIST_INIT_SIZE || LIST_INIT_SIZE<i<0)
@@ -119,7 +119,7 @@ Status InsertList(Sqlist *L, int i, ElemType e)
 /////////
 
 ////////Implement ListTraverse///
-void ListTraverse(Sqlist *L)
+void ListTraverse_sq(Sqlist *L)
 {
 	int i;
 	if (L->length != 0)
@@ -133,7 +133,7 @@ void ListTraverse(Sqlist *L)
 /////////////////
 
 ///////Implement isListEmpty
-bool isListEmpty(Sqlist *L)
+bool isListEmpty_sq(Sqlist *L)
 {
 	if (L->length == 0)
 	{
@@ -147,7 +147,7 @@ bool isListEmpty(Sqlist *L)
 ////
 
 ////implement ListLength
-Status ListLength(Sqlist *L)
+Status ListLength_sq(Sqlist *L)
 {
 	if (L != NULL)
 	{
@@ -159,7 +159,7 @@ Status ListLength(Sqlist *L)
 ////
 
 /// implement GetElement
-int GetElement(Sqlist *L, int i, ElemType *e)
+int GetElement_sq(Sqlist *L, int i, ElemType *e)
 {
 	//
 	if (!L->elem)
@@ -217,7 +217,7 @@ int isExistAlready(Sqlist L, ElemType e)
 ////////////
 
 //////////////implement listMerge
-void ListMerge(Sqlist La, Sqlist Lb, Sqlist *Lc)
+void ListMerge_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 {
 	//
 	int lengthLa = La.length;
@@ -225,21 +225,21 @@ void ListMerge(Sqlist La, Sqlist Lb, Sqlist *Lc)
 
 	for (size_t i = 0; i < lengthLa; i++)
 	{
-		InsertList(Lc, 1,La.elem[i]);
+		InsertList_sq(Lc, 1,La.elem[i]);
 	}
 
 	for (size_t i = 0; i < lengthLb; i++)
 	{
 		if (!isExistAlready(La,Lb.elem[i]))
 		{
-			InsertList(Lc, 1, Lb.elem[i]);
+			InsertList_sq(Lc, 1, Lb.elem[i]);
 		}
 	}
 }
 /////
 
 ///implement MergeList
-void MergeList(Sqlist La, Sqlist Lb, Sqlist *Lc)
+void MergeList_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 {
 	ElemType *pa = La.elem;
 	ElemType *pb = Lb.elem;
@@ -251,6 +251,7 @@ void MergeList(Sqlist La, Sqlist Lb, Sqlist *Lc)
 	{
 		exit(OVERFLOW);
 	}
+
 	ElemType *pa_last = La.elem + La.length - 1;
 	ElemType *pb_last = Lb.elem + Lb.length - 1;
 
@@ -265,6 +266,7 @@ void MergeList(Sqlist La, Sqlist Lb, Sqlist *Lc)
 			*pc++ = *pb++;
 		}
 	}
+
 	while (pa<=pa_last)
 	{
 		*pc++ = *pa++;
@@ -277,7 +279,7 @@ void MergeList(Sqlist La, Sqlist Lb, Sqlist *Lc)
 }
 
 ////implement ListDelete
-Status ListDelete(Sqlist *L, int i, ElemType *e)
+Status ListDelete_sq(Sqlist *L, int i, ElemType *e)
 {
 	//
 	ElemType *p;
@@ -315,21 +317,21 @@ int compare(ElemType e1, ElemType e2)
 int main()
 {
 	Sqlist myList;
-	Init_list(&myList);
+	Init_list_sq(&myList);
 
 	int i = 0;
 	for (i = 0; i < 5; ++i) {
-		InsertList(&myList, 1, i + 10);
+		InsertList_sq(&myList, 1, i + 10);
 	}
-	ListTraverse(&myList);
+	ListTraverse_sq(&myList);
 	///////////////////////////////////
 	Sqlist myList2;
-	Init_list(&myList2);
+	Init_list_sq(&myList2);
 
 	for (i =3; i < 7; ++i) {
-		InsertList(&myList2, 1, i + 10);
+		InsertList_sq(&myList2, 1, i + 10);
 	}
-	ListTraverse(&myList2);
+	ListTraverse_sq(&myList2);
 	///////////////////////////////////
 
 	int x = LocateElement_sq(&myList, 14, compare);
@@ -346,11 +348,11 @@ int main()
 	//    printf("List Length %d_\n", ListLength(&myList));
 
 	Sqlist listMerge;
-	Init_list(&listMerge);
-	ListMerge(myList, myList2, &listMerge);
-	//MergeList(myList, myList2, &listMerge);
+	Init_list_sq(&listMerge);
+	//ListMerge(myList, myList2, &listMerge);
+	MergeList_sq(myList, myList2, &listMerge);
 
-	ListTraverse(&listMerge);
+	ListTraverse_sq(&listMerge);
 	//
 	return 0;
 }

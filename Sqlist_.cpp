@@ -238,6 +238,44 @@ void ListMerge(Sqlist La, Sqlist Lb, Sqlist *Lc)
 }
 /////
 
+///implement MergeList
+void MergeList(Sqlist La, Sqlist Lb, Sqlist *Lc)
+{
+	ElemType *pa = La.elem;
+	ElemType *pb = Lb.elem;
+
+	Lc->listsize = Lc->length = La.length + Lb.length;
+	ElemType *pc = Lc->elem = (ElemType *)malloc(sizeof(ElemType) *
+		Lc->listsize);
+	if (!Lc->elem)
+	{
+		exit(OVERFLOW);
+	}
+	ElemType *pa_last = La.elem + La.length - 1;
+	ElemType *pb_last = Lb.elem + Lb.length - 1;
+
+	while (pa <= pa_last && pb<=pb_last)
+	{
+		if (*pa <= *pb)
+		{
+			*pc++ = *pa++;
+		}
+		else
+		{
+			*pc++ = *pb++;
+		}
+	}
+	while (pa<=pa_last)
+	{
+		*pc++ = *pa++;
+	}
+
+	while (pb <= pb_last)
+	{
+		*pc++ = *pb++;
+	}
+}
+
 ////implement ListDelete
 Status ListDelete(Sqlist *L, int i, ElemType *e)
 {
@@ -310,6 +348,8 @@ int main()
 	Sqlist listMerge;
 	Init_list(&listMerge);
 	ListMerge(myList, myList2, &listMerge);
+	//MergeList(myList, myList2, &listMerge);
+
 	ListTraverse(&listMerge);
 	//
 	return 0;

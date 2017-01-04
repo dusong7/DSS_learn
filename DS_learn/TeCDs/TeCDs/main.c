@@ -560,24 +560,42 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
     //
     LNode *pa = La->next;
     LNode *pb = Lb->next;
-    LNode *pc = Lc; 
+    LNode *pc = Lc;
 
-    while (pa)
-    {
-        ListInsert_L(Lc, 1, pa->data);
-        pa = pa->next;
-    }
-    
-    while (pb)
-    {
-        ListInsert_L(Lc, 1, pb->data);
-        pb = pb->next;
-    }
+    pc->next = pa;
+
+//    Lc = pc = pa;
+//
+//    while (pa)
+//    {
+//        ListInsert_L(Lc, 1, pa->data);
+//        pa = pa->next;
+//    }
+//    
+//    while (pb)
+//    {
+//        ListInsert_L(Lc, 1, pb->data);
+//        pb = pb->next;
+//    }
 
     //Other
-    while (pa) {
-
-    }
+//    while (pa  && pb) {
+//        //
+//        if (pa->data <=pb->data) {
+//            pc->next = pa;
+//            pc = pa;
+//            pa = pa->next;
+//        }
+//        else
+//        {
+//            pc->next = pb;
+//            pc = pb;
+//            pb = pb->next;
+//        }
+//    }
+//
+    pc->next = pa?pa:pb;
+//    free(Lb);
 }
 ///
 
@@ -623,8 +641,8 @@ int main()
     TravevseList_L(listMerge);
     
     ElemType *ePre = (ElemType *)malloc(sizeof(ElemType));
-    GetPreElem_L(list, 20, ePre);
-    printf("Pre elem is %d\n", *ePre);
+    //GetPreElem_L(list, 5, ePre);
+    //printf("Pre elem is %d\n", *ePre);
     
     return 0;
 }

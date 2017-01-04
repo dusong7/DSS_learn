@@ -401,20 +401,42 @@ typedef struct LNode
 }LNode, *LinkList;
 
 //////Common function
-//CreateList_L
 //IniList_L
 //InsertList_L
 //TravevseList_L
 //DeleteElem_L
-//GetEletem_L
 //GetPreElem_L
-//GetNextElem_L
 //ClearList_L
 //DestroyList_L
 //MergeList_L
 //GetLength_L
 ////End Common function
+//
 
+/////implement GetPreElem_L
+Status GetPreElem_L(LinkList L, ElemType eCur, ElemType *ePre)
+{
+	//
+	return OK;
+}
+/////
+
+
+////implement GetLength_L
+Status GetLength_L(LinkList L)
+{
+	int i = 0;
+	LNode *p = L->next;
+
+	while (p)
+	{
+		i++;
+		p = p->next;
+	}
+
+	return i;
+}
+///
 /////Implement iniList_L
 LNode* IniList_L(LNode *L)
 {
@@ -427,7 +449,7 @@ LNode* IniList_L(LNode *L)
 	}
 	else
 	{
-		printf("Head node position %x\n", head);
+		//printf("Head node position %x\n", head);
 		head->data = 0;
 		head->next = NULL;
 		return head;
@@ -438,6 +460,8 @@ LNode* IniList_L(LNode *L)
 ///implement TravevseList_L
 void TravevseList_L(LinkList L)
 {
+	printf("Cur list length %d_\n", GetLength_L(L));
+
 	LNode *p = L->next;
 	while (p)
 	{
@@ -468,8 +492,6 @@ Status GetElem_L(LinkList L,int i,  ElemType *e)
 	return OK;
 }
 ///
-///////End Link List//////////
-
 
 ///Implement ListInsert_L
 Status ListInsert_L(LinkList L, int i, ElemType e)
@@ -478,7 +500,7 @@ Status ListInsert_L(LinkList L, int i, ElemType e)
 	LNode *p = L;
 	int j = 0;
 
-	while (p && j<i-1)
+	while (p && j<i - 1)
 	{
 		p = p->next;
 		++j;
@@ -499,25 +521,71 @@ Status ListInsert_L(LinkList L, int i, ElemType e)
 }
 /////////////
 
+///implement MergeList_L
+void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
+{
+	//
+	LNode *pa = La->next;
+	LNode *pb = Lb->next;
+
+	while (pa)
+	{
+		ListInsert_L(Lc, 1, pa->data);
+		pa = pa->next;
+	}
+
+	while (pb)
+	{
+		ListInsert_L(Lc, 1, pb->data);
+		pb = pb->next;
+	}
+
+}
+///
+
+
+
+///////End Link List//////////
+
+
+
 ///
 int main()
 {
-	//
+	////list0
 	LinkList list;
 	LNode L;
 	list = IniList_L(&L);
 	
-	ElemType *e = (ElemType *)malloc(sizeof(ElemType));
-	
-	ListInsert_L(list, 1, 3);
-	ListInsert_L(list, 1, 4);
-	ListInsert_L(list, 1, 5);
-	ListInsert_L(list, 1, 6);
-
-	//GetElem_L(list, 3, e);
-	//printf("%d\n", *e);
+	for (size_t i = 2; i < 8; i++)
+	{
+		ListInsert_L(list, 1, i);
+	}
 
 	TravevseList_L(list);
+
+	/////////////////list1
+	LinkList list1;
+	//LNode L;
+	list1 = IniList_L(&L);
+
+	for (size_t i = 10; i < 15; i++)
+	{
+		ListInsert_L(list1, 1, i);
+	}
+
+	TravevseList_L(list1);
+
+	///Length
+	//printf("%d_%d\n", GetLength_L(list), GetLength_L(list1));
+	
+	////MergeList 
+	LinkList listMerge;
+	listMerge = IniList_L(&L);
+
+	MergeList_L(list, list1, listMerge);
+	
+	TravevseList_L(listMerge);
 
 	return 0;
 }

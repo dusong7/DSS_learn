@@ -433,6 +433,19 @@ Status GetPreElem_L(LinkList L, ElemType eCur, ElemType *ePre)
 	}
 	*ePre = -99999;
 	return INFEASIABLE;
+	
+	//
+	Node *p = L->nex
+	Node *q
+	while(p->n)
+	{
+		q=p->n
+			if(==)
+			{}
+		el
+		{*p=*q
+			
+	}
 }
 /////
 

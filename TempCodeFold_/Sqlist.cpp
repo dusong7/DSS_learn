@@ -417,7 +417,22 @@ typedef struct LNode
 Status GetPreElem_L(LinkList L, ElemType eCur, ElemType *ePre)
 {
 	//
-	return OK;
+	LNode *Pre = L;
+	LNode *Cur = L->next;
+	int nCurPosi = 0;
+	int nPrePosi = 0;
+	while (Cur)
+	{
+		if (Cur->data == eCur)
+		{
+			*ePre = Pre->data;
+			return OK;			
+		}
+		Cur = Cur->next;
+		Pre = Pre->next;
+	}
+	*ePre = -99999;
+	return INFEASIABLE;
 }
 /////
 
@@ -544,10 +559,7 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 ///
 
 
-
 ///////End Link List//////////
-
-
 
 ///
 int main()
@@ -574,7 +586,7 @@ int main()
 		ListInsert_L(list1, 1, i);
 	}
 
-	TravevseList_L(list1);
+	//TravevseList_L(list1);
 
 	///Length
 	//printf("%d_%d\n", GetLength_L(list), GetLength_L(list1));
@@ -583,9 +595,13 @@ int main()
 	LinkList listMerge;
 	listMerge = IniList_L(&L);
 
-	MergeList_L(list, list1, listMerge);
+	//MergeList_L(list, list1, listMerge);
 	
 	TravevseList_L(listMerge);
+
+	ElemType *ePre = (ElemType *)malloc(sizeof(ElemType));
+	GetPreElem_L(list, 5, ePre);
+	printf("Pre elem is %d\n", *ePre);
 
 	return 0;
 }

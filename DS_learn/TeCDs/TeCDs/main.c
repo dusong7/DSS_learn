@@ -615,50 +615,53 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 }
 ///
 
+///
+/// Test for LinkList
+////list0
+//LinkList list;
+//LNode L;
+//list = IniList_L(&L);
+//
+//for (int i = 2; i < 8; i++)
+//{
+//    ListInsert_L(list, 1, i);
+//}
+//
+////TravevseList_L(list);
 
+/////////////////list1
+///LinkList list1;
+//LNode L;
+//list1 = IniList_L(&L);
+//
+//for (int i = 10; i < 15; i++)
+//{
+//    ListInsert_L(list1, 1, i);
+//}
+//
+////TravevseList_L(list1);
+//
+/////Length
+////printf("%d_%d\n", GetLength_L(list), GetLength_L(list1));
+//
+//////MergeList
+//LinkList listMerge;
+//listMerge = IniList_L(&L);
+//
+//MergeList_L(list, list1, listMerge);
+//
+//TravevseList_L(listMerge);
+//
+//ElemType *ePre = (ElemType *)malloc(sizeof(ElemType));
+////GetPreElem_L(list, 5, ePre);
+////printf("Pre elem is %d\n", *ePre);
+//// End Test for LinkList
 ///////End Link List//////////
 
 ///
 int main()
 {
-    ////list0
-    LinkList list;
-    LNode L;
-    list = IniList_L(&L);
-    
-    for (int i = 2; i < 8; i++)
-    {
-        ListInsert_L(list, 1, i);
-    }
-    
-    //TravevseList_L(list);
-    
-    /////////////////list1
-    LinkList list1;
-    //LNode L;
-    list1 = IniList_L(&L);
-    
-    for (int i = 10; i < 15; i++)
-    {
-        ListInsert_L(list1, 1, i);
-    }
-    
-    //TravevseList_L(list1);
-    
-    ///Length
-    //printf("%d_%d\n", GetLength_L(list), GetLength_L(list1));
-    
-    ////MergeList 
-    LinkList listMerge;
-    listMerge = IniList_L(&L);
-    
-    MergeList_L(list, list1, listMerge);
-    
-    TravevseList_L(listMerge);
-    
-    ElemType *ePre = (ElemType *)malloc(sizeof(ElemType));
-    //GetPreElem_L(list, 5, ePre);
-    //printf("Pre elem is %d\n", *ePre);
-    
+
+
     return 0;
 }

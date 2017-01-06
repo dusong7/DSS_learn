@@ -659,6 +659,11 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 ///////End Link List//////////
 
 ///
+
+Init_space_SL(List L)
+{
+///
+}
 int main()
 {
     

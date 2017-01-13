@@ -1,3 +1,4 @@
+#include "stdafx.h"
 //INCLUDE_COMMON_DEFINE//
 #include<stdio.h>
 #include <stdlib.h>
@@ -11,7 +12,7 @@
 typedef int ElemType;
 typedef int Status;
 
-//#define CPPTYPEFILE
+#define CPPTYPEFILE
 
 #ifndef CPPTYPEFILE
 typedef int bool;
@@ -44,75 +45,75 @@ typedef int bool;
 //##
 /////////Begin Single List//////////////
 typedef struct {
-    ElemType *elem;
-    int     length;
-    int     listsize;
+	ElemType *elem;
+	int     length;
+	int     listsize;
 }Sqlist;
 //
 ///implement InitList//
 Status Init_list_sq(Sqlist *L)
 {
-    L->elem = (ElemType *)malloc(sizeof(ElemType) * LIST_INIT_SIZE);
-    if (!L->elem)
-    {
-        exit(OVERFLOW);
-    }
-    L->length = 0;
-    L->listsize = LIST_INIT_SIZE;
+	L->elem = (ElemType *)malloc(sizeof(ElemType) * LIST_INIT_SIZE);
+	if (!L->elem)
+	{
+		exit(OVERFLOW);
+	}
+	L->length = 0;
+	L->listsize = LIST_INIT_SIZE;
 
-    //simple assign value
-    /*
-     int i = 0;
-     for (i=0; i<LIST_INIT_SIZE;i++)
-     {
-     L->elem[i]=i;
-     //info[i].IDNumber = i;
-     //memcpy(info[i].name,"Tindu",sizeof("Tindu"));
-     }
-     */
+	//simple assign value
+	/*
+	int i = 0;
+	for (i=0; i<LIST_INIT_SIZE;i++)
+	{
+	L->elem[i]=i;
+	//info[i].IDNumber = i;
+	//memcpy(info[i].name,"Tindu",sizeof("Tindu"));
+	}
+	*/
 
-    return OK;
+	return OK;
 }
 //
 
 ///Implement InsertaList//
 Status InsertList_sq(Sqlist *L, int i, ElemType e)
 {
-    //over maxsize
-    //    if (L->length>LIST_INIT_SIZE || LIST_INIT_SIZE<i<0)
-    //    {
-    //        exit(OVERFLOW);
-    //    }
+	//over maxsize
+	//    if (L->length>LIST_INIT_SIZE || LIST_INIT_SIZE<i<0)
+	//    {
+	//        exit(OVERFLOW);
+	//    }
 
-    ElemType *q;
-    ElemType *p;
+	ElemType *q;
+	ElemType *p;
 
-    if (L->length >= L->listsize)
-    {
-        ElemType *newbase = (ElemType *)realloc(L->elem,
-                                                sizeof(ElemType) * (L->listsize + LINSTINCREMENT));
-        L->elem = newbase;
-        L->listsize += LINSTINCREMENT;
-    }
-    //simple assign
-    //
-    //    int j = 0;
-    //    for (j = L->length; j>=i; j--) {
-    //        //
-    //        L->elem[j + 1] = L->elem[j];
-    //    }
-    //
-    //    L->elem[i] = e;
-    //    L->length++;
+	if (L->length >= L->listsize)
+	{
+		ElemType *newbase = (ElemType *)realloc(L->elem,
+			sizeof(ElemType) * (L->listsize + LINSTINCREMENT));
+		L->elem = newbase;
+		L->listsize += LINSTINCREMENT;
+	}
+	//simple assign
+	//
+	//    int j = 0;
+	//    for (j = L->length; j>=i; j--) {
+	//        //
+	//        L->elem[j + 1] = L->elem[j];
+	//    }
+	//
+	//    L->elem[i] = e;
+	//    L->length++;
 
-    q = &(L->elem[i - 1]);
-    for (p = &(L->elem[L->length - 1]); p >= q; --p) {
-        *(p + 1) = *p;
-    }
+	q = &(L->elem[i - 1]);
+	for (p = &(L->elem[L->length - 1]); p >= q; --p) {
+		*(p + 1) = *p;
+	}
 
-    *q = e;
-    ++L->length;
-    return OK;
+	*q = e;
+	++L->length;
+	return OK;
 
 }
 /////////
@@ -120,87 +121,87 @@ Status InsertList_sq(Sqlist *L, int i, ElemType e)
 ////////Implement ListTraverse///
 Status ListTraverse_sq(Sqlist *L)
 {
-    if (!L->elem)
-    {
-        return ERROR;
-    }
+	if (!L->elem)
+	{
+		return ERROR;
+	}
 
-    int i;
-    if (L->length != 0)
-    {
-        for (i = 0; i < L->length; ++i)
-        {
-            printf("%d_\n", L->elem[i]);
-        }
-    }
-    return OK;
+	int i;
+	if (L->length != 0)
+	{
+		for (i = 0; i < L->length; ++i)
+		{
+			printf("%d_\n", L->elem[i]);
+		}
+	}
+	return OK;
 }
 /////////////////
 
 ///////Implement isListEmpty
 bool isListEmpty_sq(Sqlist *L)
 {
-    if (L->length == 0)
-    {
-        return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
+	if (L->length == 0)
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
 }
 ////
 
 ////implement ListLength
 Status ListLength_sq(Sqlist *L)
 {
-    if (L != NULL)
-    {
-        return (L->length);
-    }
+	if (L != NULL)
+	{
+		return (L->length);
+	}
 
-    return ERROR;
+	return ERROR;
 }
 ////
 
 /// implement GetElement
 int GetElement_sq(Sqlist *L, int i, ElemType *e)
 {
-    //
-    if (!L->elem)
-    {
-        return INFEASIABLE;
-    }
-    else if (1<i || i<L->length)
-    {
-        return ERROR;
-    }
+	//
+	if (!L->elem)
+	{
+		return INFEASIABLE;
+	}
+	else if (1<i || i<L->length)
+	{
+		return ERROR;
+	}
 
-    *e = (L->elem[i]);
-    return OK;
+	*e = (L->elem[i]);
+	return OK;
 }
 /// \return
 
 ///implement locateElement_sq
 int LocateElement_sq(Sqlist *L, ElemType e,
-                     Status(*compare)(ElemType, ElemType))
+	Status(*compare)(ElemType, ElemType))
 {
-    //
-    ElemType  *p;
-    int i = 1;
-    p = L->elem;
-    while (i <= L->length && !(*compare)(*p++, e))
-    {
-        ++i;
-    }
-    if (i <= L->length)
-    {
-        return i;
-    }
-    else
-    {
-        return 0;
-    }
+	//
+	ElemType  *p;
+	int i = 1;
+	p = L->elem;
+	while (i <= L->length && !(*compare)(*p++, e))
+	{
+		++i;
+	}
+	if (i <= L->length)
+	{
+		return i;
+	}
+	else
+	{
+		return 0;
+	}
 }
 /////////////////
 
@@ -208,126 +209,126 @@ int LocateElement_sq(Sqlist *L, ElemType e,
 
 int isExistAlready(Sqlist L, ElemType e)
 {
-    for (int i = 0; i < L.length; i++)
-    {
-        if (L.elem[i] == e)
-        {
-            return 1;
-        }
-    }
+	for (int i = 0; i < L.length; i++)
+	{
+		if (L.elem[i] == e)
+		{
+			return 1;
+		}
+	}
 
-    return 0;
+	return 0;
 }
 ////////////
 
 //////////////implement listMerge
 void ListMerge_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 {
-    //
-    int lengthLa = La.length;
-    int lengthLb = La.length;
+	//
+	int lengthLa = La.length;
+	int lengthLb = La.length;
 
-    for (int i = 0; i < lengthLa; i++)
-    {
-        InsertList_sq(Lc, 1,La.elem[i]);
-    }
+	for (int i = 0; i < lengthLa; i++)
+	{
+		InsertList_sq(Lc, 1, La.elem[i]);
+	}
 
-    for (int i = 0; i < lengthLb; i++)
-    {
-        if (!isExistAlready(La,Lb.elem[i]))
-        {
-            InsertList_sq(Lc, 1, Lb.elem[i]);
-        }
-    }
+	for (int i = 0; i < lengthLb; i++)
+	{
+		if (!isExistAlready(La, Lb.elem[i]))
+		{
+			InsertList_sq(Lc, 1, Lb.elem[i]);
+		}
+	}
 }
 /////
 
 ///implement MergeList
 void MergeList_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 {
-    ElemType *pa = La.elem;
-    ElemType *pb = Lb.elem;
+	ElemType *pa = La.elem;
+	ElemType *pb = Lb.elem;
 
-    Lc->listsize = Lc->length = La.length + Lb.length;
-    ElemType *pc = Lc->elem = (ElemType *)malloc(sizeof(ElemType) *
-                                                 Lc->listsize);
-    if (!Lc->elem)
-    {
-        exit(OVERFLOW);
-    }
+	Lc->listsize = Lc->length = La.length + Lb.length;
+	ElemType *pc = Lc->elem = (ElemType *)malloc(sizeof(ElemType) *
+		Lc->listsize);
+	if (!Lc->elem)
+	{
+		exit(OVERFLOW);
+	}
 
-    ElemType *pa_last = La.elem + La.length - 1;
-    ElemType *pb_last = Lb.elem + Lb.length - 1;
+	ElemType *pa_last = La.elem + La.length - 1;
+	ElemType *pb_last = Lb.elem + Lb.length - 1;
 
-    while (pa <= pa_last && pb<=pb_last)
-    {
-        if (*pa <= *pb)
-        {
-            *pc++ = *pa++;
-        }
-        else
-        {
-            *pc++ = *pb++;
-        }
-    }
+	while (pa <= pa_last && pb <= pb_last)
+	{
+		if (*pa <= *pb)
+		{
+			*pc++ = *pa++;
+		}
+		else
+		{
+			*pc++ = *pb++;
+		}
+	}
 
-    while (pa<=pa_last)
-    {
-        *pc++ = *pa++;
-    }
+	while (pa <= pa_last)
+	{
+		*pc++ = *pa++;
+	}
 
-    while (pb <= pb_last)
-    {
-        *pc++ = *pb++;
-    }
+	while (pb <= pb_last)
+	{
+		*pc++ = *pb++;
+	}
 }
 
 ////implement ListDelete
 Status ListDelete_sq(Sqlist *L, int i, ElemType *e)
 {
-    //
-    ElemType *p;
-    ElemType *q;
+	//
+	ElemType *p;
+	ElemType *q;
 
-    if (i<1 || i>L->length)
-    {
-        return ERROR;
-    }
-    p = &(L->elem[i - 1]);
-    e = p;
-    q = L->elem + L->length - 1;
-    for (++p; p <= q; p++)
-    {
-        *(p - 1) = *p;
-    }
-    --L->length;
+	if (i<1 || i>L->length)
+	{
+		return ERROR;
+	}
+	p = &(L->elem[i - 1]);
+	e = p;
+	q = L->elem + L->length - 1;
+	for (++p; p <= q; p++)
+	{
+		*(p - 1) = *p;
+	}
+	--L->length;
 
-    return OK;
+	return OK;
 }
 
 //////
 Status compare(ElemType e1, ElemType e2)
 {
-    if (e1 == e2)
-    {
-        return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
+	if (e1 == e2)
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
 }
 /////
 
 //implement ClearList_sq
 Status ClearList_sq(Sqlist *L)
 {
-    if (!L)
-    {
-        return ERROR;
-    }
-    L->length = 0;
-    return OK;
+	if (!L)
+	{
+		return ERROR;
+	}
+	L->length = 0;
+	return OK;
 }
 /////
 
@@ -335,14 +336,14 @@ Status ClearList_sq(Sqlist *L)
 ///implement DestroyList_sq
 Status DestroyList_sq(Sqlist *L)
 {
-    if (!L)
-    {
-        return ERROR;
-    }
-    free(L->elem);
-    L->elem = NULL;
+	if (!L)
+	{
+		return ERROR;
+	}
+	free(L->elem);
+	L->elem = NULL;
 
-    return OK;
+	return OK;
 }
 ///
 /////#Test Contenyt for Sqlist___
@@ -396,8 +397,8 @@ Status DestroyList_sq(Sqlist *L)
 ///////Begin Link List////////
 typedef struct LNode
 {
-    ElemType data;
-    struct LNode *next;
+	ElemType data;
+	struct LNode *next;
 }LNode, *LinkList;
 
 //////Common function
@@ -416,41 +417,41 @@ typedef struct LNode
 /////implement GetPreElem_L
 Status GetPreElem_L(LinkList L, ElemType eCur, ElemType *ePre)
 {
-    //
-    //    LNode *Pre = L;
-    //    LNode *Cur = L->next;
-    //    int nCurPosi = 0;
-    //    int nPrePosi = 0;
-    //    while (Cur)
-    //    {
-    //        if (Cur->data == eCur)
-    //        {
-    //            *ePre = Pre->data;
-    //            return OK;
-    //        }
-    //        Cur = Cur->next;
-    //        Pre = Pre->next;
-    //    }
-    //    *ePre = -99999;
-    //    return INFEASIABLE;
+	//
+	//    LNode *Pre = L;
+	//    LNode *Cur = L->next;
+	//    int nCurPosi = 0;
+	//    int nPrePosi = 0;
+	//    while (Cur)
+	//    {
+	//        if (Cur->data == eCur)
+	//        {
+	//            *ePre = Pre->data;
+	//            return OK;
+	//        }
+	//        Cur = Cur->next;
+	//        Pre = Pre->next;
+	//    }
+	//    *ePre = -99999;
+	//    return INFEASIABLE;
 
 
-    LNode *p = L->next; //point first node
-    LNode *q;
-    while(p->next)
-    {
-        q=p->next;
-        if (q->data == eCur)
-        {
-            *ePre = p->data;
-            return OK;
-        }
-        else
-        {
-            *p=*q;
-        }
-    }
-    return OK;
+	LNode *p = L->next; //point first node
+	LNode *q;
+	while (p->next)
+	{
+		q = p->next;
+		if (q->data == eCur)
+		{
+			*ePre = p->data;
+			return OK;
+		}
+		else
+		{
+			*p = *q;
+		}
+	}
+	return OK;
 }
 /////
 
@@ -458,160 +459,159 @@ Status GetPreElem_L(LinkList L, ElemType eCur, ElemType *ePre)
 ////implement GetLength_L
 Status GetLength_L(LinkList L)
 {
-    int i = 0;
-    LNode *p = L->next;
+	int i = 0;
+	LNode *p = L->next;
 
-    while (p)
-    {
-        i++;
-        p = p->next;
-    }
-    return i;
+	while (p)
+	{
+		i++;
+		p = p->next;
+	}
+	return i;
 }
 ///
 /////Implement iniList_L
 LNode* IniList_L(LNode *L)
 {
-    //
-    LNode *head;
-    head = (LNode *)malloc(sizeof(LNode));
-    if (!head)
-    {
-        return NULL;
-    }
-    else
-    {
-        //printf("Head node position %x\n", head);
-        head->data = 0;
-        head->next = NULL;
-        return head;
-    }
+	//
+	LNode *head;
+	head = (LNode *)malloc(sizeof(LNode));
+	if (!head)
+	{
+		return NULL;
+	}
+	else
+	{
+		//printf("Head node position %x\n", head);
+		head->data = 0;
+		head->next = NULL;
+		return head;
+	}
 }
 //////
 
 ///implement TravevseList_L
 void TravevseList_L(LinkList L)
 {
-    printf("Cur list length %d_\n", GetLength_L(L));
+	printf("Cur list length %d_\n", GetLength_L(L));
 
-    LNode *p = L->next;
-    while (p)
-    {
-        printf("%d\n", p->data);
-        p = p->next;
-    }
+	LNode *p = L->next;
+	while (p)
+	{
+		printf("%d\n", p->data);
+		p = p->next;
+	}
 }
 
 ////
 
 ////implement GetElem_L
-Status GetElem_L(LinkList L,int i,  ElemType *e)
+Status GetElem_L(LinkList L, int i, ElemType *e)
 {
-    LNode *p = L->next;  //can asign =L,
-    int j = 1;
+	LNode *p = L->next;  //can asign =L,
+	int j = 1;
 
-    while (p&& j<i)
-    {
-        p = p->next;
-        ++j;
-    }
-    if (!p || j>i)
-    {
-        return ERROR;
-    }
-    *e = p->data;
+	while (p&& j<i)
+	{
+		p = p->next;
+		++j;
+	}
+	if (!p || j>i)
+	{
+		return ERROR;
+	}
+	*e = p->data;
 
-    return OK;
+	return OK;
 }
 ///
 
 ///Implement ListInsert_L
 Status ListInsert_L(LinkList L, int i, ElemType e)
 {
-    //
-    LNode *p = L;
-    int j = 0;
+	//
+	LNode *p = L;
+	int j = 0;
 
-    while (p && j<i - 1)
-    {
-        p = p->next;
-        ++j;
-    }
+	while (p && j<i - 1)
+	{
+		p = p->next;
+		++j;
+	}
 
-    if (!p || j>1)
-    {
-        return ERROR;
-    }
+	if (!p || j>1)
+	{
+		return ERROR;
+	}
 
-    LNode *pTemp = (LNode *)malloc(sizeof(LNode));
+	LNode *pTemp = (LNode *)malloc(sizeof(LNode));
 
-    pTemp->data = e;
-    pTemp->next = p->next;
-    p->next = pTemp;
+	pTemp->data = e;
+	pTemp->next = p->next;
+	p->next = pTemp;
 
-    return OK;
+	return OK;
 }
 /////////////
 
 ///implement MergeList_L
 void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 {
-    //
-    LNode *pa = La->next;
-    LNode *pb = Lb->next;
-    LNode *pc = Lc;
+	//
+	LNode *pa = La->next;
+	LNode *pb = Lb->next;
+	LNode *pc = Lc;
 
-    pc->next = pa;
+	pc->next = pa;
 
-    //    Lc = pc = pa;
-    //
-    //    while (pa)
-    //    {
-    //        ListInsert_L(Lc, 1, pa->data);
-    //        pa = pa->next;
-    //    }
-    //
-    //    while (pb)
-    //    {
-    //        ListInsert_L(Lc, 1, pb->data);
-    //        pb = pb->next;
-    //    }
+	//    Lc = pc = pa;
+	//
+	//    while (pa)
+	//    {
+	//        ListInsert_L(Lc, 1, pa->data);
+	//        pa = pa->next;
+	//    }
+	//
+	//    while (pb)
+	//    {
+	//        ListInsert_L(Lc, 1, pb->data);
+	//        pb = pb->next;
+	//    }
 
-    //Other
-    //    while (pa  && pb) {
-    //        //
-    //        if (pa->data <=pb->data) {
-    //            pc->next = pa;
-    //            pc = pa;
-    //            pa = pa->next;
-    //        }
-    //        else
-    //        {
-    //            pc->next = pb;
-    //            pc = pb;
-    //            pb = pb->next;
-    //        }
-    //    }
-    //
-    //pc->next = pa?pa:pb;
-    while (pa  && pb) {
-        if (pa->data <=pb->data) {
-            pc->next = pa;
-            pc = pa;
-            pa = pa->next;
+	//Other
+	//    while (pa  && pb) {
+	//        //
+	//        if (pa->data <=pb->data) {
+	//            pc->next = pa;
+	//            pc = pa;
+	//            pa = pa->next;
+	//        }
+	//        else
+	//        {
+	//            pc->next = pb;
+	//            pc = pb;
+	//            pb = pb->next;
+	//        }
+	//    }
+	//
+	//pc->next = pa?pa:pb;
+	while (pa  && pb) {
+		if (pa->data <= pb->data) {
+			pc->next = pa;
+			pc = pa;
+			pa = pa->next;
 
-        }
-        else
-        {
-            pc->next = pb;
-            pc = pb;
-            pb=pb->next;
-        }
+		}
+		else
+		{
+			pc->next = pb;
+			pc = pb;
+			pb = pb->next;
+		}
+	}
+	pc->next = pa ? pa : pb;
 
-    }
-    pc->next = pa?pa:pb;
-
-    //    free(Lb);
+	//    free(Lb);
 }
 ///
 
@@ -658,10 +658,70 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 //// End Test for LinkList
 ///////End Link List//////////
 
+///Begin Static Link list
 ///
+
+#define MAXSIZE 100
+
+typedef struct {
+	ElemType data;
+	int cur;
+}compoent, SLinkList[MAXSIZE];
+
+
+///Common functions
+//Init_Space_SL
+//LocateElement_SL
+//Malloc_SL
+//Free_SL
+//difference_SL
+/////////////////
+
+////Init_space_SL
+void Init_space_SL(SLinkList space)
+{
+	int i = 0;
+	for ( i = 0; i < MAXSIZE; i++)
+	{
+		(space[i].cur) = i+1;
+	}
+	space[MAXSIZE - 1].cur = 0;
+}
+///
+
+///Malloc_SL
+int Malloc_SL(SLinkList *space)
+{
+	//
+	int i = space[0]->cur;
+	if (space[0]->cur)
+	{
+		space[0]->cur = space[i]->cur;
+	}
+
+	return i;
+}
+///
+
+///LocateElement_SL
+
+////
+
+/// 
+///End Static Link list
+
+
 int main()
 {
-    
-    
-    return 0;
+	SLinkList list;
+	Init_space_SL(list);
+
+	typedef int Name[10];
+	Name name;
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		name[i] = 100;
+	}
+	return 0;
 }

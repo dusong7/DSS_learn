@@ -22,6 +22,8 @@ typedef int bool;
 #define LIST_INIT_SIZE 100//
 #define LINSTINCREMENT 10 //
 
+
+
 ////////////////////
 
 //
@@ -556,6 +558,7 @@ Status ListInsert_L(LinkList L, int i, ElemType e)
 ///implement MergeList_L
 void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 {
+    //also can make *Lc, call is (,,&MergeList)
     //
     LNode *pa = La->next;
     LNode *pb = Lb->next;
@@ -615,7 +618,8 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 }
 ///
 
-///
+////
+///##########
 /// Test for LinkList
 ////list0
 //LinkList list;
@@ -655,13 +659,55 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 //ElemType *ePre = (ElemType *)malloc(sizeof(ElemType));
 ////GetPreElem_L(list, 5, ePre);
 ////printf("Pre elem is %d\n", *ePre);
-//// End Test for LinkList
+//// ### End Test for LinkList ######
+////
 ///////End Link List//////////
 
+///Start static link list
+#define MAXSIZE 100
+
+typedef struct {
+    ElemType data;
+    int cur;
+
+}compont, SLinkList[MAXSIZE];
+
+ 
+///Common Funcitons
+//Init_Space_SL
+//Free_SL
+//LocateElem_SL
+//difference
+//malloc_SL
+//implement Init_Space_SL
+void InitSpace_SL(SLinkList *space)
+{
+    int i = 0;
+
+    for ( i=0 ; i<MAXSIZE  ;++i )
+    {
+        //
+        space[i]->cur = i+1;
+        space[MAXSIZE-1]->cur = 0;
+    }
+}
 ///
+
+///implement Free_SL
+///
+
+///implement LocateElem_SL
+///
+
+///implement diffenrence
+///
+
+
+////End static link list
+
+
 int main()
 {
-
 
     return 0;
 }

@@ -43,7 +43,7 @@ typedef int bool;
 // ListTraverse(L, visit())
 //
 //##
-
+/////////Begin Single List//////////////
 typedef struct {
 	ElemType *elem;
 	int     length;
@@ -119,8 +119,13 @@ Status InsertList_sq(Sqlist *L, int i, ElemType e)
 /////////
 
 ////////Implement ListTraverse///
-void ListTraverse_sq(Sqlist *L)
+Status ListTraverse_sq(Sqlist *L)
 {
+	if (!L->elem)
+	{
+		return ERROR;
+	}
+
 	int i;
 	if (L->length != 0)
 	{
@@ -129,6 +134,7 @@ void ListTraverse_sq(Sqlist *L)
 			printf("%d_\n", L->elem[i]);
 		}
 	}
+	return OK;
 }
 /////////////////
 
@@ -176,7 +182,6 @@ int GetElement_sq(Sqlist *L, int i, ElemType *e)
 }
 /// \return
 
-
 ///implement locateElement_sq
 int LocateElement_sq(Sqlist *L, ElemType e,
 	Status(*compare)(ElemType, ElemType))
@@ -204,7 +209,7 @@ int LocateElement_sq(Sqlist *L, ElemType e,
 
 int isExistAlready(Sqlist L, ElemType e)
 {
-	for (size_t i = 0; i < L.length; i++)
+	for (int i = 0; i < L.length; i++)
 	{
 		if (L.elem[i] == e)
 		{
@@ -223,14 +228,14 @@ void ListMerge_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 	int lengthLa = La.length;
 	int lengthLb = La.length;
 
-	for (size_t i = 0; i < lengthLa; i++)
+	for (int i = 0; i < lengthLa; i++)
 	{
-		InsertList_sq(Lc, 1,La.elem[i]);
+		InsertList_sq(Lc, 1, La.elem[i]);
 	}
 
-	for (size_t i = 0; i < lengthLb; i++)
+	for (int i = 0; i < lengthLb; i++)
 	{
-		if (!isExistAlready(La,Lb.elem[i]))
+		if (!isExistAlready(La, Lb.elem[i]))
 		{
 			InsertList_sq(Lc, 1, Lb.elem[i]);
 		}
@@ -255,7 +260,7 @@ void MergeList_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 	ElemType *pa_last = La.elem + La.length - 1;
 	ElemType *pb_last = Lb.elem + Lb.length - 1;
 
-	while (pa <= pa_last && pb<=pb_last)
+	while (pa <= pa_last && pb <= pb_last)
 	{
 		if (*pa <= *pb)
 		{
@@ -267,7 +272,7 @@ void MergeList_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 		}
 	}
 
-	while (pa<=pa_last)
+	while (pa <= pa_last)
 	{
 		*pc++ = *pa++;
 	}
@@ -301,8 +306,8 @@ Status ListDelete_sq(Sqlist *L, int i, ElemType *e)
 	return OK;
 }
 
-//
-int compare(ElemType e1, ElemType e2)
+//////
+Status compare(ElemType e1, ElemType e2)
 {
 	if (e1 == e2)
 	{
@@ -314,45 +319,476 @@ int compare(ElemType e1, ElemType e2)
 	}
 }
 /////
+
+//implement ClearList_sq
+Status ClearList_sq(Sqlist *L)
+{
+	if (!L)
+	{
+		return ERROR;
+	}
+	L->length = 0;
+	return OK;
+}
+/////
+
+
+///implement DestroyList_sq
+Status DestroyList_sq(Sqlist *L)
+{
+	if (!L)
+	{
+		return ERROR;
+	}
+	free(L->elem);
+	L->elem = NULL;
+
+	return OK;
+}
+///
+/////#Test Contenyt for Sqlist___
+//#
+//Sqlist myList;
+//Init_list_sq(&myList);
+//
+//int i = 0;
+//for (i = 0; i < 5; ++i) {
+//	InsertList_sq(&myList, 1, i + 10);
+//}
+//ListTraverse_sq(&myList);
+/////////////////////////////////////
+//Sqlist myList2;
+//Init_list_sq(&myList2);
+//
+//for (i = 3; i < 7; ++i) {
+//	InsertList_sq(&myList2, 1, i + 10);
+//}
+//ListTraverse_sq(&myList2);
+/////////////////////////////////////
+//
+//int x = LocateElement_sq(&myList, 14, compare);
+//printf("Locate _%d\n", x);
+//
+////    ElemType *eCur = (ElemType *)malloc(sizeof(ElemType));
+////    for (int i = 2; i < 10; i++)
+////    {
+////        GetElement(&myList, 2*i, eCur);
+////        printf("%d_cur\n", *eCur);
+////    }
+////    ListDelete(&myList, 4, eCur);
+////    printf("%d_Del\n", *eCur);
+////    printf("List Length %d_\n", ListLength(&myList));
+//
+//Sqlist listMerge;
+//Init_list_sq(&listMerge);
+////ListMerge(myList, myList2, &listMerge);
+//MergeList_sq(myList, myList2, &listMerge);
+//
+//ListTraverse_sq(&myList);
+//DestroyList_sq(&myList);
+//
+//ListTraverse_sq(&myList);
+//ListTraverse_sq(&listMerge);
+////
+/////End _Test Contenyt for Sqlist___
+
+/////////End Single List//////////////
+
+///////Begin Link List////////
+typedef struct LNode
+{
+	ElemType data;
+	struct LNode *next;
+}LNode, *LinkList;
+
+//////Common function
+//IniList_L
+//InsertList_L
+//TravevseList_L
+//DeleteElem_L
+//GetPreElem_L
+//ClearList_L
+//DestroyList_L
+//MergeList_L
+//GetLength_L
+////End Common function
+//
+
+/////implement GetPreElem_L
+Status GetPreElem_L(LinkList L, ElemType eCur, ElemType *ePre)
+{
+	//
+	//    LNode *Pre = L;
+	//    LNode *Cur = L->next;
+	//    int nCurPosi = 0;
+	//    int nPrePosi = 0;
+	//    while (Cur)
+	//    {
+	//        if (Cur->data == eCur)
+	//        {
+	//            *ePre = Pre->data;
+	//            return OK;
+	//        }
+	//        Cur = Cur->next;
+	//        Pre = Pre->next;
+	//    }
+	//    *ePre = -99999;
+	//    return INFEASIABLE;
+
+
+	LNode *p = L->next; //point first node
+	LNode *q;
+	while (p->next)
+	{
+		q = p->next;
+		if (q->data == eCur)
+		{
+			*ePre = p->data;
+			return OK;
+		}
+		else
+		{
+			*p = *q;
+		}
+	}
+	return OK;
+}
+/////
+
+
+////implement GetLength_L
+Status GetLength_L(LinkList L)
+{
+	int i = 0;
+	LNode *p = L->next;
+
+	while (p)
+	{
+		i++;
+		p = p->next;
+	}
+	return i;
+}
+///
+/////Implement iniList_L
+LNode* IniList_L(LNode *L)
+{
+	//
+	LNode *head;
+	head = (LNode *)malloc(sizeof(LNode));
+	if (!head)
+	{
+		return NULL;
+	}
+	else
+	{
+		//printf("Head node position %x\n", head);
+		head->data = 0;
+		head->next = NULL;
+		return head;
+	}
+}
+//////
+
+///implement TravevseList_L
+void TravevseList_L(LinkList L)
+{
+	printf("Cur list length %d_\n", GetLength_L(L));
+
+	LNode *p = L->next;
+	while (p)
+	{
+		printf("%d\n", p->data);
+		p = p->next;
+	}
+}
+
+////
+
+////implement GetElem_L
+Status GetElem_L(LinkList L, int i, ElemType *e)
+{
+	LNode *p = L->next;  //can asign =L,
+	int j = 1;
+
+	while (p&& j<i)
+	{
+		p = p->next;
+		++j;
+	}
+	if (!p || j>i)
+	{
+		return ERROR;
+	}
+	*e = p->data;
+
+	return OK;
+}
+///
+
+///Implement ListInsert_L
+Status ListInsert_L(LinkList L, int i, ElemType e)
+{
+	//
+	LNode *p = L;
+	int j = 0;
+
+	while (p && j<i - 1)
+	{
+		p = p->next;
+		++j;
+	}
+
+	if (!p || j>1)
+	{
+		return ERROR;
+	}
+
+	LNode *pTemp = (LNode *)malloc(sizeof(LNode));
+
+	pTemp->data = e;
+	pTemp->next = p->next;
+	p->next = pTemp;
+
+	return OK;
+}
+/////////////
+
+///implement MergeList_L
+void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
+{
+	//
+	LNode *pa = La->next;
+	LNode *pb = Lb->next;
+	LNode *pc = Lc;
+
+	pc->next = pa;
+
+	//    Lc = pc = pa;
+	//
+	//    while (pa)
+	//    {
+	//        ListInsert_L(Lc, 1, pa->data);
+	//        pa = pa->next;
+	//    }
+	//
+	//    while (pb)
+	//    {
+	//        ListInsert_L(Lc, 1, pb->data);
+	//        pb = pb->next;
+	//    }
+
+	//Other
+	//    while (pa  && pb) {
+	//        //
+	//        if (pa->data <=pb->data) {
+	//            pc->next = pa;
+	//            pc = pa;
+	//            pa = pa->next;
+	//        }
+	//        else
+	//        {
+	//            pc->next = pb;
+	//            pc = pb;
+	//            pb = pb->next;
+	//        }
+	//    }
+	//
+	//pc->next = pa?pa:pb;
+	while (pa  && pb) {
+		if (pa->data <= pb->data) {
+			pc->next = pa;
+			pc = pa;
+			pa = pa->next;
+
+		}
+		else
+		{
+			pc->next = pb;
+			pc = pb;
+			pb = pb->next;
+		}
+	}
+	pc->next = pa ? pa : pb;
+
+	//    free(Lb);
+}
+///
+
+///
+/// Test for LinkList
+////list0
+//LinkList list;
+//LNode L;
+//list = IniList_L(&L);
+//
+//for (int i = 2; i < 8; i++)
+//{
+//    ListInsert_L(list, 1, i);
+//}
+//
+////TravevseList_L(list);
+
+/////////////////list1
+///LinkList list1;
+//LNode L;
+//list1 = IniList_L(&L);
+//
+//for (int i = 10; i < 15; i++)
+//{
+//    ListInsert_L(list1, 1, i);
+//}
+//
+////TravevseList_L(list1);
+//
+/////Length
+////printf("%d_%d\n", GetLength_L(list), GetLength_L(list1));
+//
+//////MergeList
+//LinkList listMerge;
+//listMerge = IniList_L(&L);
+//
+//MergeList_L(list, list1, listMerge);
+//
+//TravevseList_L(listMerge);
+//
+//ElemType *ePre = (ElemType *)malloc(sizeof(ElemType));
+////GetPreElem_L(list, 5, ePre);
+////printf("Pre elem is %d\n", *ePre);
+//// End Test for LinkList
+///////End Link List//////////
+
+///Begin Static Link list
+///
+
+#define MAXSIZE 100
+
+typedef struct {
+	ElemType data;
+	int cur;
+}compoent, SLinkList[MAXSIZE];
+
+
+///Common functions
+//Init_Space_SL
+//LocateElement_SL
+//Malloc_SL
+//Free_SL
+//difference_SL
+/////////////////
+
+////Init_space_SL
+void Init_space_SL(SLinkList space)
+{
+	int i = 0;
+	for ( i = 0; i < MAXSIZE; i++)
+	{
+		(space[i].cur) = i+1;
+	}
+	space[MAXSIZE - 1].cur = 0;
+}
+///
+
+///Malloc_SL
+int Malloc_SL(SLinkList &space)
+{
+	//
+	int i = space[0].cur;
+	if (space[0].cur)
+	{
+		space[0].cur = space[i].cur;
+	}
+
+	return i;
+}
+///
+
+///LocateElement_SL
+
+////
+
+
+///Free_SL
+void Free_SL(SLinkList *L, int k)
+{
+	//
+	L[k]->cur = L[0]->cur;
+	L[0]->cur = k;
+}
+////
+
+////difference_SL
+void difference_SL(SLinkList &L, int *S)
+{
+	int m, n, i, j, r, p, k;
+	int b;
+
+	Init_space_SL(L);
+	r = *S = Malloc_SL(L);
+	scanf_s("%d%d", &m, &n);
+
+	for (size_t j = 0; j < m; j++)
+	{
+		i = Malloc_SL(L);
+		scanf_s("%d", L->data);
+		L[r].cur = i;
+		r = i;
+	}
+
+	L[r].cur = 0;//set tail pointer NULL
+
+	printf("\nB:\n");
+	for (j = 1; j <= n; ++j) {//input set B
+		//InputData(b);//input elem b
+		scanf_s("%d", &b);
+		p = *S;
+		k = L[*S].cur;//K point a first node
+		while (k != L[r].cur && !compare(L[k].data, b)) {//search in cur 
+			p = k;
+			k = L[k].cur;
+		}//while
+		if (k == L[r].cur) {//if ele not exist, insert ele p after,r pos no change
+			i = Malloc_SL(L);
+			L[i].data = b;
+			L[i].cur = L[r].cur;
+			L[r].cur = i;
+		}
+		else {//if cur elem not exist, del
+			L[p].cur = L[k].cur;
+			Free_SL(&L, k);
+			if (r == k)r = p;//if del r, modify tail p
+		}//else
+	}//for
+	//
+}
+///
+//test for SL
+//SLinkList list;
+//Init_space_SL(list);
+//
+//typedef int Name[10];
+//Name name;
+//
+//for (size_t i = 0; i < 10; i++)
+//{
+//	name[i] = 100;
+//}
+//SLinkList space;
+//int s;
+//difference_SL(space, &s);
+//printf("\nThe result is:\n\n");
+//while (s = space[s].cur) {//以s为游标移动并起判断作用
+//	printf("> %d\n", space[s].data);
+//}
+//
+//printf("\nResult End!\n");
+//////
+///End Static Link list
+
+
 int main()
 {
-	Sqlist myList;
-	Init_list_sq(&myList);
-
-	int i = 0;
-	for (i = 0; i < 5; ++i) {
-		InsertList_sq(&myList, 1, i + 10);
-	}
-	ListTraverse_sq(&myList);
-	///////////////////////////////////
-	Sqlist myList2;
-	Init_list_sq(&myList2);
-
-	for (i =3; i < 7; ++i) {
-		InsertList_sq(&myList2, 1, i + 10);
-	}
-	ListTraverse_sq(&myList2);
-	///////////////////////////////////
-
-	int x = LocateElement_sq(&myList, 14, compare);
-	printf("Locate _%d\n", x);
-
-	//    ElemType *eCur = (ElemType *)malloc(sizeof(ElemType));
-	//    for (size_t i = 2; i < 10; i++)
-	//    {
-	//        GetElement(&myList, 2*i, eCur);
-	//        printf("%d_cur\n", *eCur);
-	//    }
-	//    ListDelete(&myList, 4, eCur);
-	//    printf("%d_Del\n", *eCur);
-	//    printf("List Length %d_\n", ListLength(&myList));
-
-	Sqlist listMerge;
-	Init_list_sq(&listMerge);
-	//ListMerge(myList, myList2, &listMerge);
-	MergeList_sq(myList, myList2, &listMerge);
-
-	ListTraverse_sq(&listMerge);
 	//
+
 	return 0;
 }

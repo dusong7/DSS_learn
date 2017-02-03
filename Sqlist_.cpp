@@ -1,4 +1,3 @@
-#include "stdafx.h"
 //INCLUDE_COMMON_DEFINE//
 #include<stdio.h>
 #include <stdlib.h>
@@ -12,7 +11,7 @@
 typedef int ElemType;
 typedef int Status;
 
-#define CPPTYPEFILE
+//#define CPPTYPEFILE
 
 #ifndef CPPTYPEFILE
 typedef int bool;
@@ -209,7 +208,8 @@ int LocateElement_sq(Sqlist *L, ElemType e,
 
 int isExistAlready(Sqlist L, ElemType e)
 {
-	for (int i = 0; i < L.length; i++)
+    int i = 0;
+	for (i = 0; i < L.length; i++)
 	{
 		if (L.elem[i] == e)
 		{
@@ -227,13 +227,13 @@ void ListMerge_sq(Sqlist La, Sqlist Lb, Sqlist *Lc)
 	//
 	int lengthLa = La.length;
 	int lengthLb = La.length;
-
-	for (int i = 0; i < lengthLa; i++)
+    int i = 0;
+	for (i = 0; i < lengthLa; i++)
 	{
 		InsertList_sq(Lc, 1, La.elem[i]);
 	}
 
-	for (int i = 0; i < lengthLb; i++)
+	for (i = 0; i < lengthLb; i++)
 	{
 		if (!isExistAlready(La, Lb.elem[i]))
 		{

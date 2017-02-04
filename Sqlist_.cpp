@@ -739,7 +739,7 @@ void difference(SLinkList *space, int *S, int(*compare)(ElemType, ElemType)) {
 	for (j = 1; j <= n; ++j) {//input set B
 							  //InputData(b);//input elem b
 		scanf("%d", &b);
-
+		//compare avoid 244	
 		p = *S;
 		k = (*space)[*S].cur;//K point A first node
 		while (k != (*space)[r].cur && !compare((*space)[k].data, b)) {//serach
@@ -769,8 +769,8 @@ void difference(SLinkList *space, int *S, int(*compare)(ElemType, ElemType)) {
 //while ((s = space[s].cur) != 0) {
 //	printf("=> %d\n", space[s].data);
 //}
-////
-
+////input 1235, 244 ERR
+////set array , compare, if !isExit contine 
 ///End Static Link list
 
 int main()

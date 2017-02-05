@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:tempCodePjC/tempCodePjC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:tempCodePjCpp/tempCodePjCpp.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Alo_Review1/Alo_Review1.xcodeproj">
    </FileRef>
    <FileRef

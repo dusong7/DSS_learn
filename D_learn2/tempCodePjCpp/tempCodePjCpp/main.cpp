@@ -37,9 +37,9 @@ int comp(ElemType e1, ElemType e2)
 void InitSpace_SL(SLinkList &space)
 {
     int i;
-    for (i = 0; i<MAXSIZE; i++)
+    for (i = 0; i <MAXSIZE-1; i++)
     {
-        space[i].cur = i;
+        space[i].cur = i+1;
     }
     space[MAXSIZE - 1].cur = 0;
 }

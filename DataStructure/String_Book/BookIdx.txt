@@ -1,0 +1,9 @@
+a	123 256 156 
+beautiful	156 
+beijing	156 
+china	256 
+city	156 
+country	256 
+good	123 256 
+is	123 256 156 
+test	123 

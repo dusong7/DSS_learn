@@ -1,0 +1,20 @@
+/*
+	Ö÷º¯Êý
+*/
+
+#include "head.h"
+
+int main(void){
+	SString T1,T2,T3,T4;
+	InitString(T1,"hifor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(for(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfofor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENr(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor( girl!");
+	Print_String(T1);
+	InitString(T2,"i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLENfor(i=1;i<=MAXSTRLEN;i++)T[i]=S1[i];");
+	Print_String(T2);
+	Concat(T3,T1,T2);
+	Print_String(T3);
+	SubString(T4,T3,5,8);
+	Print_String(T4);
+	printf("\nResult End!\n");
+	system("pause");
+	return 0;
+}

@@ -776,5 +776,6 @@ void difference(SLinkList *space, int *S, int(*compare)(ElemType, ElemType)) {
 int main()
 {
     //
+
     return 0;
 }

@@ -1,0 +1,3 @@
+123	is a good test
+256	china is a good country
+156	beijing is a beautiful city

@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  Consoleself.cpp
+c:\users\admin\documents\visual studio 2015\projects\consolebblearn\consoleself\consoleself.cpp(76): warning C4018: '<': signed/unsigned mismatch
+  Consoleself.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleBBLearn\Debug\Consoleself.exe
+  Consoleself.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleBBLearn\Debug\Consoleself.pdb (Full PDB)

@@ -1,0 +1,15 @@
+﻿  ConsoleTSP_.cpp
+c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): error C2259: 'Graph': cannot instantiate abstract class
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): note: due to following members:
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): note: 'EdgeCost &Graph::operator ()(const Edge &)': is abstract
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\graph\graph.hpp(18): note: see declaration of 'Graph::operator ()'
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): note: 'const EdgeCost &Graph::operator ()(const Edge &) const': is abstract
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\graph\graph.hpp(17): note: see declaration of 'Graph::operator ()'
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): note: 'EdgeCost &Graph::operator ()(int,int)': is abstract
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\graph\graph.hpp(16): note: see declaration of 'Graph::operator ()'
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): note: 'const EdgeCost &Graph::operator ()(int,int) const': is abstract
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\graph\graph.hpp(15): note: see declaration of 'Graph::operator ()'
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): note: 'int Graph::GetNumVertices(void) const': is abstract
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\graph\graph.hpp(19): note: see declaration of 'Graph::GetNumVertices'
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\consoletsp_.cpp(70): note: 'std::string Graph::Describe(void) const': is abstract
+  c:\users\admin\documents\visual studio 2015\projects\consoletsp_\consoletsp_\graph\graph.hpp(22): note: see declaration of 'Graph::Describe'

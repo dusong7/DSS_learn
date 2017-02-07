@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (ConsoleATestt.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  ShowTe.cpp
+  ConsoleATestt.cpp
+  Generating Code...
+  ConsoleATestt.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleBBLearn\Debug\ConNamespace.exe
+  ConsoleATestt.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleBBLearn\Debug\ConNamespace.pdb (Full PDB)

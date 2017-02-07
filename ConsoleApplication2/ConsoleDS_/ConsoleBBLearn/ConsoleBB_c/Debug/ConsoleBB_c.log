@@ -1,0 +1,4 @@
+﻿  ConsoleBB_c.cpp
+c:\users\admin\documents\visual studio 2015\projects\consolebblearn\consolebb_c\consolebb_c.cpp(199): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  ConsoleBB_c.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleBBLearn\Debug\ConsoleBB_c.exe
+  ConsoleBB_c.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ConsoleBBLearn\Debug\ConsoleBB_c.pdb (Full PDB)

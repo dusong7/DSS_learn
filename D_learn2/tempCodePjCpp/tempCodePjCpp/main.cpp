@@ -1,208 +1,142 @@
-////
-////  main.cpp
-////  tempCodePjCpp
-////
-////  Created by apple on 17/2/5.
-////  Copyright © 2017年 apple. All rights reserved.
-////
-//
-//#include <iostream>
-//
-//
-//#include<stdio.h>
-//#include<stdlib.h>
-//
-//#define MAXSIZE 100
-//
-//typedef int ElemType;
-//
-//typedef struct {
-//    ElemType data;
-//    int cur;
-//}compont, SLinkList[MAXSIZE];
-//
-//int comp(ElemType e1, ElemType e2)
-//{
-//    //return e1 == e2 ? 1 : 0;
-//    if (e1 == e2)
-//    {
-//        return true;
-//    }
-//    else
-//    {
-//        return false;
-//    }
-//}
-//
-//void InitSpace_SL(SLinkList &space)
-//{
-//    int i;
-//    for (i = 0; i <MAXSIZE-1; i++)
-//    {
-//        space[i].cur = i+1;
-//    }
-//    space[MAXSIZE - 1].cur = 0;
-//}
-//
-//void Free_SL(SLinkList &space, int i)
-//{
-//    space[i].cur = space[0].cur;
-//    space[0].cur = i;
-//}
-//
-//int Malloc_SL(SLinkList &space)
-//{
-//    int i = space[0].cur;
-//    if (space[0].cur)
-//    {
-//        space[0].cur = space[i].cur;
-//    }
-//
-//    return i;
-//}
-//
-//void difference(SLinkList &space, int &S, int(*compare)(ElemType, ElemType))
-//{
-//    //
-//    int m, n, i, j, r, p, k;
-//    ElemType b;
-//    InitSpace_SL(space);
-//    r = S = Malloc_SL(space); //
-//    printf("Please input m of A, n of B set size\n");
-//    scanf("%d,%d", &m, &n);
-//
-//    for (j = 1; j <= m; j++)
-//    {
-//        i = Malloc_SL(space);
-//        scanf("%d", &space[i].data);
-//        space[r].cur = i;
-//        r = i;
-//    }
-//
-//    space[r].cur = 0;
-//    printf("\nB:\n");
-//    for (j = 1; j <= n; j++)
-//    {
-//        scanf("%d", &b);
-//        //TODO:
-//        p = S;
-//        k = space[S].cur;
-//
-//        while (k != space[r].cur && !compare(space[k].data, b))
-//        {
-//            p = k;
-//            k = space[k].cur;
-//        }
-//
-//        if (k == space[r].cur)
-//        {
-//            //
-//            i = Malloc_SL(space);
-//            space[i].data = b;
-//            space[i].cur = space[r].cur;
-//            space[r].cur = i;
-//        }
-//        else
-//        {
-//            space[p].cur = space[k].cur;
-//            Free_SL(space, k);
-//            if (r == k)
-//            {
-//                r = p;
-//            }
-//        }
-//    }
-//    
-//}
-//
-//int main()
-//{
-//    //
-//    SLinkList space;
-//    int s;
-//    difference(space, s, comp);
-//    printf("\nThe result is:\n\n");
-//    while ((s = space[s].cur) != 0) {
-//        printf("=> %d\n", space[s].data);
-//    }
-//    
-//    printf("\nResult End!\n");
-//    system("pause");
-//    return 0;
-//}
-
 #include <iostream>
 using namespace std;
 
-typedef int ElemType;
-typedef int States;
+#define OVERFLOW -2
+#define INFEASIBLE -1
+#define OK 1
+#define ERROR 0
+#define TRUE 1
+#define FALSE 0
+typedef int Status;
 
-typedef struct DuLNode
-{
+typedef struct {
+    char name[20];
+    int age;
+}ElemType;
+
+typedef struct DuLNode{
     ElemType data;
     struct DuLNode *prior;
     struct DuLNode *next;
-}DuLNode, *DuLinkList;
+}DuLNode,*DuLinkList;
 
-int InitList_DuL(DuLinkList &L, int n)
-{
-    L = NULL;
-    if (n<1) {
-        return 0;
-    }
+void input(ElemType &e){
+    printf("Input name:");
+    scanf("%s",e.name);
+    printf("Input age:");
+    scanf("%d",&e.age);
+}
 
-    L = (DuLinkList)malloc(sizeof(DuLNode));
-    L->prior = L;
-    L->next = L;
-    L->data = 0;
 
-    scanf("%d", &L->data);
+void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &)){
+    //
+    L=NULL;
+    if(n<1)return;//
+
+    L=(DuLinkList)malloc(sizeof(DuLNode));
+    L->prior=L;
+    L->next=L;
+    InputData(L->data);//
 
     DuLinkList p;
+    for(int i=n-1;i>0;--i){
+        p=(DuLinkList)malloc(sizeof(DuLNode));
+        InputData(p->data);
+        L->prior->next=p;
+        p->prior=L->prior;
+        p->next=L;
+        L=p;
+    }//for
+}//CreatList
 
-    for (int i=n-1; i>0; --i) {
-        p = (DuLinkList)malloc(sizeof(DuLNode));
-        scanf("%d", &p->data);
-        L->prior->next = p;
-        p->prior = L->prior;
-        p->next = L;
-        L = p;
-    }
-    //for
-    return 1;
-}
+int ListLength(DuLinkList L){
 
-int GetLength_DuL(DuLinkList L)
-{
-    int i = 0;
-
-    if (L == NULL) {
-        return 0;
-    }
-
-    DuLinkList p = L;
-    while (p->next != L && ++i) {
-        p = p->next;
-    }
-
+    int i=1;
+    if(L==NULL)return 0;
+    DuLinkList p=L;
+    while(p->next!=L && ++i )p=p->next;
     return i;
-}
+}//ListLength
 
-int InsertList_DuL(DuLinkList &L, int i, ElemType e)
-{
+DuLinkList GetElemP_Dul(DuLinkList L,int i){
+    if(L==NULL)return NULL;
+    DuLinkList p=L;
+    int j=0;
+    while(++j!=i){
+        if(j!=1)if(p->next==L)break;
+        p=p->next;
+    }//while
+    if(j!=i)return NULL;
+    else return p;
+}//GetElemP_Dul
 
-    return 1;
-}
+Status ListInsert_DuL(DuLinkList &L,int i,ElemType e){
 
+    DuLinkList p,s;
+    if(!(p=GetElemP_Dul(L,i)))return ERROR;//
+    if(!(s=(DuLinkList)malloc(sizeof(DuLNode))))return ERROR;//
+    s->data=e;
+    s->prior=p->prior;
+    s->next=p->next;
+    p->prior=s;
+    return OK;
+}//ListInsert_DuL
 
-int main()
-{
+Status ListDelete_Dul(DuLinkList &L,int i,ElemType &e){
+    //
+    DuLinkList p;
+    if(!(p=GetElemP_Dul(L,i)))return ERROR;//
+    e=p->data;
+    p->prior->next=p->next;
+    p->next->prior=p->prior;
+    free(p);
+    return OK;
+}//ListDelete_Dul
 
-//    cout<<"HH";
-    DuLinkList list;
-    InitList_DuL(list, 3);
-    cout<<list->data;
-    cout<<GetLength_DuL(list);
-    cout<<endl;
+Status DestroyList_Dul(DuLinkList &L){
+    //
+    if(L==NULL)return OK;
+    DuLinkList p=L,p2=L;
+    int i=0;
+    while(p!=L || ++i==1){
+        p=p->next;
+        free(p2);
+        p2=p;
+    }
+    L=NULL;
+    return OK;
+}//ClearList_Dul
+
+Status Append(DuLinkList &La,DuLinkList &Lb){
+    //
+    if(!La || !Lb )return ERROR;
+    DuLinkList p=Lb->prior;;
+    Lb->prior->next=La;
+    Lb->prior=La->prior;
+    La->prior->next=Lb;
+    La->prior=p;
+    return OK;
+}//Append
+
+int main(void){
+    DuLinkList L,p;
+    int i=0,n;
+    printf("Input list number:");
+    scanf("%d",&n);
+    CreatList_DuL(L,n,input);
+    p=L;
+    printf("\nThe result is\n");
+    while(p!=L || i++==0){
+        printf("%s => %d\n",p->data.name,p->data.age);
+        p=p->next;
+    }//while
+    printf("\nGetElem:\n");
+    for(i=1;i<=n;i++){
+        p=GetElemP_Dul(L,i);
+        printf("%d %s => %d\n",i,p->data.name,p->data.age);
+    }
+    
+    printf("\nResult End!\n");
+    system("pause");
     return 0;
 }

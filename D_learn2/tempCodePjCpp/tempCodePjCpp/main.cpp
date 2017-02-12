@@ -144,7 +144,7 @@ typedef struct DuLNode
     struct DuLNode *next;
 }DuLNode, *DuLinkList;
 
-int InitList_DuL(DuLinkList L, int n)
+int InitList_DuL(DuLinkList &L, int n)
 {
     L = NULL;
     if (n<1) {
@@ -154,6 +154,8 @@ int InitList_DuL(DuLinkList L, int n)
     L = (DuLinkList)malloc(sizeof(DuLNode));
     L->prior = L;
     L->next = L;
+    L->data = 0;
+
     scanf("%d", &L->data);
 
     DuLinkList p;
@@ -170,9 +172,37 @@ int InitList_DuL(DuLinkList L, int n)
     return 1;
 }
 
+int GetLength_DuL(DuLinkList L)
+{
+    int i = 0;
+
+    if (L == NULL) {
+        return 0;
+    }
+
+    DuLinkList p = L;
+    while (p->next != L && ++i) {
+        p = p->next;
+    }
+
+    return i;
+}
+
+int InsertList_DuL(DuLinkList &L, int i, ElemType e)
+{
+
+    return 1;
+}
+
+
 int main()
 {
 
 //    cout<<"HH";
+    DuLinkList list;
+    InitList_DuL(list, 3);
+    cout<<list->data;
+    cout<<GetLength_DuL(list);
+    cout<<endl;
     return 0;
 }

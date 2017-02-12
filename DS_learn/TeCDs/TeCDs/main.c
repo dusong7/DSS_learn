@@ -784,6 +784,7 @@ typedef struct DuLNode
 
 
 
+
 Status InitList_DuL(DuLinkList list)
 {
     //

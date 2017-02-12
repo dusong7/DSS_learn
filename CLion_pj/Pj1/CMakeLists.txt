@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
-project(CLion_pj)
+project(Pj1)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
-add_executable(CLion_pj ${SOURCE_FILES})
+set(SOURCE_FILES main.c)
+add_executable(Pj1 ${SOURCE_FILES})

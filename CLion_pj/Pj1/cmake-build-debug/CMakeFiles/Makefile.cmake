@@ -119,5 +119,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/CLion_pj.dir/DependInfo.cmake"
+  "CMakeFiles/Pj1.dir/DependInfo.cmake"
   )

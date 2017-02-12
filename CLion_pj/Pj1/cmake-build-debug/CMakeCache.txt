@@ -14,12 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-CLion_pj_BINARY_DIR:STATIC=/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/cmake-build-debug
-
-//Value Computed by CMake
-CLion_pj_SOURCE_DIR:STATIC=/Users/apple/Desktop/DS_learn/CLion_pj/Pj1
-
 //Path to a program.
 CMAKE_AR:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar
 
@@ -141,7 +135,7 @@ CMAKE_OSX_DEPLOYMENT_TARGET:STRING=10.11
 CMAKE_OSX_SYSROOT:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=CLion_pj
+CMAKE_PROJECT_NAME:STATIC=Pj1
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -191,6 +185,12 @@ CMAKE_STRIP:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/Xcode
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+Pj1_BINARY_DIR:STATIC=/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/cmake-build-debug
+
+//Value Computed by CMake
+Pj1_SOURCE_DIR:STATIC=/Users/apple/Desktop/DS_learn/CLion_pj/Pj1
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl

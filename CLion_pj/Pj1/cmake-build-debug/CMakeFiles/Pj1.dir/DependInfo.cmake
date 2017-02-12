@@ -1,15 +1,15 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
+  "C"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/main.cpp" "/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/CLion_pj.dir/main.cpp.o"
+set(CMAKE_DEPENDS_CHECK_C
+  "/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/main.c" "/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/Pj1.dir/main.c.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
+set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 
 # Targets to which this target links.

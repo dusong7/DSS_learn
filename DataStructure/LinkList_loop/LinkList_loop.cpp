@@ -8,7 +8,7 @@ void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &)){
 	//创建链表 向链表头之前插入
 	L=NULL;//将数值初始化为空
 	if(n<1)return;//当元素个数小于1时直接退出函数
-	
+
 	L=(DuLinkList)malloc(sizeof(DuLNode));
 	L->prior=L;
 	L->next=L;

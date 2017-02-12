@@ -1,3 +1,3 @@
-/Users/apple/Desktop/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/apple/Desktop/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/apple/Desktop/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/CLion_pj.dir
+/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/apple/Desktop/DS_learn/CLion_pj/Pj1/cmake-build-debug/CMakeFiles/CLion_pj.dir

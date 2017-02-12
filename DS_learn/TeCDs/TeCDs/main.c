@@ -773,9 +773,35 @@ void difference(SLinkList *space, int *S, int(*compare)(ElemType, ElemType)) {
 ////set array , compare, if !isExit contine 
 ///End Static Link list
 
+//Double link list
+
+typedef struct DuLNode
+{
+    ElemType data;
+    struct DuLNode *prior;
+    struct DuLNode *next;
+}DuLNode, *DuLinkList;
+
+
+
+Status InitList_DuL(DuLinkList list)
+{
+    //
+    list->data = 0;
+    list->prior = NULL;
+    list->next = NULL;
+
+    return OK;
+}
+
+//End Double link list
+
 int main()
 {
     //
+    DuLinkList list;
+    InitList_DuL(list);
 
+    printf("%d\n", list->data);
     return 0;
 }

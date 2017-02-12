@@ -1,132 +1,178 @@
+////
+////  main.cpp
+////  tempCodePjCpp
+////
+////  Created by apple on 17/2/5.
+////  Copyright © 2017年 apple. All rights reserved.
+////
 //
-//  main.cpp
-//  tempCodePjCpp
+//#include <iostream>
 //
-//  Created by apple on 17/2/5.
-//  Copyright © 2017年 apple. All rights reserved.
 //
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//#define MAXSIZE 100
+//
+//typedef int ElemType;
+//
+//typedef struct {
+//    ElemType data;
+//    int cur;
+//}compont, SLinkList[MAXSIZE];
+//
+//int comp(ElemType e1, ElemType e2)
+//{
+//    //return e1 == e2 ? 1 : 0;
+//    if (e1 == e2)
+//    {
+//        return true;
+//    }
+//    else
+//    {
+//        return false;
+//    }
+//}
+//
+//void InitSpace_SL(SLinkList &space)
+//{
+//    int i;
+//    for (i = 0; i <MAXSIZE-1; i++)
+//    {
+//        space[i].cur = i+1;
+//    }
+//    space[MAXSIZE - 1].cur = 0;
+//}
+//
+//void Free_SL(SLinkList &space, int i)
+//{
+//    space[i].cur = space[0].cur;
+//    space[0].cur = i;
+//}
+//
+//int Malloc_SL(SLinkList &space)
+//{
+//    int i = space[0].cur;
+//    if (space[0].cur)
+//    {
+//        space[0].cur = space[i].cur;
+//    }
+//
+//    return i;
+//}
+//
+//void difference(SLinkList &space, int &S, int(*compare)(ElemType, ElemType))
+//{
+//    //
+//    int m, n, i, j, r, p, k;
+//    ElemType b;
+//    InitSpace_SL(space);
+//    r = S = Malloc_SL(space); //
+//    printf("Please input m of A, n of B set size\n");
+//    scanf("%d,%d", &m, &n);
+//
+//    for (j = 1; j <= m; j++)
+//    {
+//        i = Malloc_SL(space);
+//        scanf("%d", &space[i].data);
+//        space[r].cur = i;
+//        r = i;
+//    }
+//
+//    space[r].cur = 0;
+//    printf("\nB:\n");
+//    for (j = 1; j <= n; j++)
+//    {
+//        scanf("%d", &b);
+//        //TODO:
+//        p = S;
+//        k = space[S].cur;
+//
+//        while (k != space[r].cur && !compare(space[k].data, b))
+//        {
+//            p = k;
+//            k = space[k].cur;
+//        }
+//
+//        if (k == space[r].cur)
+//        {
+//            //
+//            i = Malloc_SL(space);
+//            space[i].data = b;
+//            space[i].cur = space[r].cur;
+//            space[r].cur = i;
+//        }
+//        else
+//        {
+//            space[p].cur = space[k].cur;
+//            Free_SL(space, k);
+//            if (r == k)
+//            {
+//                r = p;
+//            }
+//        }
+//    }
+//    
+//}
+//
+//int main()
+//{
+//    //
+//    SLinkList space;
+//    int s;
+//    difference(space, s, comp);
+//    printf("\nThe result is:\n\n");
+//    while ((s = space[s].cur) != 0) {
+//        printf("=> %d\n", space[s].data);
+//    }
+//    
+//    printf("\nResult End!\n");
+//    system("pause");
+//    return 0;
+//}
 
 #include <iostream>
-
-
-#include<stdio.h>
-#include<stdlib.h>
-
-#define MAXSIZE 100
+using namespace std;
 
 typedef int ElemType;
+typedef int States;
 
-typedef struct {
+typedef struct DuLNode
+{
     ElemType data;
-    int cur;
-}compont, SLinkList[MAXSIZE];
+    struct DuLNode *prior;
+    struct DuLNode *next;
+}DuLNode, *DuLinkList;
 
-int comp(ElemType e1, ElemType e2)
+int InitList_DuL(DuLinkList L, int n)
 {
-    //return e1 == e2 ? 1 : 0;
-    if (e1 == e2)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-void InitSpace_SL(SLinkList &space)
-{
-    int i;
-    for (i = 0; i <MAXSIZE-1; i++)
-    {
-        space[i].cur = i+1;
-    }
-    space[MAXSIZE - 1].cur = 0;
-}
-
-void Free_SL(SLinkList &space, int i)
-{
-    space[i].cur = space[0].cur;
-    space[0].cur = i;
-}
-
-int Malloc_SL(SLinkList &space)
-{
-    int i = space[0].cur;
-    if (space[0].cur)
-    {
-        space[0].cur = space[i].cur;
+    L = NULL;
+    if (n<1) {
+        return 0;
     }
 
-    return i;
-}
+    L = (DuLinkList)malloc(sizeof(DuLNode));
+    L->prior = L;
+    L->next = L;
+    scanf("%d", &L->data);
 
-void difference(SLinkList &space, int &S, int(*compare)(ElemType, ElemType))
-{
-    //
-    int m, n, i, j, r, p, k;
-    ElemType b;
-    InitSpace_SL(space);
-    r = S = Malloc_SL(space); //
-    printf("Please input m of A, n of B set size\n");
-    scanf("%d,%d", &m, &n);
+    DuLinkList p;
 
-    for (j = 1; j <= m; j++)
-    {
-        i = Malloc_SL(space);
-        scanf("%d", &space[i].data);
-        space[r].cur = i;
-        r = i;
+    for (int i=n-1; i>0; --i) {
+        p = (DuLinkList)malloc(sizeof(DuLNode));
+        scanf("%d", &p->data);
+        L->prior->next = p;
+        p->prior = L->prior;
+        p->next = L;
+        L = p;
     }
-
-    space[r].cur = 0;
-    printf("\nB:\n");
-    for (j = 1; j <= n; j++)
-    {
-        scanf("%d", &b);
-        //TODO:
-        p = S;
-        k = space[S].cur;
-
-        while (k != space[r].cur && !compare(space[k].data, b))
-        {
-            p = k;
-            k = space[k].cur;
-        }
-
-        if (k == space[r].cur)
-        {
-            //
-            i = Malloc_SL(space);
-            space[i].data = b;
-            space[i].cur = space[r].cur;
-            space[r].cur = i;
-        }
-        else
-        {
-            space[p].cur = space[k].cur;
-            Free_SL(space, k);
-            if (r == k)
-            {
-                r = p;
-            }
-        }
-    }
-    
+    //for
+    return 1;
 }
 
 int main()
 {
-    //
-    SLinkList space;
-    int s;
-    difference(space, s, comp);
-    printf("\nThe result is:\n\n");
-    while ((s = space[s].cur) != 0) {
-        printf("=> %d\n", space[s].data);
-    }
-    
-    printf("\nResult End!\n");
-    system("pause");
+
+//    cout<<"HH";
     return 0;
 }

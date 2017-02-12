@@ -54,7 +54,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tempCodePjCpp/tempCodePjCpp/main.cpp"
@@ -64,6 +64,22 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "difference(SLinkList &amp;space, int &amp;S, int(*compare)(ElemType, ElemType))"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tempCodePjCpp/tempCodePjCpp/main.cpp"
+            timestampString = "508569684.468066"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "InitList_DuL(DuLinkList L, int n)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

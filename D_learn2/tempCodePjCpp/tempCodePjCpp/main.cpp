@@ -125,6 +125,7 @@ int main(void){
     scanf("%d",&n);
     CreatList_DuL(L,n,input);
     p=L;
+
     printf("\nThe result is\n");
     while(p!=L || i++==0){
         printf("%s => %d\n",p->data.name,p->data.age);

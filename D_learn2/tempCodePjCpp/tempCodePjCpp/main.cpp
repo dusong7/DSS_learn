@@ -20,6 +20,19 @@ typedef struct DuLNode{
     struct DuLNode *next;
 }DuLNode,*DuLinkList;
 
+void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &));//创建链表 向链表头之前插入
+int ListLength(DuLinkList L);
+//返回数据长度,由于判断为下一个地址的比较，故缺少一个值，因此从1开始计数
+//L必须是经过初始化的数据
+DuLinkList GetElemP_Dul(DuLinkList L,int i);//返回第i个结点
+Status ListInsert_DuL(DuLinkList &L,int i,ElemType e);//在第i个位置之前插入元素e
+Status ListDelete_Dul(DuLinkList &L,int i,ElemType &e);//删除L链表中头结点的第i 个元素
+Status DestroyList_Dul(DuLinkList &L);//销毁链表
+Status Append(DuLinkList &La,DuLinkList &Lb);//将链表Lb链接到La之后
+
+//其他操作函数
+void input(ElemType &e);//输入数据
+
 void input(ElemType &e){
     printf("Input name:");
     scanf("%s",e.name);
@@ -125,6 +138,12 @@ int main(void){
     scanf("%d",&n);
     CreatList_DuL(L,n,input);
     p=L;
+
+    ElemType ep;
+    ep.age = 100;
+//    ep.name = "Test";
+    memcpy(ep.name, "Test", 5);
+    ListInsert_DuL(L,1,ep);
 
     printf("\nThe result is\n");
     while(p!=L || i++==0){

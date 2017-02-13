@@ -59,7 +59,7 @@ void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &)){
         p->prior=L->prior;
         p->next=L;
         L=p;
-    }//for*/ Err 
+    }//for*/ //Err
 }//CreatList
 
 int ListLength(DuLinkList L){
@@ -155,21 +155,26 @@ int main(void){
     ep.age = 100;
 //    ep.name = "Test";
     memcpy(ep.name, "Test", 5);
-   // ListInsert_DuL(L,2,ep);
+    ListInsert_DuL(L,1,ep);
+    ep.age = 101;
+    ListInsert_DuL(L,1,ep);
+    ep.age = 102;
+    ListInsert_DuL(L,1,ep);
+
     //ListDelete_Dul(L, 2, ep);
     printf("Length is %d\n", ListLength(L));
 
     printf("\nThe result is\n");
-//    while(p!=L || i++==0){
-//        printf("%s => %d\n",p->data.name,p->data.age);
-//        p=p->next;
-//    }//while
-//    printf("\nGetElem:\n");
-//    for(i=1;i<=n;i++){
-//        p=GetElemP_Dul(L,i);
-//        printf("%dth name_%s => age_%d\n",i,p->data.name,p->data.age);
-//    }
-    
+    while(p!=L || i++==0){
+        printf("%s => %d\n",p->data.name,p->data.age);
+        p=p->next;
+    }//while
+    printf("\nGetElem:\n");
+    for(i=1;i<=ListLength(L);i++){
+        p=GetElemP_Dul(L,i);
+        printf("%dth name_%s => age_%d\n",i,p->data.name,p->data.age);
+    }
+
     printf("\nResult End!\n");
     system("pause");
     return 0;

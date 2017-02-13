@@ -51,7 +51,7 @@ void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &)){
     L->next=L;
     InputData(L->data);//
     printf("Initied\n");
-    DuLinkList p;
+   /* DuLinkList p;
     for(int i=n-1;i>0;--i){
         p=(DuLinkList)malloc(sizeof(DuLNode));
         InputData(p->data);
@@ -59,7 +59,7 @@ void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &)){
         p->prior=L->prior;
         p->next=L;
         L=p;
-    }//for
+    }//for*/ Err 
 }//CreatList
 
 int ListLength(DuLinkList L){

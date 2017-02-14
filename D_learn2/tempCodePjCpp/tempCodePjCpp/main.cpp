@@ -104,6 +104,12 @@ Status ListInsert_DuL(DuLinkList &L,int i,ElemType e){
 
     p->prior=s;
 
+//_U_u2 s1_S_s2 p1_P_
+//s->prior = p->prior
+//p->prior->next = s;
+//s->next = p;
+//p->prior = s;
+    
     return OK;
 }//ListInsert_DuL
 
@@ -116,6 +122,10 @@ Status ListDelete_Dul(DuLinkList &L,int i,ElemType &e){
     p->next->prior=p->prior;
     free(p);
     return OK;
+    
+    //U_u2 p1_P_p2 n1_N 
+    //p->prior->next = p->next
+    //p->next->prior=p->prior
 }//ListDelete_Dul
 
 Status DestroyList_Dul(DuLinkList &L){

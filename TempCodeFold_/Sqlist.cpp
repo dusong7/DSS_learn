@@ -795,6 +795,112 @@ int Malloc_SL(SLinkList *space)
 ///End Static Link list
 
 
+///Double Link list
+//
+//#include <stdlib.h>
+//#include <malloc.h>
+//#include <stdio.h>
+//
+//struct DULNode
+//{
+//    int data;
+//    struct DULNode * prior;
+//    struct DULNode * next;
+//};
+//
+//typedef struct DULNode * linklist;
+//
+//void InitList(linklist *L) //改变头指针
+//{
+//    *L = (linklist)malloc(sizeof(struct DULNode));
+//    if (*L == NULL)
+//        exit(0);
+//    (*L)->data = 999; //head_data
+//    (*L)->next = *L;
+//    (*L)->prior = *L;
+//}
+//
+//int GetElem(linklist L, int i, int *e)
+//{
+//    linklist p = L;
+//    int j = 0;
+//    if (i<1 || i>3)
+//        exit(0);
+//
+//    while (j<i)   //找到第i个结点
+//    {
+//        ++j;
+//        p = p->next;
+//    }
+//    *e = p->data;
+//}
+//
+//int LocateElem(linklist L, int e)
+//{
+//    linklist p = L->next;
+//    int j = 0;
+//
+//    while (p != L)
+//    {
+//        ++j;
+//        if (p->data == e)
+//            return j;
+//    }
+//    return -1;
+//}
+//
+//void TravelListBack(linklist L)
+//{
+//    linklist p = L->prior;
+//    while (p != L)
+//    {
+//        printf("%d ", p->data);
+//        p = p->prior;
+//    }
+//    printf("\n");
+//}
+//
+//
+//int ListInsert(linklist L, int i, int e)
+//{
+//    linklist p = L; //p指向头结点
+//    linklist q, s;
+//    int j = 0;
+//    if (i<1 || i>3 + 1)
+//        exit(0);
+//
+//    while (j < i - 1) //找到第i-1个结点
+//    {
+//        ++j;
+//        p = p->next;
+//    }
+//    q = p->next;  //q指向第i个结点
+//
+//    s = (linklist)malloc(sizeof(struct DULNode));
+//    s->data = e;
+//    
+//    s->next = q;  //先改变向右的指针
+//    p->next = s;
+//    s->prior = p;  //改变向左的指针
+//    q->prior = s;
+//    return 0;
+//}
+//
+//int main()
+//{
+//    //
+//    linklist list;
+//    InitList(&list);
+//    ListInsert(list, 1, 2);
+//    ListInsert(list, 1, 31);
+//    
+//    TravelListBack(list);
+//    
+//    return 0;
+//}
+///End Double Link list
+
+
 int main()
 {
     SLinkList list;

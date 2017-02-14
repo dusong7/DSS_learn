@@ -782,25 +782,251 @@ typedef struct DuLNode
     struct DuLNode *next;
 }DuLNode, *DuLinkList;
 
-
-Status InitList_DuL(DuLinkList list)
+//initlist
+Status InitList_DuL(DuLinkList *list)
 {
     //
-    list->data = 0;
-    list->prior = NULL;
-    list->next = NULL;
+    *list = (DuLinkList)malloc(sizeof(DuLNode));
+
+    (*list)->data = 0;
+    (*list)->prior = NULL;
+    (*list)->next = NULL;
 
     return OK;
 }
 
+int GetLength_DuL(DuLinkList L)
+{
+    int i = 0;
+    DuLinkList p = L->next;
+
+    while (p != L) {
+        ++i;
+        p = p->next;
+    }
+    return i; //return length;
+}
+
+DuLinkList GetElem_DuL(DuLinkList L, int i)
+{
+    if (L == NULL) {
+        return NULL;
+    }
+    DuLinkList p = L;
+    int j = 0;
+    while (++j != i) {
+        if (j!=1) {
+            if (p->next == L) {
+                break;
+            }
+        }
+    }
+
+    if (j != i) {
+        return NULL;
+    }
+    else{
+        return p;
+    }
+}
+
+Status ListInsert_DuL(DuLinkList L, int i, ElemType e)
+{
+    //
+    DuLinkList p = L;
+    DuLinkList q, s;
+    int j = 0;
+    if (i<1 || i>GetLength_DuL(L) + 1) {
+        exit(0);
+    }
+    p = GetElem_DuL(L, i);
+    s = (DuLinkList)malloc(sizeof(DuLNode));
+
+    //core exchange
+    //
+    s->data = e;
+    s->prior = p->prior; 
+    p->prior->next = s;
+    s->next = p;
+    p->prior = s;
+    //
+
+
+    return OK;
+}
+
+
+//void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &));
+//int ListLength(DuLinkList L);
+//DuLinkList GetElemP_Dul(DuLinkList L,int i);//
+//Status ListInsert_DuL(DuLinkList &L,int i,ElemType e);//
+//Status ListDelete_Dul(DuLinkList &L,int i,ElemType &e);//
+//Status DestroyList_Dul(DuLinkList &L);//
+//Status Append(DuLinkList &La,DuLinkList &Lb);//
+
+//Other funciton
+//void input(ElemType &e);//input
+//
+//void input(ElemType &e){
+//    printf("Input name:");
+//    scanf("%s",e.name);
+//    printf("Input age:");
+//    scanf("%d",&e.age);
+//}
+//
+//
+//void CreatList_DuL(DuLinkList &L,int n,void (* InputData)(ElemType &)){
+//    //
+//    L=NULL;
+//    if(n<1)return;//
+//
+//    L=(DuLinkList)malloc(sizeof(DuLNode));
+//    L->prior=L;
+//    L->next=L;
+//    InputData(L->data);//
+//    printf("Initied\n");
+//    /* DuLinkList p;
+//     for(int i=n-1;i>0;--i){
+//     p=(DuLinkList)malloc(sizeof(DuLNode));
+//     InputData(p->data);
+//     L->prior->next=p;
+//     p->prior=L->prior;
+//     p->next=L;
+//     L=p;
+//     }//for*/ //Err
+//}//CreatList
+//
+//int ListLength(DuLinkList L){
+//
+//    int i=1;
+//    if(L==NULL)return 0;
+//    DuLinkList p=L;
+//    printf("L_%d_\n", L->data.age);
+//
+//    while(p->next!=L && ++i )
+//    {
+//        p=p->next;
+//    }
+//    return i;
+//}//ListLength
+//
+//DuLinkList GetElemP_Dul(DuLinkList L,int i){
+//    if(L==NULL)return NULL;
+//    DuLinkList p=L;
+//    int j=0;
+//    while(++j!=i){
+//        if(j!=1)if(p->next==L)break;
+//        p=p->next;
+//    }//while
+//    if(j!=i)return NULL;
+//    else return p;
+//}//GetElemP_Dul
+//
+//Status ListInsert_DuL(DuLinkList &L,int i,ElemType e){
+//
+//    DuLinkList p,s;
+//    if(!(p=GetElemP_Dul(L,i)))return ERROR;//
+//    if(!(s=(DuLinkList)malloc(sizeof(DuLNode))))return ERROR;//
+//    s->data=e;
+//    s->prior=p->prior;
+//    //*
+//    //s->next=p->next;
+//    //*repalce
+//    p->prior->next = s;
+//    s->next=p;
+//    //end replace
+//
+//    p->prior=s;
+//
+//    return OK;
+//}//ListInsert_DuL
+//
+//Status ListDelete_Dul(DuLinkList &L,int i,ElemType &e){
+//    //
+//    DuLinkList p;
+//    if(!(p=GetElemP_Dul(L,i)))return ERROR;//
+//    e=p->data;
+//    p->prior->next=p->next;
+//    p->next->prior=p->prior;
+//    free(p);
+//    return OK;
+//}//ListDelete_Dul
+//
+//Status DestroyList_Dul(DuLinkList &L){
+//    //
+//    if(L==NULL)return OK;
+//    DuLinkList p=L,p2=L;
+//    int i=0;
+//    while(p!=L || ++i==1){
+//        p=p->next;
+//        free(p2);
+//        p2=p;
+//    }
+//    L=NULL;
+//    return OK;
+//}//ClearList_Dul
+//
+//Status Append(DuLinkList &La,DuLinkList &Lb){
+//    //
+//    if(!La || !Lb )return ERROR;
+//    DuLinkList p=Lb->prior;;
+//    Lb->prior->next=La;
+//    Lb->prior=La->prior;
+//    La->prior->next=Lb;
+//    La->prior=p;
+//    return OK;
+//}//Append
+//
+//test for double link list
+//
+
+//int main(void){
+//    DuLinkList L,p;
+//    int i=0,n;
+//    printf("Input list number:");
+//    scanf("%d",&n);
+//    CreatList_DuL(L,n,input);
+//    p=L;
+//
+//    ElemType ep;
+//    ep.age = 100;
+//    //    ep.name = "Test";
+//    memcpy(ep.name, "Test", 5);
+//    ListInsert_DuL(L,1,ep);
+//    ep.age = 101;
+//    ListInsert_DuL(L,1,ep);
+//    ep.age = 102;
+//    ListInsert_DuL(L,1,ep);
+//
+//    //ListDelete_Dul(L, 2, ep);
+//    printf("Length is %d\n", ListLength(L));
+//
+//    printf("\nThe result is\n");
+//    while(p!=L || i++==0){
+//        printf("%s => %d\n",p->data.name,p->data.age);
+//        p=p->next;
+//    }//while
+//    printf("\nGetElem:\n");
+//    for(i=1;i<=ListLength(L);i++){
+//        p=GetElemP_Dul(L,i);
+//        printf("%dth name_%s => age_%d\n",i,p->data.name,p->data.age);
+//    }
+//
+//    printf("\nResult End!\n");
+//    system("pause");
+//    return 0;
+//}
+
+
+//DuLinkList list;
+//InitList_DuL(&list);
+//
+//printf("%d\n", list->data);
 //End Double link list
 
 int main()
 {
     //
-    DuLinkList list;
-    InitList_DuL(list);
 
-    printf("%d\n", list->data);
     return 0;
 }

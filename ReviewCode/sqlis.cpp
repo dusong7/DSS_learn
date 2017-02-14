@@ -660,10 +660,27 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc)
 
 ///
 
-Init_space_SL(List L)
+// Init_space_SL(List L)
+// {
+// ///
+// }
+
+
+//Double link list
+
+typedef struct DuLNode
 {
-///
+	ElemType data;
+	struct DuLNode *prior;
+	struct DuLNode *next;
+}DuLNode, *DuLinkList; 
+//
+
+State InitList(DuLinkList &L)
+{
+	
 }
+
 int main()
 {
     

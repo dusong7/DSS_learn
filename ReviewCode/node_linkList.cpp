@@ -193,7 +193,7 @@ using namespace std;
 //	return 0;
 //}
 //////////
-#include <malloc.h>s
+#include <malloc.h>
 
 typedef int ElemType;
 typedef int Status;

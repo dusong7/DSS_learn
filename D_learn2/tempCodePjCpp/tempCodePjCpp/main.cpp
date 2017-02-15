@@ -151,6 +151,75 @@ Status Append(DuLinkList &La,DuLinkList &Lb){
     return OK;
 }//Append
 
+
+//
+//#include <malloc.h>
+//
+//typedef int ElemType;
+//typedef int State;
+//
+//typedef struct LNode
+//{
+//    ElemType data;
+//    struct LNode *next;
+//}*Link, *Position;
+//
+//typedef struct {
+//    Link head, tail;
+//    int len;
+//}LinkList;
+//
+//Position MakeNode_LL(ElemType e)
+//{
+//    //
+//    Link p = NULL;
+//
+//    p = (Link)malloc(sizeof(LNode));
+//    if (!p)return ERROR;
+//    else
+//    {
+//        p->data = e;
+//        p->next = NULL;
+//    }
+//    return p;
+//}
+//
+//void FreeNode_LL(Link &p)
+//{
+//    //
+//    free(p);
+//}
+//
+//State InitList_LL(LinkList &L)
+//{
+//    //
+//    ElemType ep;
+//    ep = 100;
+//    L.head = MakeNode_LL(ep);
+//    L.head->next = NULL;
+//    L.tail = L.head;
+//    L.len = 0;
+//    return OK;
+//}
+//
+//State ListInsert_LL(Link &L, int i, ElemType e)
+//{
+//    //
+//    return OK;
+//}
+//
+/////////////
+//
+//int main()
+//{
+//    //
+//    LinkList lp;
+//    InitList_LL(lp);
+//    
+//    return 0;
+//}
+
+
 int main(void){
     DuLinkList L,p;
     int i=0,n;

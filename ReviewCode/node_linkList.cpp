@@ -209,7 +209,7 @@ typedef struct {
 	int len;
 }LinkList;
 
-///
+///DS_C implement
 Status MakeNode(Link &p, ElemType e)
 {
 	p->data = e;
@@ -217,7 +217,8 @@ Status MakeNode(Link &p, ElemType e)
 
 	return OK;
 }
-///
+
+///Other way implement
 Position MakeNode_LL(ElemType e)
 {
 	//
@@ -232,12 +233,14 @@ Position MakeNode_LL(ElemType e)
 	}
 	return p;
 }
+
 ///
 void FreeNode_LL(Link &p)
 {
 	//
 	free(p);
 }
+
 ////
 Status InitList_LL(LinkList &L)
 {
@@ -275,6 +278,7 @@ Status ListInsert_LL(LinkList &L, Link s)
 ///
 Status DestroyList(LinkList &L) //
 {
+
 	return OK;
 }
 ///////////
@@ -405,6 +409,47 @@ Status ListTraverse_LL(LinkList L, Status(*visit))
 }
 //////////////////
 
+Status MergeList_LL(LinkList &La, LinkList &Lb, LinkList &Lc)
+{
+
+	if (!InitList_LL(Lc)) {
+		/* code */
+		return ERROR;
+	}
+
+	Position ha = GetHead_LL(La);  //
+  Position hb = GetHead_LL(Lb);  //
+  Position pa = NextPos_LL(La, ha);
+	Position pb = NextPos_LL(Lb, hb);
+
+	while (pa && pb) {
+		ElemType a = GetCurElem_LL(pa);
+		ElemType b = GetCurElem_LL(pb
+		if ((* compare)(a,b)<=0) {
+			DelFir_LL(ha, q);
+			Append_LL(Lc, q);
+			pa = NextPos_LL(La, ha);
+		}
+		else
+		{
+			DelFir_LL(hb, q);
+			Append_LL(Lc, q);
+			pb = NextPos_LL(Lb, hb);
+		}
+	}
+
+	if (pa) {
+		Append_LL(Lc, pa);
+	 }
+	 else{
+		 Append_LL(Lc, pb);
+	 }
+
+	 FreeNode_LL(ha);
+	 FreeNode_LL(hb);
+
+	return OK;
+}
 
 int main()
 {

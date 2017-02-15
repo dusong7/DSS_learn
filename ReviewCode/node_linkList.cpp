@@ -52,7 +52,7 @@ using namespace std;
 //	L->next = L;
 //	InputData(L->data);//
 //	printf("Initied\n");
-//	
+//
 //}//CreatList
 //
 //int ListLength(DuLinkList L) {
@@ -101,7 +101,7 @@ using namespace std;
 //
 //	s->prior = p->prior;
 //	p->prior->next = s;
-//	
+//
 //	s->next = p;
 //	p->prior = s;
 //
@@ -187,7 +187,7 @@ using namespace std;
 //		p = GetElemP_Dul(L, i);
 //		printf("%dth name_%s => age_%d\n", i, p->data.name, p->data.age);
 //	}
-//  
+//
 //	printf("\nResult End!\n");
 //	system("pause");
 //	return 0;
@@ -229,7 +229,7 @@ Position MakeNode_LL(ElemType e)
 	{
 		p->data = e;
 		p->next = NULL;
-	}	
+	}
 	return p;
 }
 ///
@@ -280,70 +280,70 @@ Status DestroyList(LinkList &L) //
 ///////////
 
 ///
-Status ClearList(LinkList &L) //set empty
+Status ClearList_LL(LinkList &L) //set empty
 {
 	return OK;
 }
 ///////////
 
 ///
-Status InsFirst(Link h, Link s)
+Status InsFirst_LL(Link h, Link s)
 {
 	return OK;
 }
 ///////////
 
 ///
-Status DelFir(Link h, Link &q)
+Status DelFir_LL(Link h, Link &q)
 {
 	return OK;
 }
 ///////////
 
 ///
-Status Append(LinkList &L, Link &q)
+Status Append_LL(LinkList &L, Link &q)
 {
 	return OK;
 }
 ///////////
 
 ///
-Status InsBefore(LinkList &L, Link &q, Link s)
+Status InsBefore_LL(LinkList &L, Link &q, Link s)
 {
 	return OK;
 }
 ///////////
 
 ///
-Status InsAfter(LinkList &L, Link &q, Link s)
+Status InsAfter_LL(LinkList &L, Link &q, Link s)
 {
 	return OK;
 }
 ///////////
 
 ///
-Status SetCurElem(Link &p, ElemType e)
+Status SetCurElem_LL(Link &p, ElemType e)
 {
 	return OK;
 }
 ///////////
 
 ///
-ElemType GetCurElem(Link p)
+ElemType GetCurElem_LL(Link p)
 {
 	return 1;
 }
 ////////////
 
 ///
-Status ListEmpty(LinkList L)
+Status ListEmpty_LL(LinkList L)
 {
 	return 1;
 }
 ////////////
 
 ///
-int ListLength(LinkList L)
+int ListLength_LL(LinkList L)
 {
 	return 1;
 }
@@ -351,7 +351,7 @@ int ListLength(LinkList L)
 
 
 ///
-Position GetHead(LinkList L)
+Position GetHead_LL(LinkList L)
 {
 	Position p;
 	return p;
@@ -359,7 +359,7 @@ Position GetHead(LinkList L)
 ////////////
 
 ///
-Position GetLast(LinkList L)
+Position GetLast_LL(LinkList L)
 {
 	Position p;
 	return p;
@@ -368,7 +368,7 @@ Position GetLast(LinkList L)
 
 
 ///
-Position PrioPos(LinkList L, Link p)
+Position PrioPos_LL(LinkList L, Link p)
 {
 	Position p;
 	return p;
@@ -376,7 +376,7 @@ Position PrioPos(LinkList L, Link p)
 ////////////
 
 ///
-Position NextPos(LinkList L, Link p)
+Position NextPos_LL(LinkList L, Link p)
 {
 	Position p;
 	return p;
@@ -384,14 +384,14 @@ Position NextPos(LinkList L, Link p)
 ////////////
 
 ///
-Status LocalPos(LinkList L, int i, Link &p)
+Status LocalPos_LL(LinkList L, int i, Link &p)
 {
 	return OK;
 }
 ////////////
 
 ///
-Position LocateElem(LinkList L, ElemType e, Status (* compare)(ElemType, ElemType))
+Position LocateElem_LL(LinkList L, ElemType e, Status (* compare)(ElemType, ElemType))
 {
 	Position p;
 	return p;
@@ -399,7 +399,7 @@ Position LocateElem(LinkList L, ElemType e, Status (* compare)(ElemType, ElemTyp
 ////////////
 
 /////
-Status ListTraverse(LinkList L, Status(*visit))
+Status ListTraverse_LL(LinkList L, Status(*visit))
 {
 	return OK;
 }

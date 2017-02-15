@@ -834,8 +834,8 @@ Status ListInsert_DuL(DuLinkList L, int i, ElemType e)
 {
     //
     DuLinkList p = L;
-    DuLinkList q, s;
-    int j = 0;
+    DuLinkList  s;
+//    int j = 0;
     if (i<1 || i>GetLength_DuL(L) + 1) {
         exit(0);
     }

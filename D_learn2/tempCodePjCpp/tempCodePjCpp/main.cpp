@@ -230,7 +230,7 @@ int main(void){
 
     ElemType ep;
     ep.age = 100;
-//    ep.name = "Test";
+//  ep.name = "Test";
     memcpy(ep.name, "Test", 5);
     ListInsert_DuL(L,1,ep);
     ep.age = 101;

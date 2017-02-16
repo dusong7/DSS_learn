@@ -219,40 +219,91 @@ Status Append(DuLinkList &La,DuLinkList &Lb){
 //    return 0;
 //}
 
+//
+//int main(void){
+//    DuLinkList L,p;
+//    int i=0,n;
+//    printf("Input list number:");
+//    scanf("%d",&n);
+//    CreatList_DuL(L,n,input);
+//    p=L;
+//
+//    ElemType ep;
+//    ep.age = 100;
+////  ep.name = "Test";
+//    memcpy(ep.name, "Test", 5);
+//    ListInsert_DuL(L,1,ep);
+//    ep.age = 101;
+//    ListInsert_DuL(L,1,ep);
+//    ep.age = 102;
+//    ListInsert_DuL(L,1,ep);
+//
+//    //ListDelete_Dul(L, 2, ep);
+//    printf("Length is %d\n", ListLength(L));
+//
+//    printf("\nThe result is\n");
+//    while(p!=L || i++==0){
+//        printf("%s => %d\n",p->data.name,p->data.age);
+//        p=p->next;
+//    }//while
+//    printf("\nGetElem:\n");
+//    for(i=1;i<=ListLength(L);i++){
+//        p=GetElemP_Dul(L,i);
+//        printf("%dth name_%s => age_%d\n",i,p->data.name,p->data.age);
+//    }
+//
+//    printf("\nResult End!\n");
+//    system("pause");
+//    return 0;
+//}
 
-int main(void){
-    DuLinkList L,p;
-    int i=0,n;
-    printf("Input list number:");
-    scanf("%d",&n);
-    CreatList_DuL(L,n,input);
-    p=L;
+typedef int EleType;
 
-    ElemType ep;
-    ep.age = 100;
-//  ep.name = "Test";
-    memcpy(ep.name, "Test", 5);
-    ListInsert_DuL(L,1,ep);
-    ep.age = 101;
-    ListInsert_DuL(L,1,ep);
-    ep.age = 102;
-    ListInsert_DuL(L,1,ep);
+typedef struct LNode
+{
+    EleType data;
+    struct LNode *next;
+}*Link, *Position;
 
-    //ListDelete_Dul(L, 2, ep);
-    printf("Length is %d\n", ListLength(L));
+typedef struct {
+    Link head, tail;
+    int len;
+}LinkList;
 
-    printf("\nThe result is\n");
-    while(p!=L || i++==0){
-        printf("%s => %d\n",p->data.name,p->data.age);
-        p=p->next;
-    }//while
-    printf("\nGetElem:\n");
-    for(i=1;i<=ListLength(L);i++){
-        p=GetElemP_Dul(L,i);
-        printf("%dth name_%s => age_%d\n",i,p->data.name,p->data.age);
-    }
+Status MakeNode(Link &p, EleType e)
+{
+    p->data = e;
+    p->next = NULL;
 
-    printf("\nResult End!\n");
-    system("pause");
+    return OK;
+}
+
+Status InitList_LL(LinkList &L)
+{
+    //
+    EleType e = 101;
+    Link h = (Link)malloc(sizeof(Link));
+    MakeNode(h, e);
+
+    L.head = h;
+    L.head->next = NULL;
+    L.tail = h;
+    L.len = 0;
+
+    return OK;
+}
+
+Status ListInsert_LL(LinkList &L, int i, EleType e)
+{
+    //
+    return OK;
+}
+
+///Node linklist
+///End NodeLinkList
+
+int main()
+{
+    //
     return 0;
 }

@@ -473,6 +473,7 @@ int main()
 	l1->next = NULL;
 
 	ListInsert_LL(lp, l1);
-
+	ListTraverse_LL(lp, visit);
+	
 	return 0;
 }

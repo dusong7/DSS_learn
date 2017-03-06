@@ -68,6 +68,7 @@ Position MakeNode_LL(ElemType e)
 	return p;
 }
 
+///Finish
 ///
 void FreeNode_LL(Link &p)
 {
@@ -109,17 +110,42 @@ Status ListInsert_LL(LinkList &L, Link s)
 	return OK;
 }
 
-///
-Status DestroyList(LinkList &L) //
-{
 
+////
+///get Known node ,proir node
+Position PriorPos_LL(LinkList L, Link p)
+{
+	Link q = (Link)malloc(sizeof(Link));
+	q = L.head;
+	if (q->next == p)
+	{
+		return 0;
+	}
+
+	while (q->next->data != p->data)
+	{
+		if (q->next != NULL)
+		{
+			q = q->next;
+		}
+	}
+
+	return q;
+	//
+}
+
+///
+Status DestroyList_LL(LinkList &L) //
+{
+	//
 	return OK;
 }
 ///////////
 
-///
+///Same as DestroyList//
 Status ClearList_LL(LinkList &L) //set empty
 {
+	//
 	return OK;
 }
 ///////////
@@ -127,6 +153,7 @@ Status ClearList_LL(LinkList &L) //set empty
 ///
 Status InsFirst_LL(Link h, Link s)
 {
+	//
 	return OK;
 }
 ///////////
@@ -134,6 +161,7 @@ Status InsFirst_LL(Link h, Link s)
 ///
 Status DelFir_LL(Link h, Link &q)
 {
+	//
 	return OK;
 }
 ///////////
@@ -183,7 +211,15 @@ Status ListEmpty_LL(LinkList L)
 ///
 int ListLength_LL(LinkList L)
 {
-	return 1;
+	int nLength = 0;
+	Link p = L.head;
+
+	while (p)
+	{
+		p = p->next;
+		nLength++;
+	}
+	return nLength;
 }
 ////////////
 
@@ -240,7 +276,7 @@ Status LocalPos_LL(LinkList L, int i, Link &p)
 Status visit(Link p)
 {
 	//
-	printf("%d_\t", p->data);
+	printf("%d_  ", p->data);
 
 	return OK;
 }
@@ -319,7 +355,23 @@ int main()
 	l1->next = NULL;
 
 	ListInsert_LL(lp, l1);
+
+	for (size_t i = 0; i < 5; i++)
+	{
+		Link ltemp = (Link)malloc(sizeof(Link));
+		ltemp->data = 200+i;
+		ltemp->next = NULL;
+
+		ListInsert_LL(lp, ltemp);
+	}
+
 	ListTraverse_LL(lp, visit);
+	Link lTarger = (Link)malloc(sizeof(Link));
+	lTarger->data = 202;
+	lTarger->next = NULL;
+
+	Link lResult = PriorPos_LL(lp, lTarger);
+
 
 	return 0;
 }

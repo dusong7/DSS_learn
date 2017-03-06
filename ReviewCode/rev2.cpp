@@ -133,11 +133,29 @@ Position PriorPos_LL(LinkList L, Link p)
 	return q;
 	//
 }
+///
+
+/////////
+Position NextPos_LL(LinkList L, Link p)
+{
+	Position q = (Position)malloc(sizeof(Position));
+	return q;
+}
+//////////
 
 ///
 Status DestroyList_LL(LinkList &L) //
 {
-	//
+	////in C language use (LinkList *L), instead L with *L
+	////
+	Link p;
+	p = L.tail;
+	while (p != L.head)
+	{
+		p = PriorPos_LL(L, p);
+		FreeNode_LL(p->next);
+	}
+	FreeNode_LL(L.head);
 	return OK;
 }
 ///////////
@@ -146,19 +164,21 @@ Status DestroyList_LL(LinkList &L) //
 Status ClearList_LL(LinkList &L) //set empty
 {
 	//
-	return OK;
-}
-///////////
-
-///
-Status InsFirst_LL(Link h, Link s)
-{
 	//
 	return OK;
 }
 ///////////
 
-///
+///insert cur node to first position
+Status InsFirst_LL(Link h, Link s)
+{
+	//
+
+	return OK;
+}
+///////////
+
+///Delete first node
 Status DelFir_LL(Link h, Link &q)
 {
 	//
@@ -166,42 +186,42 @@ Status DelFir_LL(Link h, Link &q)
 }
 ///////////
 
-///
-Status Append_LL(LinkList &L, Link &q)
+///insert node to last position
+Status Append_LL(LinkList &L, Link q)
 {
 	return OK;
 }
 ///////////
 
-///
+///known node q, and put node s before q
 Status InsBefore_LL(LinkList &L, Link &q, Link s)
 {
 	return OK;
 }
 ///////////
 
-///
+///known node q, and put node s after q
 Status InsAfter_LL(LinkList &L, Link &q, Link s)
 {
 	return OK;
 }
 ///////////
 
-///
+///update known node p's value
 Status SetCurElem_LL(Link &p, ElemType e)
 {
 	return OK;
 }
 ///////////
 
-///
+///Get cur ele value 
 ElemType GetCurElem_LL(Link p)
 {
 	return 1;
 }
 ////////////
 
-///
+///adjust whether list empty? 
 Status ListEmpty_LL(LinkList L)
 {
 	return 1;
@@ -224,42 +244,29 @@ int ListLength_LL(LinkList L)
 ////////////
 
 
-///
-//Position GetHead_LL(LinkList L)
-//{
-//	Position p;
-//	return p;
-//}
-//////////////
-
-/////
-//Position GetLast_LL(LinkList L)
-//{
-//	Position p;
-//	return p;
-//}
-//////////////
-
-
-/////
-//Position PrioPos_LL(LinkList L, Link p)
-//{
-//	Position p;
-//	return p;
-//}
-//////////////
+//////
+Position GetHead_LL(LinkList L)
+{
+	Position p = (Position)malloc(sizeof(Position));
+	return p;
+}
+////////////
 
 ///
-//Position NextPos_LL(LinkList L, Link p)
-//{
-//	Position p;
-//	return p;
-//}
-//////////////
+Position GetLast_LL(LinkList L)
+{
+	Position p = (Position)malloc(sizeof(Position));
+	return p;
+}
+////////////
 
-///
+
+
+
+/// i position value ,ok ? error
 Status LocalPos_LL(LinkList L, int i, Link &p)
 {
+	//
 	return OK;
 }
 ////////////
@@ -347,9 +354,11 @@ Status ListTraverse_LL(LinkList L, Status(*visit)(Link))
 
 int main()
 {
-	//
+	//testfor LinkList//
 	LinkList lp;
 	InitList_LL(lp);
+	////
+
 	Link l1 = (Link)malloc(sizeof(Link));
 	l1->data = 101;
 	l1->next = NULL;
@@ -364,14 +373,18 @@ int main()
 
 		ListInsert_LL(lp, ltemp);
 	}
-
+	////
 	ListTraverse_LL(lp, visit);
 	Link lTarger = (Link)malloc(sizeof(Link));
 	lTarger->data = 202;
 	lTarger->next = NULL;
 
 	Link lResult = PriorPos_LL(lp, lTarger);
+	int lLenght = ListLength_LL(lp);
+	////////
 
+	//
+	//
 
 	return 0;
 }

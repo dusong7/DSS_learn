@@ -44,6 +44,9 @@ typedef struct {
 }LinkList;
 
 ///DS_C implement
+////
+////
+
 Status MakeNode(Link &p, ElemType e)
 {
 	p->data = e;
@@ -170,9 +173,16 @@ Status ClearList_LL(LinkList &L) //set empty
 ///////////
 
 ///insert cur node to first position
-Status InsFirst_LL(Link h, Link s)
+Status InsFirst_LL(LinkList L, Link s)
 {
 	//
+	
+	s->next = L.head->next;
+	if (!L.head->next)
+		L.tail = s;       /*当向一个空的线性表执行该操作时*/
+	L.head->next = s;
+	L.len++;
+
 
 	return OK;
 }
@@ -210,6 +220,7 @@ Status InsAfter_LL(LinkList &L, Link &q, Link s)
 ///update known node p's value
 Status SetCurElem_LL(Link &p, ElemType e)
 {
+	//
 	return OK;
 }
 ///////////
@@ -217,6 +228,7 @@ Status SetCurElem_LL(Link &p, ElemType e)
 ///Get cur ele value 
 ElemType GetCurElem_LL(Link p)
 {
+	//
 	return 1;
 }
 ////////////
@@ -224,11 +236,12 @@ ElemType GetCurElem_LL(Link p)
 ///adjust whether list empty? 
 Status ListEmpty_LL(LinkList L)
 {
+	//
 	return 1;
 }
 ////////////
 
-///
+///tesed
 int ListLength_LL(LinkList L)
 {
 	int nLength = 0;
@@ -259,8 +272,6 @@ Position GetLast_LL(LinkList L)
 	return p;
 }
 ////////////
-
-
 
 
 /// i position value ,ok ? error
@@ -383,7 +394,13 @@ int main()
 	int lLenght = ListLength_LL(lp);
 	////////
 
+	//DestroyList_LL(lp);
 	//
+	Link linsFirst = (Link)malloc(sizeof(Link));
+	linsFirst->data = 301;
+	linsFirst->next = NULL;
+
+	InsFirst_LL(lp, linsFirst);
 	//
 
 	return 0;

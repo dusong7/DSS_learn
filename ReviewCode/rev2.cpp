@@ -142,7 +142,29 @@ Position PriorPos_LL(LinkList L, Link p)
 Position NextPos_LL(LinkList L, Link p)
 {
 	Position q = (Position)malloc(sizeof(Position));
-	return q;
+	q = L.head;
+
+	if (p == NULL)
+	{
+		return ERROR;
+		printf("Tail ,next is NULL!");
+	}
+
+	if (q->next == p)
+	{
+		return 0;
+	}
+
+
+	while (q->data != p->data)
+	{
+		if (q->next != NULL)
+		{
+			q = q->next;
+		}
+	}
+	
+	return q->next;
 }
 //////////
 
@@ -163,7 +185,7 @@ Status DestroyList_LL(LinkList &L) //
 }
 ///////////
 
-///Same as DestroyList//
+///Same as DestroyList//FINISH
 Status ClearList_LL(LinkList &L) //set empty
 {
 	//
@@ -172,7 +194,7 @@ Status ClearList_LL(LinkList &L) //set empty
 }
 ///////////
 
-///insert cur node to first position
+///insert cur node to first position //FINISH
 Status InsFirst_LL(LinkList L, Link s)
 {
 	//
@@ -188,7 +210,7 @@ Status InsFirst_LL(LinkList L, Link s)
 }
 ///////////
 
-///Delete first node
+///Delete first node //FINISH
 Status DelFir_LL(Link h, Link &q)
 {
 	//
@@ -196,40 +218,93 @@ Status DelFir_LL(Link h, Link &q)
 }
 ///////////
 
-///insert node to last position
+///insert node to last position //FINISH
 Status Append_LL(LinkList &L, Link q)
 {
+
 	return OK;
 }
 ///////////
 
-///known node q, and put node s before q
-Status InsBefore_LL(LinkList &L, Link &q, Link s)
+///known node q, and put node s before p //FINISH
+Status InsBefore_LL(LinkList &L, Link &p, Link s)
 {
+	Link q;
+	q = PriorPos_LL(L, p);
+	/*m = q->next->next;*/
+	if (q->next != NULL)
+	{
+		p->next = q->next->next;
+		s->next = p;
+		q->next = s;
+		
+		p = s;
+		L.len++;
+	}
+	else
+	{
+		//
+		L.tail = s;
+	}
+	
 	return OK;
 }
 ///////////
 
-///known node q, and put node s after q
-Status InsAfter_LL(LinkList &L, Link &q, Link s)
+///known node q, and put node s after q //TODO:
+Status InsAfter_LL(LinkList &L, Link &p, Link s)
 {
+	Link q;
+	q = NextPos_LL(L, p);
+	/*m = q->next->next;*/
+	if (q->next != NULL)
+	{
+		p->next = q->next->next;
+		s->next = p;
+		q->next = s;
+
+		p = s;
+		L.len++;
+	}
+	else
+	{
+		//
+		L.tail = s;
+	}
+
 	return OK;
 }
 ///////////
 
-///update known node p's value
+///update known node p's value //Done:
 Status SetCurElem_LL(Link &p, ElemType e)
 {
 	//
-	return OK;
+	if (p != NULL)
+	{
+		p->data = e;
+		return OK;
+	}
+	else
+	{
+		return ERROR; //
+	}
+	
 }
 ///////////
 
-///Get cur ele value 
+///Get cur ele value  //Done:
 ElemType GetCurElem_LL(Link p)
 {
 	//
-	return 1;
+	if (p != NULL)
+	{
+		return p->data;
+	}
+	else
+	{
+		return ERROR; //
+	}
 }
 ////////////
 
@@ -416,10 +491,23 @@ int main()
 	InsFirst_LL(lp, linsFirst);
 	//
 	//add ConsoleTest
-
+	
+	//test for LocalPos
 	Link lptest = (Link)malloc(sizeof(Link));
 	LocalPos_LL(lp, 3, lptest);
+	////
+	
+	///test insBefore
+	Link lTarget = (Link)malloc(sizeof(Link));
+	lTarget->data = 203;
+	lTarget->next = NULL;
+	Link inData = (Link)malloc(sizeof(Link));
+	inData->data = 801;
+	inData->next = NULL;
 
+	//InsBefore_LL(lp, lTarget, inData);
+	InsAfter_LL(lp, lTarget, inData);
+	///
 
 	return 0;
 }

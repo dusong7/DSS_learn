@@ -138,6 +138,36 @@ Position PriorPos_LL(LinkList L, Link p)
 }
 ///
 
+
+Position CurPos_LL(LinkList L, Link p)
+{
+	Position q = (Position)malloc(sizeof(Position));
+	q = L.head;
+
+	if (p == NULL)
+	{
+		return ERROR;
+		printf("Tail ,next is NULL!");
+	}
+
+	if (q->next == p)
+	{
+		return 0;
+	}
+
+
+	while (q->data != p->data)
+	{
+		if (q->next != NULL)
+		{
+			q = q->next;
+		}
+	}
+
+	return q;
+}
+//////////
+
 /////////
 Position NextPos_LL(LinkList L, Link p)
 {
@@ -255,16 +285,14 @@ Status InsBefore_LL(LinkList &L, Link &p, Link s)
 Status InsAfter_LL(LinkList &L, Link &p, Link s)
 {
 	Link q;
-	q = NextPos_LL(L, p);
+	q = CurPos_LL(L, p);  //make q = cur; cur value cannot change.!
 	
-	/*m = q->next->next;*/
 	if (q->next != NULL)
 	{
 		
 		s->next = q->next;
 		q->next = s;
-
-		//p = s;
+		p = s;
 		L.len++;
 	}
 	else

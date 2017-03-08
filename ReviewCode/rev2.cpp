@@ -256,14 +256,15 @@ Status InsAfter_LL(LinkList &L, Link &p, Link s)
 {
 	Link q;
 	q = NextPos_LL(L, p);
+	
 	/*m = q->next->next;*/
 	if (q->next != NULL)
 	{
-		p->next = q->next->next;
-		s->next = p;
+		
+		s->next = q->next;
 		q->next = s;
 
-		p = s;
+		//p = s;
 		L.len++;
 	}
 	else

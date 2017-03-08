@@ -278,6 +278,19 @@ Position GetLast_LL(LinkList L)
 Status LocalPos_LL(LinkList L, int i, Link &p)
 {
 	//
+
+	if (i<0 || i>ListLength_LL(L))
+	{
+		return ERROR;
+	}
+
+	p = L.head;
+
+	while (i)
+	{
+		i--;
+		p = p->next;
+	}
 	return OK;
 }
 ////////////
@@ -403,6 +416,10 @@ int main()
 	InsFirst_LL(lp, linsFirst);
 	//
 	//add ConsoleTest
+
+	Link lptest = (Link)malloc(sizeof(Link));
+	LocalPos_LL(lp, 3, lptest);
+
 
 	return 0;
 }

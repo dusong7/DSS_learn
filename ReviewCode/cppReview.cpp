@@ -85,7 +85,7 @@ private:
     void shownmPri();
     friend class employee;
 public:
-    void showIn(){employee e;e.showPrivateInfo();}
+//    void showIn(){employee e;e.showPrivateInfo();}
 
 };
 
@@ -110,13 +110,14 @@ private:
     void showPrivateInfo();
 };
 
+
 void employee::getname(char *n) {
     //
     wage = 10.0;
-    fri fri1;
-    fri1.showPrivate();
-    nm n;
-    n.shownmPri();
+//    fri fri1;
+//    fri1.showPrivate();
+//    nm n;
+//    n.shownmPri();
 }
 
 //
@@ -127,10 +128,11 @@ int sum()
 }
 //
 
-class fri{
+class Fri{
 public:
+
     void showClass();
-    void showInfo(employee ep);
+    void showInfo();
     friend class employee;
 
 private:
@@ -143,11 +145,13 @@ employee::employee() {
     //
 }
 
-void fir::showInfo(employee ep)
+inline void Fri::showInfo()   //
 {
     //
 
 //    ep.wage = 10.0;
+    cout<<"Show info__";
+
 }
 //2+1 //AND{2**n-1} +1
 //2+4+1
@@ -177,7 +181,8 @@ union show
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    fri F;
+    Fri F;
+    F.showInfo();
 
     return 0;
 }

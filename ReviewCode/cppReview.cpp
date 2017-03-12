@@ -81,15 +81,33 @@ class employee
 public:
     void putname(char *n);
     void getname(char *n);
-
+    friend class fri;
 public:
     void putwage(double w);
     double getage();
 
 private:
     double wage;
+    void showPrivateInfo();
 };
 
+void employee::getname(char *n) {
+    //
+    wage = 10.0;
+}
+
+class fri{
+public:
+    void showClass();
+    void showInfo(employee ep);
+
+};
+
+void fir::showInfo(employee ep)
+{
+    //
+//    ep.wage = 10.0;
+}
 //2+1 //AND{2**n-1} +1
 //2+4+1
 //
@@ -107,9 +125,18 @@ int f1(int x)
     return max(s,1);
 }
 
+union show
+{
+    int name;
+    void showInfo();
+    void showName();
+    void showAge();
+};
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
+    fri F;
 
     return 0;
 }

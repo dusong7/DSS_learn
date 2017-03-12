@@ -71,14 +71,52 @@ int cal(volatile int *ptr)
 ////    printf("%*.*f", 10,4,1234.44); //10, wideth, precise //_1234.4400
 ////    a, 0xa
 ////    12.4460
+//    char str[2][3] = {{'1','2','2'},{'3','3','3'}}; //2hang2lie
+//    char str[2][3]  = {"2","3"}; //str[0][0] = "2",str[1][0] = "3",
+
+//sample
+class employee
+{
+    char name[80]; //default private
+public:
+    void putname(char *n);
+    void getname(char *n);
+
+public:
+    void putwage(double w);
+    double getage();
+
+private:
+    double wage;
+};
+
+//2+1 //AND{2**n-1} +1
+//2+4+1
+//
+int f1(int x)
+{
+    int s = 0;
+    while((x--)>0)
+    {
+        cout<<"s_"<<s<<endl;
+        cout<<"x_"<<x<<endl;
+        s+=f1(x);
+
+    }
+
+    return max(s,1);
+}
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
+
 
     return 0;
 }
 
 
+///
+////
 void push(int i)
 {
     //

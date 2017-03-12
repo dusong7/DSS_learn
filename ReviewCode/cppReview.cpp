@@ -186,12 +186,21 @@ class shared{
 public:
     void set(int i, int j){a=i;b=j;}
     void show();
+    static int getA();
+    void freeA(){a=0;}
 };
 
 int shared::a;
 
 void shared::show() {
     cout<<"a_ "<<a<<endl;
+}
+int shared::getA() {
+    //
+    //ser
+    if (a){ return 0;}
+    else{a=1;
+        return 1;}
 }
 
 //test for Class
@@ -213,6 +222,12 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
 
 //
+    shared sa,sb;
+    if (shared::getA()){cout<<"sa_\n";} //2 ways call
+    else{cout<<"sb denied ";}
+    sa.freeA();
+    if (sb.getA()){cout<<"Sb_OK";}
+
     return 0;
 }
 

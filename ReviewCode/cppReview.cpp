@@ -55,7 +55,7 @@ int main() {
 //    printf("i=%d \n", b);
     //test for extern, always in multiply files.
     extern int first, last;
-    printf("%d_%d", first, last);
+//    printf("%d_%d", first, last);
     //
 
 //r
@@ -65,6 +65,12 @@ int main() {
     cha = L'W'; //wchar_t not in C language
 //    printf("\a");
 //    funcConv();
+
+    //test for %#, %*.*
+//    printf("%x, %#x\n", 10,10);
+//    printf("%*.*f", 10,4,12.446);
+//    a, 0xa
+//    12.4460
     return 0;
 }
 

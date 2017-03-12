@@ -75,13 +75,32 @@ int cal(volatile int *ptr)
 //    char str[2][3]  = {"2","3"}; //str[0][0] = "2",str[1][0] = "3",
 
 //sample
+
+
+//may showed up
+
+class nm
+{
+private:
+    void shownmPri();
+    friend class employee;
+public:
+    void showIn(){employee e;e.showPrivateInfo();}
+
+};
+
 class employee
 {
     char name[80]; //default private
+    friend class fri;
+    friend class nm;
+    friend int sum();
 public:
+    employee();
+
     void putname(char *n);
     void getname(char *n);
-    friend class fri;
+
 public:
     void putwage(double w);
     double getage();
@@ -94,18 +113,40 @@ private:
 void employee::getname(char *n) {
     //
     wage = 10.0;
+    fri fri1;
+    fri1.showPrivate();
+    nm n;
+    n.shownmPri();
 }
+
+//
+int sum()
+{
+    employee ep;
+    ep.wage = 10;
+}
+//
 
 class fri{
 public:
     void showClass();
     void showInfo(employee ep);
+    friend class employee;
+
+private:
+    void showPrivate();
+
 
 };
+
+employee::employee() {
+    //
+}
 
 void fir::showInfo(employee ep)
 {
     //
+
 //    ep.wage = 10.0;
 }
 //2+1 //AND{2**n-1} +1

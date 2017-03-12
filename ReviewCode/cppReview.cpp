@@ -150,7 +150,7 @@ inline void Fri::showInfo()   //
     //
 
 //    ep.wage = 10.0;
-    cout<<"Show info__";
+    cout<<"Show info__"<<endl;
 
 }
 //2+1 //AND{2**n-1} +1
@@ -178,12 +178,41 @@ union show
     void showAge();
 };
 
+
+
+class shared{
+    static int a;
+    int b;
+public:
+    void set(int i, int j){a=i;b=j;}
+    void show();
+};
+
+int shared::a;
+
+void shared::show() {
+    cout<<"a_ "<<a<<endl;
+}
+
+//test for Class
+//    Fri F;
+//    F.showInfo();
+//
+//    test for static variable
+//    shared sa,sb;
+//    sa.set(1,1);
+//    sa.show();
+//    sb.set(2,2);
+//    sb.show();
+//    sa.show();
+//    a_ 1
+//    a_ 2
+//    a_ 2
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    Fri F;
-    F.showInfo();
-
+//
     return 0;
 }
 

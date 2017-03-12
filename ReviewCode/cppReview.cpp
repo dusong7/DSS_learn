@@ -39,38 +39,42 @@ int cal(volatile int *ptr)
 
 }
 
+//Before Main()
+//
+////    const volatile int
+////    volatile int i = 10;
+////    int a = i;
+////    printf("i = %d_\n", a);
+//////    time_t  time1;
+//////    time(&time1);
+//////    i = time1;
+////    __asm{
+////        mov dword ptr [ebp-4], 20h
+////    }
+////    int b = i;
+////    printf("i=%d \n", b);
+////test for extern, always in multiply files.
+//extern int first, last;
+////    printf("%d_%d", first, last);
+////
+//
+////r
+//register int number; //save varity in CPU memory, fast eg.for loop()
+////    int &num = first; reference init first
+//wchar_t cha;
+//cha = L'W'; //wchar_t not in C language
+////    printf("\a");
+////    funcConv();
+//
+////test for %#, %*.*
+////    printf("%x, %#x\n", 10,10);
+////    printf("%*.*f", 10,4,1234.44); //10, wideth, precise //_1234.4400
+////    a, 0xa
+////    12.4460
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
-//    const volatile int
-//    volatile int i = 10;
-//    int a = i;
-//    printf("i = %d_\n", a);
-////    time_t  time1;
-////    time(&time1);
-////    i = time1;
-//    __asm{
-//        mov dword ptr [ebp-4], 20h
-//    }
-//    int b = i;
-//    printf("i=%d \n", b);
-    //test for extern, always in multiply files.
-    extern int first, last;
-//    printf("%d_%d", first, last);
-    //
 
-//r
-    register int number; //save varity in CPU memory, fast eg.for loop()
-//    int &num = first; reference init first
-    wchar_t cha;
-    cha = L'W'; //wchar_t not in C language
-//    printf("\a");
-//    funcConv();
-
-    //test for %#, %*.*
-//    printf("%x, %#x\n", 10,10);
-//    printf("%*.*f", 10,4,12.446);
-//    a, 0xa
-//    12.4460
     return 0;
 }
 

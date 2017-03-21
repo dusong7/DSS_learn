@@ -493,8 +493,7 @@ LNode* IniList_L(LNode *L)
 ///implement TravevseList_L
 void TravevseList_L(LinkList L)
 {
-    printf("Cur list length %d_\n", GetLength_L(L));
-
+    printf("Cur list length %d_。\n", GetLength_L(L));
     LNode *p = L->next;
     while (p)
     {
